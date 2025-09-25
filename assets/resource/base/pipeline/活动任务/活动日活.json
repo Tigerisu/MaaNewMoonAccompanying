@@ -1,181 +1,250 @@
 {
-    "__yamaape_config_雨中徐行": {
-        "filename": "错航成旅",
-        "version": "v0.3.4",
-        "export": "",
-        "prefix": "雨中徐行"
+    "__mpe_config_曙光归途": {
+        "__mpe_code": {
+            "prefix": "曙光归途",
+            "filename": "曙光归途",
+            "version": "v0.5.3"
+        }
     },
-    "雨中徐行_活动入口": {
-        "recognition": "TemplateMatch",
-        "action": "Click",
-        "template": [
-            "activity/entry.png"
-        ],
+    "曙光归途_活动入口": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "activity/entry.png"
+                ],
+                "threshold": [
+                    0.6
+                ],
+                "index": -1
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {}
+        },
         "pre_delay": 400,
         "focus": "> 进入活动界面",
-        "threshold": [
-            0.6
-        ],
-        "index": -1,
-        "__yamaape": {
+        "__mpe_code": {
             "position": {
                 "x": 243,
                 "y": -69
             }
         },
         "next": [
-            "雨中徐行_进入领取界面"
+            "曙光归途_进入领取界面"
         ]
     },
-    "雨中徐行_进入领取界面": {
-        "recognition": "OCR",
-        "action": "Click",
-        "expected": [
-            "考究行动"
-        ],
+    "曙光归途_进入领取界面": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "防卫行动"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {}
+        },
         "pre_delay": 800,
         "focus": "> 领取每日活动奖励",
-        "__yamaape": {
+        "__mpe_code": {
             "position": {
                 "x": 506,
                 "y": -70
             }
         },
         "next": [
-            "雨中徐行_领取奖励"
+            "曙光归途_领取奖励"
         ]
     },
-    "雨中徐行_领取奖励": {
-        "recognition": "OCR",
-        "action": "Click",
-        "expected": [
-            "全部领取"
-        ],
+    "曙光归途_领取奖励": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "全部领取"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {}
+        },
         "timeout": 2000,
         "pre_delay": 800,
-        "__yamaape": {
+        "__mpe_code": {
             "position": {
                 "x": 767,
                 "y": -74
             }
         },
         "next": [
-            "雨中徐行_获取奖励"
+            "曙光归途_获取奖励"
         ],
         "on_error": [
-            "雨中徐行_领取奖励完成"
+            "曙光归途_领取奖励完成"
         ]
     },
-    "雨中徐行_获取奖励": {
-        "recognition": "OCR",
-        "action": "Click",
-        "expected": [
-            "点击以继续"
-        ],
+    "曙光归途_获取奖励": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "点击以继续"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {}
+        },
         "pre_delay": 800,
-        "__yamaape": {
+        "__mpe_code": {
             "position": {
                 "x": 1051,
                 "y": -170
             }
         },
         "next": [
-            "雨中徐行_领取奖励完成"
+            "曙光归途_领取奖励完成"
         ]
     },
-    "雨中徐行_领取奖励完成": {
-        "recognition": "DirectHit",
-        "action": "DoNothing",
+    "曙光归途_领取奖励完成": {
+        "recognition": {
+            "type": "DirectHit",
+            "param": {}
+        },
+        "action": {
+            "type": "DoNothing",
+            "param": {}
+        },
         "timeout": 1000,
-        "__yamaape": {
+        "__mpe_code": {
             "position": {
                 "x": 1316,
                 "y": 5
             }
         },
         "next": [
-            "雨中徐行_未全部完成"
+            "曙光归途_未全部完成"
         ],
         "on_error": [
-            "雨中徐行_回到主页"
+            "曙光归途_回到主页"
         ]
     },
-    "雨中徐行_未全部完成": {
-        "recognition": "OCR",
-        "action": "Custom",
-        "expected": [
-            "已领取"
-        ],
-        "roi": [
-            1023,
-            153,
-            196,
-            88
-        ],
-        "custom_action": "delay_focus_hook",
-        "custom_action_param": "key=活动日活&focus=今日活动任务未全部完成！",
+    "曙光归途_未全部完成": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "已领取"
+                ],
+                "roi": [
+                    1023,
+                    153,
+                    196,
+                    88
+                ]
+            }
+        },
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "delay_focus_hook",
+                "custom_action_param": "key=活动日活&focus=今日活动任务未全部完成！"
+            }
+        },
         "inverse": true,
-        "__yamaape": {
+        "__mpe_code": {
             "position": {
                 "x": 1580,
                 "y": -192
             }
         },
         "next": [
-            "雨中徐行_回到主页"
+            "曙光归途_回到主页"
         ]
     },
-    "雨中徐行_回到主页": {
-        "recognition": "DirectHit",
-        "action": "Custom",
-        "custom_action": "run",
-        "custom_action_param": "key=返回主页",
-        "__yamaape": {
+    "曙光归途_回到主页": {
+        "recognition": {
+            "type": "DirectHit",
+            "param": {}
+        },
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "run",
+                "custom_action_param": "key=返回主页"
+            }
+        },
+        "__mpe_code": {
             "position": {
-                "x": 1857,
-                "y": 22
+                "x": 1865,
+                "y": 23
             }
         },
         "next": [
-            "雨中徐行_结束"
+            "曙光归途_结束"
         ]
     },
-    "雨中徐行_结束": {
-        "recognition": "DirectHit",
-        "action": "DoNothing",
-        "__yamaape": {
+    "曙光归途_结束": {
+        "recognition": {
+            "type": "DirectHit",
+            "param": {}
+        },
+        "action": {
+            "type": "DoNothing",
+            "param": {}
+        },
+        "__mpe_code": {
             "position": {
-                "x": 2117,
-                "y": 22
+                "x": 2119,
+                "y": 23
             }
         }
     },
-    "雨中徐行_执行前返回主页": {
-        "recognition": "DirectHit",
-        "action": "Custom",
-        "custom_action": "run",
-        "custom_action_param": "key=全局前置返回主页",
-        "__yamaape": {
+    "曙光归途_执行前返回主页": {
+        "recognition": {
+            "type": "DirectHit",
+            "param": {}
+        },
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "run",
+                "custom_action_param": "key=全局前置返回主页"
+            }
+        },
+        "__mpe_code": {
             "position": {
-                "x": -49,
-                "y": -64
+                "x": -34,
+                "y": -67
             }
         },
         "next": [
-            "雨中徐行_活动入口"
+            "曙光归途_活动入口"
         ]
     },
-    "雨中徐行_开始": {
-        "recognition": "DirectHit",
-        "action": "DoNothing",
-        "__yamaape": {
+    "曙光归途_开始": {
+        "recognition": {
+            "type": "DirectHit",
+            "param": {}
+        },
+        "action": {
+            "type": "DoNothing",
+            "param": {}
+        },
+        "__mpe_code": {
             "position": {
-                "x": -344,
-                "y": -27
+                "x": -313,
+                "y": -65
             }
         },
         "next": [
-            "雨中徐行_执行前返回主页"
+            "曙光归途_执行前返回主页"
         ]
     }
 }

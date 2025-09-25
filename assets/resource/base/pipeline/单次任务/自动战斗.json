@@ -1,17 +1,24 @@
 {
-    "__yamaape_config_自动战斗": {
-        "filename": "自动战斗",
-        "version": "v0.3.4",
-        "prefix": "自动战斗",
-        "export": ""
+    "__mpe_config_自动战斗": {
+        "__mpe_code": {
+            "prefix": "自动战斗",
+            "filename": "自动战斗",
+            "version": "v0.5.3"
+        }
     },
     "自动战斗_循环": {
-        "recognition": "DirectHit",
-        "action": "DoNothing",
+        "recognition": {
+            "type": "DirectHit",
+            "param": {}
+        },
+        "action": {
+            "type": "DoNothing",
+            "param": {}
+        },
         "pre_delay": 0,
         "post_delay": 0,
         "timeout": 30000,
-        "__yamaape": {
+        "__mpe_code": {
             "position": {
                 "x": 302,
                 "y": 485
@@ -19,25 +26,32 @@
         },
         "next": [
             "自动战斗_等待调度",
-            "自动战斗_等待进入图像",
             "自动战斗_等待进入文字",
+            "自动战斗_等待进入图像",
             "自动战斗_结束战斗"
         ]
     },
     "自动战斗_等待调度": {
-        "recognition": "OCR",
-        "action": "DoNothing",
-        "expected": [
-            "瞬时调度",
-            "快速充能"
-        ],
-        "roi": [
-            1171,
-            412,
-            90,
-            105
-        ],
-        "__yamaape": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "瞬时调度",
+                    "快速充能"
+                ],
+                "roi": [
+                    1171,
+                    412,
+                    90,
+                    105
+                ]
+            }
+        },
+        "action": {
+            "type": "DoNothing",
+            "param": {}
+        },
+        "__mpe_code": {
             "position": {
                 "x": 562,
                 "y": 485
@@ -51,13 +65,20 @@
         ]
     },
     "自动战斗_等待进入图像": {
-        "recognition": "TemplateMatch",
-        "action": "Click",
-        "template": [
-            "close.png"
-        ],
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "close.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {}
+        },
         "pre_delay": 800,
-        "__yamaape": {
+        "__mpe_code": {
             "position": {
                 "x": 850,
                 "y": 282
@@ -68,14 +89,21 @@
         ]
     },
     "自动战斗_等待进入文字": {
-        "recognition": "OCR",
-        "action": "Click",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "开始试用",
+                    "行动开始"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {}
+        },
         "pre_delay": 800,
-        "expected": [
-            "开始试用",
-            "行动开始"
-        ],
-        "__yamaape": {
+        "__mpe_code": {
             "position": {
                 "x": 856,
                 "y": 93
@@ -86,14 +114,21 @@
         ]
     },
     "自动战斗_结束战斗": {
-        "recognition": "OCR",
-        "action": "DoNothing",
-        "expected": [
-            "行动成功",
-            "行动失败"
-        ],
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "行动成功",
+                    "行动失败"
+                ]
+            }
+        },
+        "action": {
+            "type": "DoNothing",
+            "param": {}
+        },
         "focus": "> 战斗结束",
-        "__yamaape": {
+        "__mpe_code": {
             "position": {
                 "x": 558,
                 "y": 694
@@ -101,10 +136,16 @@
         }
     },
     "自动战斗_再次检测": {
-        "recognition": "DirectHit",
-        "action": "DoNothing",
+        "recognition": {
+            "type": "DirectHit",
+            "param": {}
+        },
+        "action": {
+            "type": "DoNothing",
+            "param": {}
+        },
         "post_delay": 1250,
-        "__yamaape": {
+        "__mpe_code": {
             "position": {
                 "x": 1753,
                 "y": 303
@@ -115,17 +156,24 @@
         ]
     },
     "自动战斗_开大": {
-        "recognition": "DirectHit",
-        "action": "Click",
+        "recognition": {
+            "type": "DirectHit",
+            "param": {}
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    1115,
+                    632,
+                    1,
+                    1
+                ]
+            }
+        },
         "post_delay": 0,
         "focus": "> 使用角色技能",
-        "target": [
-            1115,
-            632,
-            1,
-            1
-        ],
-        "__yamaape": {
+        "__mpe_code": {
             "position": {
                 "x": 853,
                 "y": 773
@@ -136,16 +184,23 @@
         ]
     },
     "自动战斗_确定开大": {
-        "recognition": "DirectHit",
-        "action": "Click",
+        "recognition": {
+            "type": "DirectHit",
+            "param": {}
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    1115,
+                    632,
+                    1,
+                    1
+                ]
+            }
+        },
         "pre_delay": 50,
-        "target": [
-            1115,
-            632,
-            1,
-            1
-        ],
-        "__yamaape": {
+        "__mpe_code": {
             "position": {
                 "x": 1113,
                 "y": 773
@@ -156,9 +211,15 @@
         ]
     },
     "自动战斗_开始": {
-        "recognition": "DirectHit",
-        "action": "DoNothing",
-        "__yamaape": {
+        "recognition": {
+            "type": "DirectHit",
+            "param": {}
+        },
+        "action": {
+            "type": "DoNothing",
+            "param": {}
+        },
+        "__mpe_code": {
             "position": {
                 "x": 41,
                 "y": 486
@@ -169,23 +230,30 @@
         ]
     },
     "自动战斗_瞬时调度": {
-        "recognition": "TemplateMatch",
-        "action": "Click",
-        "template": [
-            "battle/leader.png"
-        ],
-        "roi": [
-            1171,
-            412,
-            90,
-            105
-        ],
-        "threshold": [
-            0.8
-        ],
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "battle/leader.png"
+                ],
+                "roi": [
+                    1171,
+                    412,
+                    90,
+                    105
+                ],
+                "threshold": [
+                    0.8
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {}
+        },
         "post_delay": 2000,
         "focus": "> 使用瞬时调度",
-        "__yamaape": {
+        "__mpe_code": {
             "position": {
                 "x": 851,
                 "y": 484
@@ -196,18 +264,25 @@
         ]
     },
     "自动战斗_快速充能": {
-        "recognition": "OCR",
-        "action": "Click",
-        "expected": [
-            "快速充能"
-        ],
-        "roi": [
-            915,
-            400,
-            351,
-            136
-        ],
-        "__yamaape": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "快速充能"
+                ],
+                "roi": [
+                    915,
+                    400,
+                    351,
+                    136
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {}
+        },
+        "__mpe_code": {
             "position": {
                 "x": 1111,
                 "y": 484
@@ -218,19 +293,26 @@
         ]
     },
     "自动战斗_确定快速充能": {
-        "recognition": "OCR",
-        "action": "Click",
-        "expected": [
-            "快速充能"
-        ],
-        "roi": [
-            915,
-            400,
-            351,
-            136
-        ],
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "快速充能"
+                ],
+                "roi": [
+                    915,
+                    400,
+                    351,
+                    136
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {}
+        },
         "pre_delay": 400,
-        "__yamaape": {
+        "__mpe_code": {
             "position": {
                 "x": 1371,
                 "y": 484
