@@ -8,188 +8,1121 @@ import random
 
 from .utils import Prompt, Tasker, RecoHelper
 
-# 自动挖掘
-colors = ["red", "yellow", "blue", "green", "orange", "purple", "white"]
+
+# 新了个月
+reses = [
+    "mogu",
+    "huanxiong",
+    "guoshi",
+    "chengzi",
+    "chongzi",
+    "guanzi",
+    "jingzi",
+    "xiantuan",
+    "youguan",
+    "heguan",
+    "tieshi",
+    "anwuzhi",
+    "sanxiang",
+    "dianlan",
+    "sanjiao",
+]
 
 
-def cnColor(color: str):
-    if color == "red":
-        return "红"
-    if color == "yellow":
-        return "黄"
-    if color == "blue":
-        return "蓝"
-    if color == "green":
-        return "绿"
-    if color == "orange":
-        return "橙"
-    if color == "purple":
-        return "紫"
-    if color == "white":
-        return "白"
+# 获取模板覆盖
+def get_template_override(res: str):
+    return {
+        "template": [
+            f"activity/xlgy/{res}.png",
+            # f"activity/xlgy/{res}-w.png",
+        ]
+    }
 
 
-@AgentServer.custom_action("auto_search")
+# 获取指定资源的数量
+def get_num_by_res(resources: list[str], nums: list[int], target: str):
+    for i, res in enumerate(resources):
+        if target == res:
+            return nums[i]
+
+
+# 识别当前情况
+def get_cur_reses(rh: RecoHelper, node: str):
+    res_list = []
+    for res in reses:
+        rh.recognize(node, get_template_override(res))
+        if rh.hit():
+            res_list.append((res, len(rh.reco_detail.filterd_results)))
+    random.shuffle(res_list)
+    res_list = sorted(res_list, key=lambda x: x[1], reverse=True)
+    return [x[0] for x in res_list], [x[1] for x in res_list]
+
+
+@AgentServer.custom_action("xlgy_auto")
 class AutoSearch(CustomAction):
     def run(
         self, context: Context, argv: CustomAction.RunArg
     ) -> CustomAction.RunResult | bool:
-        global colors
-        last_deploy = "-1"
-        same_counter = 0
+        global reses
         try:
             while True:
-                # 结束
+                # 终止
                 if Tasker.is_stopping(context):
                     return False
-                if check_end(context):
-                    return True
-                # 检测剩余槽位
-                groove_num = check_groove(context)
-                if groove_num == 0:
+
+                Prompt.log(f"正在识别分析当前状况...")
+                time.sleep(0.4)
+
+                # 挑战完成
+                rh = RecoHelper(context)
+                if rh.recognize("新了个月_挑战完成").click():
+                    Prompt.log(f"挑战完成，自动进入下一关！")
                     time.sleep(1)
                     continue
 
-                # 勘探
-                pairs = exploration(context)
+                # 挑战失败
+                if rh.recognize("新了个月_挑战失败").click():
+                    Prompt.log(f"挑战失败，将自动重试！")
+                    time.sleep(1)
+                    continue
 
-                # 挖掘
-                color = ""
-                for pair in pairs:
-                    if (
-                        pair["bottom_block"] > 0
-                        and pair["first_faucet"] > 0
-                        and pair["cur_faucet"] < 1
-                    ):
-                        color = pair["color"]
-                        excavation(context, pair["color"])
-                        Prompt.log(f"勘探到 {cnColor(color)}色 可开采岩层")
-                        break
+                # 识别场地情况
+                site_reses, site_nums = get_cur_reses(rh, "新了个月_场景识别")
+                waiting_reses, waiting_nums = get_cur_reses(rh, "新了个月_候场识别")
 
-                # 二位部署
-                if color == "" and same_counter > 1:
-                    random.shuffle(pairs)
-                    for pair in pairs:
-                        if (
-                            pair["bottom_block"] > 0
-                            and pair["first_faucet"] > 0
-                            and pair["cur_faucet"] == 1
+                # 轮空
+                flag = True
+                if len(site_reses) == 0:
+                    flag = False
+
+                # 场地可满足等待资源
+                if flag:
+                    for i, waiting_res in enumerate(waiting_reses):
+                        if waiting_res in site_reses and (
+                            waiting_nums[i]
+                            + get_num_by_res(site_reses, site_nums, waiting_res)
+                            >= 3
                         ):
-                            color = pair["color"]
-                            Prompt.log(f"勘探到 {cnColor(color)}色 可开采岩层")
-                            excavation(context, pair["color"])
-                            same_counter = 0
-                            break
+                            Prompt.log(f"检测到可消等候资源")
+                            rh.recognize(
+                                "新了个月_场景识别", get_template_override(waiting_res)
+                            ).click_all(max_num=3 - waiting_nums[i])
+                            if flag:
+                                time.sleep(0.2)
+                            flag = False
 
-                # 临时喷口
-                if color == "" and same_counter > 1:
-                    random.shuffle(pairs)
-                    for pair in pairs:
-                        if pair["first_faucet"] > 0:
-                            color = pair["color"]
-                            Prompt.log(f"部署临时喷口({cnColor(color)})")
-                            excavation(context, pair["color"])
+                # 场地满三个
+                if flag:
+                    for i, res in enumerate(site_reses):
+                        if site_nums[i] < 3:
                             break
+                        Prompt.log(f"检测到大量连续资源")
+                        rh.recognize(
+                            "新了个月_场景识别", get_template_override(res)
+                        ).click_all(max_num=3)
+                        if flag:
+                            time.sleep(0.2)
+                        flag = False
 
-                if color == last_deploy:
-                    same_counter += 1
-                else:
-                    same_counter = 0
-                last_deploy = color
-                time.sleep(1)
+                # # 场地含等待资源
+                # if flag:
+                #     for waiting_res in waiting_reses:
+                #         if waiting_res in site_reses:
+                #             Prompt.log(f"检测到不可消等候资源")
+                #             rh.recognize(
+                #                 "新了个月_场景识别",
+                #                 get_template_override(waiting_res),
+                #             ).click()
+                #             flag = False
+                #             break
+
+                # 无可优化情况
+                if flag:
+                    Prompt.log(f"随机处理零散资源")
+                    rh.recognize(
+                        "新了个月_场景识别", get_template_override(site_reses[-1])
+                    ).click()
+                    flag = False
+
         except Exception as e:
-            return Prompt.error("自动挖掘", e)
+            return Prompt.error("新了个月", e)
 
 
-# 识别数量
-def exploration(context: Context):
-    reco_helper = RecoHelper(context)
-    pairs = []
+queues = {
+    "第1关": [
+        "huanxiong",
+        "guoshi",
+        "mogu",
+        "mogu",
+        "guoshi",
+        "huanxiong",
+    ],
+    "第2关": [
+        "guanzi",
+        "chengzi",
+        "jingzi",
+        "chongzi",
+        "chongzi",
+        "chengzi",
+        "guanzi",
+        "jingzi",
+    ],
+    "第3关": [
+        "jingzi",
+        "youguan",
+        "heguan",
+        "xiantuan",
+        "heguan",
+        "tieshi",
+        "tieshi",
+        "jingzi",
+        "youguan",
+        "jingzi",
+        "xiantuan",
+    ],
+    "第4关": [
+        "dianlan",
+        "sanxiang",
+        "sanxiang",
+        "huanxiong",
+        "sanjiao",
+        "sanjiao",
+        "anwuzhi",
+        "huanxiong",
+        "heguan",
+        "heguan",
+        "anwuzhi",
+        "sanjiao",
+        "sanxiang",
+    ],
+    "第5关": [
+        "chongzi",
+        "jingzi",
+        "guanzi",
+        "mogu",
+        "jingzi",
+        "chongzi",
+        "chengzi",
+        "guoshi",
+        "guoshi",
+        "huanxiong",
+        "huanxiong",
+        "chengzi",
+        "jingzi",
+        "guanzi",
+    ],
+    "第6关": [
+        "jingzi",
+        "heguan",
+        "jingzi",
+        "sanxiang",
+        "sanxiang",
+        "youguan",
+        "xiantuan",
+        "tieshi",
+        "sanjiao",
+        "sanjiao",
+        "xiantuan",
+        "heguan",
+        "youguan",
+        "anwuzhi",
+        "jingzi",
+    ],
+    "第7关": [
+        "jingzi",
+        "jingzi",
+        "guanzi",
+        "guoshi",
+        "chongzi",
+        "chongzi",
+        "mogu",
+        "huanxiong",
+        "guanzi",
+        "dianlan",
+        "dianlan",
+        "chongzi",
+        "chengzi",
+        "chengzi",
+        "sanjiao",
+        "mogu",
+        "huanxiong",
+    ],
+    "第8关": [
+        "dianlan",
+        "dianlan",
+        "sanjiao",
+        "sanxiang",
+        "youguan",
+        "huanxiong",
+        "dianlan",
+        "huanxiong",
+        "sanxiang",
+        "heguan",
+        "huanxiong",
+        "youguan",
+        "sanjiao",
+        "dianlan",
+        "huanxiong",
+        "xiantuan",
+        "jingzi",
+        "jingzi",
+        "youguan",
+        "sanjiao",
+        "heguan",
+        "youguan",
+        "sanxiang",
+        "huanxiong",
+        "anwuzhi",
+        "xiantuan",
+        "sanxiang",
+        "tieshi",
+        "tieshi",
+        "heguan",
+        "anwuzhi",
+        "dianlan",
+    ],
+    "第9关": [
+        "chongzi",
+        "guoshi",
+        "heguan",
+        "anwuzhi",
+        "chengzi",
+        "xiantuan",
+        "tieshi",
+        "guanzi",
+        "xiantuan",
+        "huanxiong",
+        "heguan",
+        "chongzi",
+        "chengzi",
+        "mogu",
+        "guanzi",
+        "guoshi",
+        "huanxiong",
+        "tieshi",
+        "heguan",
+        "heguan",
+        "xiantuan",
+        "xiantuan",
+        "anwuzhi",
+        "chongzi",
+        "guanzi",
+        "tieshi",
+        "chengzi",
+        "mogu",
+    ],
+    "第10关": [
+        "jingzi",
+        "dianlan",
+        "youguan",
+        "xiantuan",
+        "anwuzhi",
+        "sanjiao",
+        "sanxiang",
+        "huanxiong",
+        "anwuzhi",
+        "xiantuan",
+        "anwuzhi",
+        "youguan",
+        "tieshi",
+        "jingzi",
+        "heguan",
+        "tieshi",
+        "dianlan",
+        "dianlan",
+        "sanjiao",
+        "huanxiong",
+        "jingzi",
+        "sanxiang",
+        "youguan",
+        "tieshi",
+        "heguan",
+        "xiantuan",
+    ],
+    "第11关": [
+        "mogu",
+        "chengzi",
+        "guoshi",
+        "heguan",
+        "anwuzhi",
+        "tieshi",
+        "chongzi",
+        "guanzi",
+        "chongzi",
+        "mogu",
+        "chengzi",
+        "anwuzhi",
+        "tieshi",
+        "xiantuan",
+        "heguan",
+        "anwuzhi",
+        "tieshi",
+        "heguan",
+        "guoshi",
+        "guoshi",
+        "tieshi",
+        "xiantuan",
+        "guanzi",
+        "chengzi",
+    ],
+    "第12关": [
+        "sanjiao",
+        "dianlan",
+        "tieshi",
+        "youguan",
+        "youguan",
+        "heguan",
+        "sanjiao",
+        "xiantuan",
+        "xiantuan",
+        "anwuzhi",
+        "sanxiang",
+        "tieshi",
+        "heguan",
+        "jingzi",
+        "dianlan",
+        "sanjiao",
+        "dianlan",
+        "youguan",
+        "youguan",
+        "sanxiang",
+        "anwuzhi",
+        "jingzi",
+        "heguan",
+        "tieshi",
+    ],
+    "第13关": [
+        "chengzi",
+        "jingzi",
+        "xiantuan",
+        "jingzi",
+        "chengzi",
+        "chongzi",
+        "mogu",
+        "guoshi",
+        "guoshi",
+        "huanxiong",
+        "youguan",
+        "xiantuan",
+        "chengzi",
+        "guanzi",
+        "jingzi",
+        "chongzi",
+        "chongzi",
+        "guanzi",
+        "youguan",
+        "chengzi",
+        "guoshi",
+        "xiantuan",
+        "mogu",
+        "huanxiong",
+        "youguan",
+        "guanzi",
+        "jingzi",
+    ],
+    "第14关": [
+        "huanxiong",
+        "dianlan",
+        "mogu",
+        "heguan",
+        "guoshi",
+        "dianlan",
+        "sanjiao",
+        "sanxiang",
+        "tieshi",
+        "mogu",
+        "guoshi",
+        "anwuzhi",
+        "dianlan",
+        "huanxiong",
+        "heguan",
+        "sanxiang",
+        "tieshi",
+        "mogu",
+        "sanjiao",
+        "dianlan",
+        "anwuzhi",
+        "guoshi",
+    ],
+    "第15关": [
+        "chongzi",
+        "chengzi",
+        "chengzi",
+        "chongzi",
+        "tieshi",
+        "anwuzhi",
+        "youguan",
+        "tieshi",
+        "sanxiang",
+        "anwuzhi",
+        "sanxiang",
+        "heguan",
+        "xiantuan",
+        "heguan",
+        "guanzi",
+        "tieshi",
+        "sanxiang",
+        "jingzi",
+        "xiantuan",
+        "guanzi",
+        "heguan",
+        "youguan",
+    ],
+    "第16关": [
+        "chengzi",
+        "mogu",
+        "chongzi",
+        "chongzi",
+        "sanjiao",
+        "sanjiao",
+        "dianlan",
+        "mogu",
+        "chongzi",
+        "guanzi",
+        "guanzi",
+        "huanxiong",
+        "jingzi",
+        "dianlan",
+        "huanxiong",
+        "chengzi",
+        "chengzi",
+        "sanjiao",
+        "dianlan",
+        "guanzi",
+        "sanjiao",
+        "sanjiao",
+        "guoshi",
+        "guoshi",
+        "guanzi",
+        "mogu",
+        "huanxiong",
+        "huanxiong",
+        "jingzi",
+        "youguan",
+    ],
+    "第17关": [
+        "sanxiang",
+        "huanxiong",
+        "dianlan",
+        "sanjiao",
+        "tieshi",
+        "mogu",
+        "heguan",
+        "guoshi",
+        "mogu",
+        "chengzi",
+        "sanxiang",
+        "huanxiong",
+        "dianlan",
+        "sanxiang",
+        "sanjiao",
+        "sanjiao",
+        "tieshi",
+        "xiantuan",
+        "guoshi",
+        "heguan",
+        "anwuzhi",
+        "mogu",
+        "chengzi",
+    ],
+    "第18关": [
+        "sanjiao",
+        "jingzi",
+        "sanjiao",
+        "anwuzhi",
+        "anwuzhi",
+        "xiantuan",
+        "sanxiang",
+        "youguan",
+        "jingzi",
+        "anwuzhi",
+        "dianlan",
+        "heguan",
+        "xiantuan",
+        "huanxiong",
+        "chongzi",
+        "chongzi",
+        "sanjiao",
+        "sanxiang",
+        "dianlan",
+        "huanxiong",
+        "heguan",
+        "guanzi",
+        "tieshi",
+        "youguan",
+        "sanxiang",
+        "anwuzhi",
+        "tieshi",
+        "sanjiao",
+        "jingzi",
+        "jingzi",
+        "heguan",
+        "huanxiong",
+        "sanxiang",
+        "dianlan",
+        "tieshi",
+        "tieshi",
+        "heguan",
+        "sanjiao",
+        "guanzi",
+        "chongzi",
+        "anwuzhi",
+    ],
+    "第19关": [
+        "heguan",
+        "chengzi",
+        "xiantuan",
+        "jingzi",
+        "mogu",
+        "youguan",
+        "sanxiang",
+        "mogu",
+        "anwuzhi",
+        "guanzi",
+        "jingzi",
+        "guoshi",
+        "guanzi",
+        "tieshi",
+        "xiantuan",
+        "chongzi",
+        "chengzi",
+        "heguan",
+    ],
+    "第20关": [
+        "sanjiao",
+        "mogu",
+        "sanxiang",
+        "chongzi",
+        "xiantuan",
+        "xiantuan",
+        "sanxiang",
+        "tieshi",
+        "sanjiao",
+        "tieshi",
+        "sanjiao",
+        "youguan",
+        "heguan",
+        "guanzi",
+        "chongzi",
+        "chengzi",
+        "youguan",
+        "jingzi",
+        "sanjiao",
+        "mogu",
+        "chengzi",
+        "guanzi",
+        "anwuzhi",
+        "heguan",
+        "sanxiang",
+        "tieshi",
+        "xiantuan",
+        "chengzi",
+        "sanjiao",
+        "chongzi",
+        "jingzi",
+        "sanjiao",
+        "xiantuan",
+        "heguan",
+        "anwuzhi",
+        "youguan",
+        "guanzi",
+    ],
+    "第21关": [
+        "xiantuan",
+        "jingzi",
+        "youguan",
+        "youguan",
+        "chongzi",
+        "jingzi",
+        "guanzi",
+        "guoshi",
+        "xiantuan",
+        "huanxiong",
+        "huanxiong",
+        "youguan",
+        "xiantuan",
+        "mogu",
+        "mogu",
+        "chengzi",
+        "chongzi",
+        "huanxiong",
+        "guoshi",
+        "jingzi",
+        "youguan",
+        "guoshi",
+        "guanzi",
+        "guanzi",
+        "xiantuan",
+        "mogu",
+        "chongzi",
+        "jingzi",
+        "youguan",
+        "chengzi",
+        "huanxiong",
+        "guanzi",
+    ],
+    "第22关": [
+        "dianlan",
+        "sanxiang",
+        "heguan",
+        "anwuzhi",
+        "xiantuan",
+        "xiantuan",
+        "sanjiao",
+        "mogu",
+        "huanxiong",
+        "heguan",
+        "dianlan",
+        "sanxiang",
+        "sanjiao",
+        "sanxiang",
+        "anwuzhi",
+        "tieshi",
+        "sanjiao",
+        "heguan",
+        "guoshi",
+        "guoshi",
+        "mogu",
+        "huanxiong",
+        "tieshi",
+        "dianlan",
+        "xiantuan",
+    ],
+    "第23关": [
+        "sanjiao",
+        "anwuzhi",
+        "sanxiang",
+        "tieshi",
+        "xiantuan",
+        "guanzi",
+        "chongzi",
+        "anwuzhi",
+        "tieshi",
+        "sanjiao",
+        "chongzi",
+        "youguan",
+        "youguan",
+        "guanzi",
+        "chengzi",
+        "xiantuan",
+        "chengzi",
+        "sanjiao",
+        "heguan",
+        "jingzi",
+        "youguan",
+        "youguan",
+        "jingzi",
+        "tieshi",
+        "anwuzhi",
+        "sanxiang",
+        "guanzi",
+    ],
+    "第24关": [
+        "chengzi",
+        "chengzi",
+        "mogu",
+        "xiantuan",
+        "guoshi",
+        "tieshi",
+        "mogu",
+        "huanxiong",
+        "xiantuan",
+        "chongzi",
+        "youguan",
+        "chengzi",
+        "youguan",
+        "xiantuan",
+        "tieshi",
+        "jingzi",
+        "guoshi",
+        "chongzi",
+        "huanxiong",
+        "guanzi",
+        "youguan",
+        "dianlan",
+        "tieshi",
+        "tieshi",
+        "chengzi",
+        "mogu",
+        "huanxiong",
+        "guanzi",
+    ],
+    "第25关": [
+        "tieshi",
+        "chengzi",
+        "heguan",
+        "anwuzhi",
+        "anwuzhi",
+        "xiantuan",
+        "xiantuan",
+        "mogu",
+        "mogu",
+        "chongzi",
+        "tieshi",
+        "anwuzhi",
+        "chongzi",
+        "youguan",
+        "youguan",
+        "heguan",
+        "heguan",
+        "guanzi",
+        "huanxiong",
+        "huanxiong",
+        "heguan",
+        "chongzi",
+        "xiantuan",
+        "guoshi",
+        "guoshi",
+        "youguan",
+        "xiantuan",
+        "tieshi",
+        "youguan",
+        "guanzi",
+        "chongzi",
+        "guanzi",
+        "huanxiong",
+        "chengzi",
+        "chengzi",
+        "tieshi",
+        "jingzi",
+        "youguan",
+        "huanxiong",
+        "mogu",
+        "guanzi",
+        "huanxiong",
+        "guoshi",
+        "guanzi",
+        "heguan",
+        "guoshi",
+        "jingzi",
+        "jingzi",
+        "xiantuan",
+        "tieshi",
+        "youguan",
+        "youguan",
+        "chongzi",
+        "anwuzhi",
+    ],
+    "第26关": [
+        "tieshi",
+        "chongzi",
+        "mogu",
+        "youguan",
+        "jingzi",
+        "guanzi",
+        "heguan",
+        "xiantuan",
+        "heguan",
+        "guoshi",
+        "sanxiang",
+        "sanjiao",
+        "chongzi",
+        "tieshi",
+        "anwuzhi",
+        "mogu",
+        "xiantuan",
+        "guanzi",
+        "youguan",
+        "guoshi",
+        "sanjiao",
+        "mogu",
+        "jingzi",
+        "jingzi",
+        "anwuzhi",
+        "sanxiang",
+        "chengzi",
+        "heguan",
+        "youguan",
+        "chongzi",
+        "youguan",
+        "anwuzhi",
+        "guanzi",
+        "guanzi",
+        "guoshi",
+        "xiantuan",
+        "tieshi",
+        "sanjiao",
+        "xiantuan",
+        "tieshi",
+        "heguan",
+        "jingzi",
+        "guoshi",
+        "xiantuan",
+        "chengzi",
+        "sanxiang",
+    ],
+    "第27关": [
+        "chengzi",
+        "chongzi",
+        "dianlan",
+        "youguan",
+        "dianlan",
+        "chengzi",
+        "sanxiang",
+        "sanxiang",
+        "xiantuan",
+        "dianlan",
+        "dianlan",
+        "sanjiao",
+        "tieshi",
+        "heguan",
+        "chengzi",
+        "guanzi",
+        "sanjiao",
+        "sanjiao",
+        "jingzi",
+        "chongzi",
+        "xiantuan",
+        "anwuzhi",
+        "huanxiong",
+        "jingzi",
+        "sanxiang",
+        "heguan",
+        "youguan",
+        "guanzi",
+        "anwuzhi",
+        "jingzi",
+        "sanjiao",
+        "sanjiao",
+        "tieshi",
+        "sanxiang",
+        "xiantuan",
+        "anwuzhi",
+        "anwuzhi",
+        "dianlan",
+        "tieshi",
+        "huanxiong",
+    ],
+    "第28关": [
+        "heguan",
+        "youguan",
+        "xiantuan",
+        "anwuzhi",
+        "huanxiong",
+        "xiantuan",
+        "mogu",
+        "anwuzhi",
+        "heguan",
+        "mogu",
+        "guanzi",
+        "chengzi",
+        "chengzi",
+        "youguan",
+        "xiantuan",
+        "jingzi",
+        "guoshi",
+        "chongzi",
+        "guanzi",
+        "jingzi",
+        "jingzi",
+        "xiantuan",
+        "huanxiong",
+        "chongzi",
+        "chongzi",
+        "youguan",
+        "xiantuan",
+        "heguan",
+        "anwuzhi",
+        "guanzi",
+        "tieshi",
+        "chongzi",
+        "youguan",
+        "guoshi",
+        "chengzi",
+        "jingzi",
+        "chengzi",
+        "huanxiong",
+        "tieshi",
+        "guoshi",
+        "anwuzhi",
+        "mogu",
+        "mogu",
+        "chengzi",
+        "tieshi",
+        "heguan",
+        "youguan",
+    ],
+    "第29关": [
+        "dianlan",
+        "anwuzhi",
+        "heguan",
+        "anwuzhi",
+        "guoshi",
+        "guanzi",
+        "chengzi",
+        "xiantuan",
+        "guanzi",
+        "tieshi",
+        "guoshi",
+        "guoshi",
+        "mogu",
+        "dianlan",
+        "jingzi",
+        "heguan",
+        "xiantuan",
+        "xiantuan",
+        "dianlan",
+        "mogu",
+        "youguan",
+        "xiantuan",
+        "xiantuan",
+        "guanzi",
+        "heguan",
+        "heguan",
+        "chongzi",
+        "sanxiang",
+        "sanxiang",
+        "mogu",
+        "dianlan",
+        "sanjiao",
+        "sanxiang",
+        "jingzi",
+        "tieshi",
+        "sanxiang",
+        "chongzi",
+        "chengzi",
+        "chengzi",
+        "jingzi",
+        "sanjiao",
+        "dianlan",
+        "sanxiang",
+        "chongzi",
+        "anwuzhi",
+        "anwuzhi",
+        "chengzi",
+        "jingzi",
+        "youguan",
+        "sanjiao",
+    ],
+    "第30关": [
+        "chongzi",
+        "mogu",
+        "youguan",
+        "huanxiong",
+        "xiantuan",
+        "guanzi",
+        "dianlan",
+        "guoshi",
+        "guanzi",
+        "heguan",
+        "xiantuan",
+        "sanxiang",
+        "tieshi",
+        "mogu",
+        "heguan",
+        "jingzi",
+        "sanjiao",
+        "sanjiao",
+        "chengzi",
+        "chengzi",
+        "youguan",
+        "huanxiong",
+        "huanxiong",
+        "dianlan",
+        "anwuzhi",
+        "chongzi",
+        "guanzi",
+        "tieshi",
+        "heguan",
+        "xiantuan",
+        "guoshi",
+        "sanxiang",
+        "sanjiao",
+        "jingzi",
+        "tieshi",
+        "guoshi",
+        "mogu",
+        "chengzi",
+        "xiantuan",
+        "heguan",
+        "anwuzhi",
+        "guoshi",
+        "dianlan",
+        "heguan",
+        "heguan",
+        "huanxiong",
+        "chengzi",
+        "youguan",
+        "huanxiong",
+        "sanjiao",
+        "dianlan",
+        "sanxiang",
+        "anwuzhi",
+        "sanxiang",
+        "jingzi",
+        "jingzi",
+        "chongzi",
+        "guoshi",
+        "xiantuan",
+        "mogu",
+        "dianlan",
+        "tieshi",
+        "sanjiao",
+        "anwuzhi",
+        "sanxiang",
+        "anwuzhi",
+        "guanzi",
+        "youguan",
+        "chongzi",
+        "jingzi",
+        "heguan",
+    ],
+}
 
-    # 识别数量
-    for color in colors:
-        pair = {"color": color}
-        # 底部砖块数量
-        reco_helper.recognize(
-            "遗迹寻获_底部识别",
-            {"template": f"activity/block/{color}.png", "threshold": 0.82},
-        )
-        pair["bottom_block"] = (
-            len(reco_helper.reco_detail.filterd_results) if reco_helper.hit() else 0
-        )
-        reco_helper.recognize(
-            "遗迹寻获_底部识别",
-            {
-                "template": [
-                    f"activity/block/{color}-l.png",
-                    f"activity/block/{color}-l2.png",
-                ],
-                "threshold": [0.95, 0.96],
-            },
-        )
-        pair["bottom_block"] += (
-            len(reco_helper.reco_detail.filterd_results) * 20
-            if reco_helper.hit()
-            else 0
-        )
-        # 顶部水龙头数量
-        reco_helper.recognize(
-            "遗迹寻获_第一排水龙头识别",
-            {"template": get_faucet_path_list(color)},
-        )
-        pair["first_faucet"] = (
-            len(reco_helper.reco_detail.filterd_results) if reco_helper.hit() else 0
-        )
-        # 现有数量
-        reco_helper.recognize(
-            "遗迹寻获_检测空位",
-            {"template": get_faucet_path_list(color)},
-        )
-        pair["cur_faucet"] = (
-            len(reco_helper.reco_detail.filterd_results) if reco_helper.hit() else 0
-        )
 
-        pairs.append(pair)
+@AgentServer.custom_action("xlgy")
+class AutoSearch(CustomAction):
+    def run(
+        self, context: Context, argv: CustomAction.RunArg
+    ) -> CustomAction.RunResult | bool:
+        global queues, reses
+        try:
+            while True:
+                # 终止
+                if Tasker.is_stopping(context):
+                    return False
 
-    # 排序
-    random.shuffle(pairs)
-    pairs.sort(key=lambda x: x["bottom_block"], reverse=True)
-    return pairs
+                # 获取关卡索引
+                Prompt.log("识别关卡")
+                Tasker.run_node(context, "新了个月_暂停")
+                time.sleep(0.4)
+                index = (
+                    RecoHelper(context)
+                    .recognize("新了个月_识别关卡名称")
+                    .reco_detail.best_result.text
+                )
+                if not index:
+                    raise Exception("关卡识别失败")
+                queue = queues[index]
+                context.run_task("新了个月_重新开始")
 
+                # 按顺序点击
+                Prompt.log("按序收集")
+                for res in queue:
+                    if Tasker.is_stopping(context):
+                        return False
+                    if not res in reses:
+                        raise Exception("资源名称错误" + res)
+                    RecoHelper(context).recognize(
+                        "新了个月_场景识别", get_template_override(res)
+                    ).click_all()
+                    time.sleep(0.4)
 
-def get_faucet_path_list(color: str):
-    return [
-        # f"activity/faucet/{color}.png",
-        f"activity/faucet/{color}-l2.png",
-    ]
+                # 挑战完成
+                time.sleep(2)
+                if "30" in index:
+                    context.run_task("新了个月_返回选关")
+                    return True
 
+                if RecoHelper(context).recognize("新了个月_挑战完成").click():
+                    Prompt.log(f"挑战完成，自动进入下一关！")
+                    time.sleep(0.8)
+                elif RecoHelper(context).recognize("新了个月_文字提示").hit():
+                    Prompt.log(f"关卡识别失败！")
+                    return False
+                else:
+                    Prompt.log(f"挑战失败，请重新尝试！")
+                    return False
 
-# 点击
-def excavation(context: Context, color: str):
-    reco_helper = RecoHelper(context).recognize(
-        "遗迹寻获_第一排水龙头识别", {"template": get_faucet_path_list(color)}
-    )
-    if not reco_helper.hit():
-        return
-    results = reco_helper.reco_detail.filterd_results
-    res = random.choice(results)
-    Tasker.click(context, res.box[0] + 2, res.box[1] + 2)
-
-
-# 检测是否还有空位
-def check_groove(context: Context):
-    reco_helper = RecoHelper(context).recognize(
-        "遗迹寻获_检测空位", {"template": "activity/groove.png"}
-    )
-    return len(reco_helper.reco_detail.filterd_results) if reco_helper.hit() else 0
-
-
-# 检测是否在输出
-def check_left(context: Context) -> str:
-    reco_helper = RecoHelper(context).recognize("遗迹寻获_检测当前剩余水量")
-    return reco_helper.concat() if reco_helper.hit() else "0"
-
-
-# 考察完毕
-def check_end(context: Context):
-    return RecoHelper(context).recognize("遗迹寻获_考察结束").hit()
+        except Exception as e:
+            return Prompt.error("新了个月", e)

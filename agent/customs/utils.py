@@ -184,6 +184,16 @@ class Tasker:
 
     # 是否正在停止
     @staticmethod
+    def run_node(context: Context, node: str, solo=True):
+        if solo:
+            context.run_task(
+                node, {node: {"next": [], "interrupt": [], "on_error": []}}
+            )
+        else:
+            context.run_task(node)
+
+    # 是否正在停止
+    @staticmethod
     def is_stopping(context: Context):
         return context.tasker.stopping
 
@@ -207,7 +217,9 @@ class RecoHelper:
         self.argv = argv
         self.screencap: np.ndarray | None = None
 
-    def refresh_screencap(self) -> np.ndarray:
+    def refresh_screencap(self, context=None) -> np.ndarray:
+        if context:
+            self.context = context
         self.screencap = Tasker.screenshot(self.context)
         return self.screencap
 
@@ -245,6 +257,30 @@ class RecoHelper:
             context = self.context
         Tasker.click(context, *target)
         return target
+
+    def click_all(
+        self,
+        context: Context = None,
+        offset: tuple[int, int] = (0, 0),
+        interval=0.2,
+        max_num=99999,
+    ) -> tuple[int, int] | None:
+        if not self.hit():
+            return None
+        results = self.reco_detail.filterd_results
+        targets = []
+        for i, res in enumerate(results):
+            if i + 1 > max_num:
+                break
+            if i > 0:
+                time.sleep(interval)
+            target = RecoHelper.get_res_center(res)
+            target = (target[0] + offset[0], target[1] + offset[1])
+            targets.append(target)
+            if context is None:
+                context = self.context
+            Tasker.click(context, *target)
+        return targets
 
     # 结果拼接
     def concat(self) -> str:
