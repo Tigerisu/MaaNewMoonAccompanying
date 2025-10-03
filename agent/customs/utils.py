@@ -9,6 +9,7 @@ import json
 import re
 import time
 import numpy as np
+from openai import OpenAI
 
 
 def cprint(*args, **kwargs):
@@ -353,3 +354,59 @@ class Judge:
         # 检测
         pattern = f"({int_pattern}|{decimal_pattern})"
         return bool(re.search(pattern, text))
+
+
+class ChatHolder:
+    def __init__(
+        self,
+        api_key: str,
+        base_url: str,
+        model: str,
+        ans_require="",
+        ans_limit="你是新月同行游戏小助手，使用中文回答用户问题。",
+    ):
+        self.client = OpenAI(
+            api_key=api_key,
+            base_url=base_url,
+        )
+        self.model = model
+        self.messages = [{"role": "system", "content": f"{ans_require}\n{ans_limit}"}]
+
+    # 对话
+    def answer(
+        self, qas: str, thinking=True, rt_thinking=False
+    ) -> str | tuple[str, str]:
+        # 构造请求体
+        self.messages.append({"role": "user", "content": qas})
+        body = {
+            "model": self.model,
+            "messages": self.messages,
+            "stream": True,
+        }
+        if thinking:
+            body["extra_body"] = {"enable_thinking": True}
+
+        # 发送请求
+        reason = ""
+        content = ""
+        for chunk in self.client.chat.completions.create(**body):
+            try:
+                choice = chunk.choices[0]
+                delta = getattr(choice, "delta", None)
+                if delta is None:
+                    continue
+                rc = getattr(delta, "reasoning_content", None)
+                if rc:
+                    reason += rc
+                ct = getattr(delta, "content", None)
+                if ct:
+                    content += ct
+            except Exception:
+                continue
+
+        # 保存记录
+        self.messages.append({"role": "assistant", "content": content})
+
+        if rt_thinking:
+            return reason, content
+        return content

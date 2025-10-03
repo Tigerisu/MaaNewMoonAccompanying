@@ -13,7 +13,7 @@ def main():
     from maa.agent.agent_server import AgentServer
     from maa.toolkit import Toolkit
 
-    import custom
+    import customs
 
     try:
         Toolkit.init_option("./")
