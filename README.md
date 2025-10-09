@@ -29,6 +29,7 @@
 > 当前活动：曙光归途（2025.9.25-2025.10.23）
 
 - [x] 「曙光归途」领取每日小熊猫币
+- [x] 「太空资源收集」新了个月
 
 <details>
 <summary>往期活动</summary>
@@ -188,7 +189,7 @@
 - **本项目由 [MaaXYZ](https://github.com/MaaXYZ)/[MaaFramework](https://github.com/MaaXYZ/MaaFramework) 强力驱动！**
 - 项目模板：[MaaXYZ](https://github.com/MaaXYZ)/[MaaPracticeBoilerplate](https://github.com/MaaXYZ/MaaPracticeBoilerplate)
 - GUI：[SweetSmellFox](https://github.com/SweetSmellFox)/[MFAAvalonia](https://github.com/SweetSmellFox/MFAAvalonia/tree/master)
-- Pipeline 编辑器：[kqcoxn](https://github.com/kqcoxn)/[YAMaaPE](https://github.com/kqcoxn/YAMaaPE)
+- Pipeline 编辑器：[kqcoxn](https://github.com/kqcoxn)/[MaaPipelineEditor](https://github.com/kqcoxn/MaaPipelineEditor)
 - 截图小工具：[SweetSmellFox](https://github.com/SweetSmellFox)/[MFATools](https://github.com/SweetSmellFox/MFATools)
 - 测试：[MaaXYZ](https://github.com/MaaXYZ)/[MaaDebugger](https://github.com/MaaXYZ/MaaDebugger)
 - 分发：[MirrorChyan](https://github.com/MirrorChyan)/[Mirror 酱](https://mirrorchyan.com/zh/get-start?source=mnma-github-code)
