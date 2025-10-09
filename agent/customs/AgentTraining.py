@@ -16,7 +16,7 @@ def switch_upgrade_target(context: Context) -> bool:
         return False
 
     target = upgrade_list.pop(0)
-    context.override_pipeline({"领取奖励_选择角色": {"expected": target}})
+    context.override_pipeline({"每日升级_选择角色": {"expected": target}})
     print(f"> 尝试升级特工：{target}")
     return True
 
