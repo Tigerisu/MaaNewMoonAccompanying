@@ -4,17 +4,13 @@ import requests
 def punch_in():
     try:
         response = requests.post(
-            "http://ts.codax.site/repo?from=mnma",
-            json={"from": "mnma", "version": "v2.3.6"},
+            "http://ts.codax.site/repo",
+            json={"from": "mnma", "version": "v2.3.7"},
             headers={"Content-Type": "application/json"},
-            timeout=5,
+            timeout=3,
         )
         response.raise_for_status()
-
-        try:
-            return response.json()
-        except ValueError:
-            return {"response_text": response.text}
+        return response.json()
 
     except requests.exceptions.RequestException as e:
-        return {"error": str(e)}
+        return e

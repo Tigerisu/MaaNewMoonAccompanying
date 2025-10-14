@@ -27,10 +27,10 @@
             }
         },
         "next": [
-            "每日升级_确保进入特工界面"
+            "每日升级_进入特工详情页"
         ]
     },
-    "每日升级_确保进入特工界面": {
+    "每日升级_进入特工详情页": {
         "recognition": {
             "type": "OCR",
             "param": {
@@ -40,16 +40,15 @@
             }
         },
         "action": {
-            "type": "DoNothing",
+            "type": "Click",
             "param": {}
         },
-        "post_delay": 800,
         "focus": "> 查找目标特工",
-        "timeout": 12000,
+        "pre_delay": 400,
         "__mpe_code": {
             "position": {
-                "x": -852,
-                "y": -1023
+                "x": -851,
+                "y": -994
             }
         },
         "next": [
@@ -64,29 +63,29 @@
                     "特工名称"
                 ],
                 "roi": [
-                    739,
-                    66,
-                    475,
-                    624
+                    105,
+                    525,
+                    137,
+                    52
                 ],
                 "order_by": "Vertical"
             }
         },
         "action": {
-            "type": "Click",
+            "type": "DoNothing",
             "param": {}
         },
         "__mpe_code": {
             "position": {
-                "x": -32,
-                "y": -1000
+                "x": -37,
+                "y": -1028
             }
         },
         "next": [
-            "每日升级_进入基础界面"
+            "每日升级_进入等级界面"
         ]
     },
-    "每日升级_下滑角色列表": {
+    "每日升级_左滑角色": {
         "recognition": {
             "type": "DirectHit",
             "param": {}
@@ -95,80 +94,29 @@
             "type": "Swipe",
             "param": {
                 "begin": [
-                    1054,
-                    613,
+                    671,
+                    340,
                     1,
                     1
                 ],
                 "end": [
                     [
-                        1054,
-                        157,
+                        234,
+                        340,
                         1,
                         1
                     ]
                 ],
-                "duration": 600
-            }
-        },
-        "post_delay": 0,
-        "pre_delay": 100,
-        "__mpe_code": {
-            "position": {
-                "x": -30,
-                "y": -1285
-            }
-        },
-        "next": [
-            "每日升级_角色列表点停"
-        ]
-    },
-    "每日升级_进入基础界面": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "expected": [
-                    "基础"
+                "duration": [
+                    100
                 ]
             }
         },
-        "action": {
-            "type": "Click",
-            "param": {}
-        },
-        "focus": "> 进入升级界面",
+        "post_delay": 800,
         "__mpe_code": {
             "position": {
-                "x": 223,
-                "y": -995
-            }
-        },
-        "next": [
-            "每日升级_进入等级界面"
-        ]
-    },
-    "每日升级_角色列表点停": {
-        "recognition": {
-            "type": "DirectHit",
-            "param": {}
-        },
-        "action": {
-            "type": "Click",
-            "param": {
-                "target": [
-                    1054,
-                    157,
-                    1,
-                    1
-                ]
-            }
-        },
-        "pre_delay": 0,
-        "post_delay": 1000,
-        "__mpe_code": {
-            "position": {
-                "x": 214,
-                "y": -1286
+                "x": -38,
+                "y": -1297
             }
         },
         "next": [
@@ -337,7 +285,7 @@
         "__mpe_code": {
             "position": {
                 "x": -594,
-                "y": -680
+                "y": -682
             }
         },
         "next": [
@@ -539,7 +487,7 @@
             }
         },
         "next": [
-            "每日升级_确保进入特工界面"
+            "每日升级_重置进度"
         ]
     },
     "每日升级_角色升级开始": {
@@ -706,7 +654,7 @@
             "type": "Custom",
             "param": {
                 "custom_action": "init_counter",
-                "custom_action_param": "key=find_agent&max=18"
+                "custom_action_param": "key=find_agent&max=80"
             }
         },
         "pre_delay": 0,
@@ -740,7 +688,7 @@
         },
         "next": [
             "每日升级_选择角色",
-            "每日升级_下滑角色列表"
+            "每日升级_左滑角色"
         ]
     },
     "每日升级_角色滑动计数": {
@@ -759,8 +707,8 @@
         "post_delay": 0,
         "__mpe_code": {
             "position": {
-                "x": 486,
-                "y": -1599
+                "x": 226,
+                "y": -1296
             }
         },
         "next": [
@@ -788,11 +736,11 @@
                 "y": -1514
             }
         },
-        "next": [
-            "每日升级_列表划至顶端1"
-        ],
         "on_error": [
             "每日升级_列表已空"
+        ],
+        "next": [
+            "每日升级_从角色返回列表"
         ]
     },
     "每日升级_卡带升级开始": {
@@ -1305,6 +1253,32 @@
         },
         "next": [
             "每日升级_卡带升级结束"
+        ]
+    },
+    "每日升级_重置进度": {
+        "recognition": {
+            "type": "DirectHit",
+            "param": {}
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    818,
+                    187,
+                    1,
+                    1
+                ]
+            }
+        },
+        "__mpe_code": {
+            "position": {
+                "x": -853,
+                "y": -1173
+            }
+        },
+        "next": [
+            "每日升级_进入特工详情页"
         ]
     }
 }
