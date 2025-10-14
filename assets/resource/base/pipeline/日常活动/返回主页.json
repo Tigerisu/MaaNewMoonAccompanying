@@ -1,17 +1,24 @@
 {
-    "__yamaape_config_返回主页": {
-        "filename": "返回主页",
-        "version": "v0.3.4",
-        "export": "",
-        "prefix": "返回主页"
+    "__mpe_config_返回主页": {
+        "__mpe_code": {
+            "prefix": "返回主页",
+            "filename": "返回主页",
+            "version": "v0.5.3"
+        }
     },
     "返回主页_紧急撤离": {
-        "recognition": "DirectHit",
-        "action": "DoNothing",
+        "recognition": {
+            "type": "DirectHit",
+            "param": {}
+        },
+        "action": {
+            "type": "DoNothing",
+            "param": {}
+        },
         "focus": "> 尝试返回主界面",
         "pre_delay": 0,
         "post_delay": 0,
-        "__yamaape": {
+        "__mpe_code": {
             "position": {
                 "x": 210,
                 "y": -20
@@ -27,20 +34,27 @@
         ]
     },
     "返回主页_主界面": {
-        "recognition": "OCR",
-        "action": "DoNothing",
-        "expected": [
-            "招募热线"
-        ],
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "招募热线"
+                ],
+                "roi": [
+                    19,
+                    624,
+                    195,
+                    78
+                ]
+            }
+        },
+        "action": {
+            "type": "DoNothing",
+            "param": {}
+        },
         "pre_delay": 0,
         "post_delay": 0,
-        "roi": [
-            19,
-            624,
-            195,
-            78
-        ],
-        "__yamaape": {
+        "__mpe_code": {
             "position": {
                 "x": 839,
                 "y": -84
@@ -51,25 +65,32 @@
         ]
     },
     "返回主页_图像类": {
-        "recognition": "TemplateMatch",
-        "action": "Click",
-        "template": [
-            "home.png",
-            "back.png",
-            "close.png",
-            "jump.png",
-            "chat_room/close.png"
-        ],
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "home.png",
+                    "back.png",
+                    "close.png",
+                    "jump.png",
+                    "chat_room/close.png"
+                ],
+                "index": -1,
+                "threshold": [
+                    0.8,
+                    0.8,
+                    0.8,
+                    0.8,
+                    0.9
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {}
+        },
         "pre_delay": 0,
-        "index": -1,
-        "threshold": [
-            0.8,
-            0.8,
-            0.8,
-            0.8,
-            0.9
-        ],
-        "__yamaape": {
+        "__mpe_code": {
             "position": {
                 "x": 522,
                 "y": 59
@@ -80,14 +101,21 @@
         ]
     },
     "返回主页_文本类": {
-        "recognition": "OCR",
-        "action": "Click",
-        "expected": [
-            "点击",
-            "取消"
-        ],
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "点击",
+                    "取消"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {}
+        },
         "pre_delay": 0,
-        "__yamaape": {
+        "__mpe_code": {
             "position": {
                 "x": 522,
                 "y": 311
@@ -98,16 +126,23 @@
         ]
     },
     "返回主页_盲目尝试": {
-        "recognition": "DirectHit",
-        "action": "Click",
-        "target": [
-            1,
-            1,
-            1,
-            1
-        ],
+        "recognition": {
+            "type": "DirectHit",
+            "param": {}
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    1,
+                    1,
+                    1,
+                    1
+                ]
+            }
+        },
         "pre_delay": 0,
-        "__yamaape": {
+        "__mpe_code": {
             "position": {
                 "x": 521,
                 "y": 497
@@ -118,13 +153,20 @@
         ]
     },
     "返回主页_计数": {
-        "recognition": "DirectHit",
-        "action": "Custom",
-        "custom_action": "count",
+        "recognition": {
+            "type": "DirectHit",
+            "param": {}
+        },
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "count",
+                "custom_action_param": "key=return_home"
+            }
+        },
         "pre_delay": 0,
         "post_delay": 1000,
-        "custom_action_param": "key=return_home",
-        "__yamaape": {
+        "__mpe_code": {
             "position": {
                 "x": 1092,
                 "y": -300
@@ -138,13 +180,20 @@
         ]
     },
     "返回主页_失败后检查超时": {
-        "recognition": "DirectHit",
-        "action": "Custom",
-        "custom_action": "check_time",
-        "custom_action_param": "key=return_home&end=true",
+        "recognition": {
+            "type": "DirectHit",
+            "param": {}
+        },
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "check_time",
+                "custom_action_param": "key=return_home&end=true"
+            }
+        },
         "pre_delay": 0,
-        "post_delay": 800,
-        "__yamaape": {
+        "post_delay": 1200,
+        "__mpe_code": {
             "position": {
                 "x": 820,
                 "y": 241
@@ -155,13 +204,20 @@
         ]
     },
     "返回主页_成功后检查超时": {
-        "recognition": "DirectHit",
-        "action": "Custom",
-        "custom_action": "check_time",
-        "custom_action_param": "key=return_home",
+        "recognition": {
+            "type": "DirectHit",
+            "param": {}
+        },
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "check_time",
+                "custom_action_param": "key=return_home"
+            }
+        },
         "pre_delay": 0,
         "post_delay": 0,
-        "__yamaape": {
+        "__mpe_code": {
             "position": {
                 "x": 1365,
                 "y": -297
@@ -175,10 +231,16 @@
         ]
     },
     "返回主页_撤离成功": {
-        "recognition": "DirectHit",
-        "action": "DoNothing",
+        "recognition": {
+            "type": "DirectHit",
+            "param": {}
+        },
+        "action": {
+            "type": "DoNothing",
+            "param": {}
+        },
         "focus": "> 已回到主界面",
-        "__yamaape": {
+        "__mpe_code": {
             "position": {
                 "x": 1641,
                 "y": -20
@@ -186,10 +248,16 @@
         }
     },
     "返回主页_停止任务": {
-        "recognition": "DirectHit",
-        "action": "StopTask",
+        "recognition": {
+            "type": "DirectHit",
+            "param": {}
+        },
+        "action": {
+            "type": "StopTask",
+            "param": {}
+        },
         "focus": "返回主界面失败，请立即停止后续任务！",
-        "__yamaape": {
+        "__mpe_code": {
             "position": {
                 "x": 1068,
                 "y": 242
@@ -197,12 +265,18 @@
         }
     },
     "返回主页_再次检查": {
-        "recognition": "DirectHit",
-        "action": "DoNothing",
+        "recognition": {
+            "type": "DirectHit",
+            "param": {}
+        },
+        "action": {
+            "type": "DoNothing",
+            "param": {}
+        },
         "pre_delay": 0,
         "post_delay": 0,
         "timeout": 500,
-        "__yamaape": {
+        "__mpe_code": {
             "position": {
                 "x": 553,
                 "y": -439
@@ -216,13 +290,20 @@
         ]
     },
     "返回主页_初始化计数": {
-        "recognition": "DirectHit",
-        "action": "Custom",
-        "custom_action": "init_counter",
-        "custom_action_param": "key=return_home&max=3",
+        "recognition": {
+            "type": "DirectHit",
+            "param": {}
+        },
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "init_counter",
+                "custom_action_param": "key=return_home&max=3"
+            }
+        },
         "pre_delay": 0,
         "post_delay": 0,
-        "__yamaape": {
+        "__mpe_code": {
             "position": {
                 "x": -64,
                 "y": -23
@@ -233,11 +314,17 @@
         ]
     },
     "返回主页_开始": {
-        "recognition": "DirectHit",
-        "action": "DoNothing",
+        "recognition": {
+            "type": "DirectHit",
+            "param": {}
+        },
+        "action": {
+            "type": "DoNothing",
+            "param": {}
+        },
         "pre_delay": 0,
         "post_delay": 0,
-        "__yamaape": {
+        "__mpe_code": {
             "position": {
                 "x": -591,
                 "y": -26
@@ -248,13 +335,20 @@
         ]
     },
     "返回主页_初始化时间锁": {
-        "recognition": "DirectHit",
-        "action": "Custom",
-        "custom_action": "init_timer",
-        "custom_action_param": "key=return_home&limit=25",
+        "recognition": {
+            "type": "DirectHit",
+            "param": {}
+        },
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "init_timer",
+                "custom_action_param": "key=return_home&limit=25"
+            }
+        },
         "pre_delay": 0,
         "post_delay": 0,
-        "__yamaape": {
+        "__mpe_code": {
             "position": {
                 "x": -331,
                 "y": -26
