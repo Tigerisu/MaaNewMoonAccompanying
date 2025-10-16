@@ -8,10 +8,10 @@ import re
 from tqdm import tqdm
 
 
-version = "v1.3"
+version = "v1.4"
 
 
-def filter_recent_logs_optimized(input_file, output_file="", days=2, max_len=5000000):
+def filter_recent_logs_optimized(input_file, output_file="", days=2, max_len=100000000):
     if not os.path.exists(input_file):
         return
 
