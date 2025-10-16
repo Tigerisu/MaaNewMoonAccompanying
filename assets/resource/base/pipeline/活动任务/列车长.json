@@ -339,7 +339,7 @@
             "type": "DoNothing",
             "param": {}
         },
-        "focus": "> 今日已领取",
+        "focus": "> 今日体力已领取",
         "__mpe_code": {
             "position": {
                 "x": 1772,
@@ -410,6 +410,9 @@
         },
         "next": [
             "列车长_全局前置返回主页"
+        ],
+        "on_error": [
+            "列车长_已领取"
         ]
     },
     "列车长_周期记录": {
@@ -434,6 +437,28 @@
         },
         "next": [
             "列车长_返回主页"
+        ]
+    },
+    "列车长_已领取": {
+        "recognition": {
+            "type": "DirectHit",
+            "param": {}
+        },
+        "action": {
+            "type": "DoNothing",
+            "param": {}
+        },
+        "pre_delay": 0,
+        "post_delay": 0,
+        "focus": "> 今日体力已领取",
+        "__mpe_code": {
+            "position": {
+                "x": 1251,
+                "y": 822
+            }
+        },
+        "next": [
+            "列车长_结束"
         ]
     }
 }
