@@ -2,7 +2,7 @@ from maa.agent.agent_server import AgentServer
 from maa.custom_action import CustomAction
 from maa.context import Context
 
-from .utils import parse_query_args, Prompt
+from .utils import parse_query_args, Prompt, RecoHelper
 
 
 @AgentServer.custom_action("set_event_squad")
@@ -28,142 +28,57 @@ class SetEventSquad(CustomAction):
             return Prompt.error("设定指定队伍", e)
 
 
-entrustment_roi_index = 0  # roi位置
-entrustment_best_reward = None  # 最佳选项
-entrustment_etter_reward = None  # 次级选项
+target_first = False
 
 
-def calculate_roi(index: int) -> list[int]:
-    """计算委托事件选项的ROI区域
-
-    Args:
-        index: ROI索引位置
-
-    Returns:
-        list[int]: ROI区域坐标 [x, y, width, height]
-    """
-    return [840, 225 + index * 85, 220, 70]
-
-
-def set_reward_pipeline(context: Context, roi: list[int]) -> None:
-    """设置委托事件选项的pipeline
-
-    Args:
-        context: 上下文对象
-        roi: ROI区域坐标
-    """
-    context.override_pipeline(
-        {
-            "城市探索_识别下一区域": {
-                "next": ["城市探索_点击奖励选项"],
-            },
-            "城市探索_点击奖励选项": {
-                "target": roi,
-            },
-        }
-    )
-
-
-# 初始化识别区域
-@AgentServer.custom_action("init_reward")
-class InitReward(CustomAction):
+# 强制指定项优先
+@AgentServer.custom_action("set_delegation_config")
+class SetDelegationConfig(CustomAction):
     def run(
         self, context: Context, argv: CustomAction.RunArg
     ) -> CustomAction.RunResult | bool:
-        global entrustment_roi_index
-        global entrustment_best_reward
-        global entrustment_etter_reward
-        try:
-            entrustment_roi_index = 0
-            entrustment_best_reward = None
-            entrustment_etter_reward = None
-            return True
-
-        except Exception as e:
-            return Prompt.error("初始化委托事件选项", e)
-
-
-# 更新识别区域
-@AgentServer.custom_action("select_next_reward")
-class SelectNextReward(CustomAction):
-    def run(
-        self, context: Context, argv: CustomAction.RunArg
-    ) -> CustomAction.RunResult | bool:
-        global entrustment_roi_index
-        try:
-            if entrustment_roi_index > 2:
-                return True
-            entrustment_roi_index += 1
-            roi = calculate_roi(entrustment_roi_index)
-            context.override_pipeline(
-                {
-                    "城市探索_识别指定类型": {"roi": roi},
-                    "城市探索_识别非指定高收益": {"roi": roi},
-                }
-            )
-            return True
-        except Exception as e:
-            return Prompt.error("设置委托事件选项", e)
-
-
-# 判断当前选项 找出最佳奖励
-@AgentServer.custom_action("compare_reward")
-class CompareReward(CustomAction):
-    def run(
-        self, context: Context, argv: CustomAction.RunArg
-    ) -> CustomAction.RunResult | bool:
-        global entrustment_roi_index
-        global entrustment_best_reward
-        global entrustment_etter_reward
+        global target_first
         try:
             args = parse_query_args(argv)
-            # 识别结果
-            result = args.get("result")
-            # 是否只要指定选项
-            normal_first = args.get("normal_first")
-            # 判断当前选项的识别结果
-            # best 是指定选项且是高风险高收益
-            if result == "best":
-                entrustment_best_reward = entrustment_roi_index
-            # better 非指定选项但是高风险高收益
-            elif result == "better":
-                if entrustment_etter_reward == None:
-                    entrustment_etter_reward = entrustment_roi_index
-            # normal 是指定选项但非高风险高收益
-            elif result == "normal":
-                if normal_first == "true":
-                    entrustment_etter_reward = entrustment_roi_index
-
+            target_first = True if args.get("value", "false") == "true" else False
             return True
         except Exception as e:
-            return Prompt.error("判断委托事件选项结果", e)
+            return Prompt.error("设置指定项强制优先", e)
 
 
-# 循环满三次/已找到最佳选项 则中断循环
-@AgentServer.custom_action("end_reward_loop")
-class BreakLoop(CustomAction):
+# 处理委托
+@AgentServer.custom_action("handle_delegation")
+class HandleDelegation(CustomAction):
     def run(
         self, context: Context, argv: CustomAction.RunArg
     ) -> CustomAction.RunResult | bool:
-        global entrustment_roi_index
-        global entrustment_best_reward
-        global entrustment_etter_reward
+        global target_first
         try:
-            final_index = 0
-            if entrustment_best_reward != None:
-                final_index = entrustment_best_reward
-            elif entrustment_etter_reward != None:
-                final_index = entrustment_etter_reward
-            # 更新最终的点击区域
-            roi = calculate_roi(final_index)
-            # 循环完三个选项 或者已经找到最佳选项
-            if entrustment_roi_index == 2 or final_index == entrustment_best_reward:
-                # print(f'> 循环完三次 决定选 {final_index}')
-                set_reward_pipeline(context, roi)
-            # 循环超过三次仍未识别到，则选择第一个选项
-            elif entrustment_roi_index > 2:
-                # print(f'> 超过三次仍未识别到 只好选第一个了')
-                set_reward_pipeline(context, calculate_roi(0))
+            args = parse_query_args(argv)
+            target = args.get("target", "整流元件")
+
+            target_rh = RecoHelper(context).recognize(
+                "城市探索_委托项", {"expected": target}
+            )
+            if target_first:
+                Prompt.log("直接选择指定项")
+                target_rh.click()
+            else:
+                target_y = target_rh.reco_detail.best_result.box[1]
+                high_rh = RecoHelper(context).recognize(
+                    "城市探索_委托项", {"expected": "高风险高收益"}
+                )
+                flag = True
+                for result in high_rh.reco_detail.filterd_results:
+                    if abs(target_y - result.box[1]) < 45:
+                        Prompt.log("选择高收益指定项")
+                        target_rh.click()
+                        flag = False
+                        break
+                if flag:
+                    Prompt.log("指定项非高收益，选择其他项")
+                    high_rh.click()
+
             return True
         except Exception as e:
-            return Prompt.error("中断委托事件循环", e)
+            return Prompt.error("处理委托", e)

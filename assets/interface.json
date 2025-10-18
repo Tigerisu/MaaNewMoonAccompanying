@@ -161,7 +161,7 @@
                 "委托指定项强制优先",
                 "跳过新城市探索剧情"
             ],
-            "doc": "**城市探索**：\n\n资源收取、制造订单、设施管理、传闻调查、城市事件\n\n- 委托事件指定奖励选项：指定优先选择的奖励类型，例如指定整流元件时，优先级为：整流元件×5（指定的高风险高收益） > 大量卡带升级素材（其他高风险高收益） > 整流元件×2（指定的普通选项）\n- 委托指定项强制优先：启用后，将指定选项的所有类型（高收益和普通）都优先于其他选项，例如指定整流元件时，优先级变为：整流元件×5 > 整流元件×2 > 大量卡带升级素材\n\n开始界面：主界面/城市探索界面\n\n结束界面：主界面",
+            "doc": "**城市探索**：\n\n资源收取、制造订单、设施管理、传闻调查、城市事件\n\n开始界面：主界面/城市探索界面\n\n结束界面：主界面",
             "check": true
         },
         {
@@ -1303,56 +1303,50 @@
             ]
         },
         "委托事件指定奖励选项": {
-            "doc": "详见下方任务说明",
+            "doc": "当指定项为高收益项时，优先选择指定项",
             "cases": [
                 {
-                    "name": "卡带升级素材",
+                    "name": "整流元件",
                     "pipeline_override": {
-                        "城市探索_识别指定类型": {
-                            "expected": [
-                                "卡带升级素材"
-                            ]
+                        "城市探索_选择委托处理方式": {
+                            "custom_action_param": "target=整流元件"
                         }
                     }
                 },
                 {
-                    "name": "整流元件",
+                    "name": "卡带升级素材",
                     "pipeline_override": {
-                        "城市探索_识别指定类型": {
-                            "expected": [
-                                "整流元件"
-                            ]
+                        "城市探索_选择委托处理方式": {
+                            "custom_action_param": "target=升级素材"
                         }
                     }
                 },
                 {
                     "name": "特制卡带",
                     "pipeline_override": {
-                        "城市探索_识别指定类型": {
-                            "expected": [
-                                "特制卡带"
-                            ]
+                        "城市探索_选择委托处理方式": {
+                            "custom_action_param": "target=随机"
                         }
                     }
                 }
             ]
         },
         "委托指定项强制优先": {
-            "doc": "详见下方任务说明",
+            "doc": "无论指定项是否为高收益项，直接选择指定项",
             "cases": [
                 {
                     "name": "No",
                     "pipeline_override": {
-                        "城市探索_选择普通收益": {
-                            "custom_action_param": "result=normal&normal_first=false"
+                        "城市探索_优先高收益": {
+                            "custom_action_param": "value=false"
                         }
                     }
                 },
                 {
                     "name": "Yes",
                     "pipeline_override": {
-                        "城市探索_选择普通收益": {
-                            "custom_action_param": "result=normal&normal_first=true"
+                        "城市探索_优先高收益": {
+                            "custom_action_param": "value=true"
                         }
                     }
                 }
