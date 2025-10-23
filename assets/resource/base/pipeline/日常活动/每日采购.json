@@ -3,7 +3,7 @@
         "__mpe_code": {
             "prefix": "每日采购",
             "filename": "每日采购",
-            "version": "v0.5.3"
+            "version": "v0.5.5"
         }
     },
     "每日采购_采购中心": {
@@ -104,8 +104,8 @@
         "pre_delay": 400,
         "__mpe_code": {
             "position": {
-                "x": 961,
-                "y": -437
+                "x": 962,
+                "y": -446
             }
         },
         "next": [
@@ -124,7 +124,7 @@
             "type": "DoNothing",
             "param": {}
         },
-        "focus": "> 今日已购买",
+        "focus": "> 今日免费物资已采购",
         "__mpe_code": {
             "position": {
                 "x": 1214,
@@ -152,8 +152,8 @@
         "pre_delay": 400,
         "__mpe_code": {
             "position": {
-                "x": 1212,
-                "y": -439
+                "x": 1213,
+                "y": -448
             }
         },
         "next": [
@@ -195,14 +195,18 @@
             "param": {}
         },
         "pre_delay": 800,
+        "timeout": 2000,
         "__mpe_code": {
             "position": {
-                "x": 1462,
-                "y": -437
+                "x": 1463,
+                "y": -446
             }
         },
-        "next": [
+        "on_error": [
             "每日采购_购买数构银物资"
+        ],
+        "next": [
+            "每日采购_每日补给包"
         ]
     },
     "每日采购_流动市场": {
