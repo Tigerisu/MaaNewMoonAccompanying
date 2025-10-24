@@ -1,15 +1,18 @@
-from .StrategicAction import *
+# 全局功能
+from .Global import *
 from .PeriodicInspection import *
-from .Strap import *
 from .Counter import *
-from .Procurement import *
 from .Timer import *
 from .Pipeliner import *
-from .CityWalk import *
-from .IceDrink import *
-from .AgentTraining import *
 from .MatrixScheduling import *
-from .Activities import *
-from .Global import *
 from .PipeLauncher import *
+from .Rememberer import *
+
+# 任务
+from .StrategicAction import *
+from .Strap import *
+from .Procurement import *
+from .CityWalk import *
+from .AgentTraining import *
+from .Activities import *
 from .Liaison import *
