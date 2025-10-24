@@ -1420,7 +1420,7 @@
     "蓝色站台_周期记录": {
         "recognition": "DirectHit",
         "action": "Custom",
-        "custom_action": "record_periodic_check",
+        "custom_action": "record_period",
         "custom_action_param": "t=rogue",
         "__yamaape": {
             "position": {

@@ -747,7 +747,7 @@
     "冰饮_个人挑战完成": {
         "recognition": "DirectHit",
         "action": "Custom",
-        "custom_action": "record_periodic_check",
+        "custom_action": "record_period",
         "custom_action_param": "t=ice_drink_self",
         "focus": "> 个人挑战已完成",
         "__yamaape": {
@@ -803,7 +803,7 @@
     "冰饮_协助挑战完成": {
         "recognition": "DirectHit",
         "action": "Custom",
-        "custom_action": "record_periodic_check",
+        "custom_action": "record_period",
         "custom_action_param": "t=ice_drink_assist",
         "focus": "> 协助挑战已完成",
         "__yamaape": {

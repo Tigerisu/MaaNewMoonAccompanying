@@ -69,7 +69,7 @@ class Inspector:
 
 
 # 记录检查
-@AgentServer.custom_action("record_periodic_check")
+@AgentServer.custom_action("record_period")
 class SetLastPeriodicCheck(CustomAction):
     def run(
         self, context: Context, argv: CustomAction.RunArg

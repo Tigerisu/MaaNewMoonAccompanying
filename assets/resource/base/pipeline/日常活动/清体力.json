@@ -521,7 +521,7 @@
         "action": {
             "type": "Custom",
             "param": {
-                "custom_action": "record_periodic_check",
+                "custom_action": "record_period",
                 "custom_action_param": "t=eat"
             }
         },
@@ -1291,7 +1291,7 @@
         "action": {
             "type": "Custom",
             "param": {
-                "custom_action": "record_periodic_check",
+                "custom_action": "record_period",
                 "custom_action_param": "t=assistance"
             }
         },

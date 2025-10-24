@@ -187,7 +187,7 @@
     "拘束塔奖励_记录上次修复时间": {
         "recognition": "DirectHit",
         "action": "Custom",
-        "custom_action": "record_periodic_check",
+        "custom_action": "record_period",
         "custom_action_param": "t=detention_tower",
         "__yamaape": {
             "position": {
