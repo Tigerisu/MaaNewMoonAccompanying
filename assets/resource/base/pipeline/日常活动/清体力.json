@@ -3,7 +3,7 @@
         "__mpe_code": {
             "prefix": "清体力",
             "filename": "清体力",
-            "version": "v0.5.3"
+            "version": "v0.5.5"
         }
     },
     "清体力_战略行动": {
@@ -1195,14 +1195,14 @@
                 "template": [
                     "battle/assistance.png"
                 ],
-                "order_by": "Random"
+                "order_by": "Vertical"
             }
         },
         "action": {
             "type": "Click",
             "param": {}
         },
-        "pre_delay": 400,
+        "pre_delay": 600,
         "__mpe_code": {
             "position": {
                 "x": 4157,
