@@ -113,28 +113,3 @@ class SetConfig(CustomAction):
 
         except Exception as e:
             return Prompt.error("全局设置", e)
-
-
-# 判断bool设置
-@AgentServer.custom_action("judge_config")
-class SetConfig(CustomAction):
-    def run(
-        self, context: Context, argv: CustomAction.RunArg
-    ) -> CustomAction.RunResult | bool:
-        try:
-            args = parse_query_args(argv)
-            key = args.get("key", None)
-            default = args.get("default", False)
-
-            if key == None:
-                return Prompt.error("未定义的全局设置", use_defult_postfix=False)
-            if default == "true":
-                default = True
-            else:
-                default = False
-
-            value = Configs.get(key, default)
-            return value
-
-        except Exception as e:
-            return Prompt.error("判断bool设置", e)

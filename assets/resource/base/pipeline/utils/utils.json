@@ -16,11 +16,7 @@
         "post_delay": 0
     },
     "全局前置返回主页": {
-        "action": "Custom",
-        "custom_action": "judge_config",
-        "custom_action_param": "key=pre_back_home",
-        "next": "返回主页",
-        "on_error": "null",
+        "next": "懒加载返回主页_开始",
         "pre_delay": 0,
         "post_delay": 0
     },
