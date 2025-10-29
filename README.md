@@ -17,10 +17,12 @@
   <a href="https://github.com/kqcoxn/MaaNewMoonAccompanying/stargazers" target="_blank"><img alt="stars" src="https://img.shields.io/github/stars/kqcoxn/MaaNewMoonAccompanying?style=social"></a>
   <a href="https://github.com/kqcoxn/MaaNewMoonAccompanying/releases" target="_blank"><img alt="stars" src="https://img.shields.io/github/downloads/kqcoxn/MaaNewMoonAccompanying/total?style=social"></a>
   <br/>
-  <a href="https://mirrorchyan.com/zh/projects&source=mnma-github-code" target="_blank"><img alt="mirrorc" src="https://img.shields.io/badge/Mirror%E9%85%B1-%239af3f6?logo=countingworkspro&logoColor=4f46e5"></a>
+  <a href="https://mirrorchyan.com/zh/projects?source=mnma-github-code" target="_blank"><img alt="mirrorc" src="https://img.shields.io/badge/Mirror%E9%85%B1-%239af3f6?logo=countingworkspro&logoColor=4f46e5"></a>
   <a href="http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=VMC132QhbMDLi5U62MlDRvtCMj9WOXRr&authKey=yJNKO4sQ%2BBFHpBCLSSEvVOAyz%2FPjknNSl70W3ugg2%2BpELnKmEiHamj1emJMWcLwQ&noverify=0&group_code=993245868" target="_blank"><img alt="QQ交流群" src="https://img.shields.io/badge/QGroup-993245868-0e80c1?logo=qq&logoColor=white"></a>
   <a href="https://zread.ai/kqcoxn/MaaNewMoonAccompanying" target="_blank"><img alt="AI文档与问答" src="https://img.shields.io/badge/Ask_Zread-_.svg?style=flat&color=00b0aa&labelColor=000000&logo=data%3Aimage%2Fsvg%2Bxml%3Bbase64%2CPHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTQuOTYxNTYgMS42MDAxSDIuMjQxNTZDMS44ODgxIDEuNjAwMSAxLjYwMTU2IDEuODg2NjQgMS42MDE1NiAyLjI0MDFWNC45NjAxQzEuNjAxNTYgNS4zMTM1NiAxLjg4ODEgNS42MDAxIDIuMjQxNTYgNS42MDAxSDQuOTYxNTZDNS4zMTUwMiA1LjYwMDEgNS42MDE1NiA1LjMxMzU2IDUuNjAxNTYgNC45NjAxVjIuMjQwMUM1LjYwMTU2IDEuODg2NjQgNS4zMTUwMiAxLjYwMDEgNC45NjE1NiAxLjYwMDFaIiBmaWxsPSIjZmZmIi8%2BCjxwYXRoIGQ9Ik00Ljk2MTU2IDEwLjM5OTlIMi4yNDE1NkMxLjg4ODEgMTAuMzk5OSAxLjYwMTU2IDEwLjY4NjQgMS42MDE1NiAxMS4wMzk5VjEzLjc1OTlDMS42MDE1NiAxNC4xMTM0IDEuODg4MSAxNC4zOTk5IDIuMjQxNTYgMTQuMzk5OUg0Ljk2MTU2QzUuMzE1MDIgMTQuMzk5OSA1LjYwMTU2IDE0LjExMzQgNS42MDE1NiAxMy43NTk5VjExLjAzOTlDNS42MDE1NiAxMC42ODY0IDUuMzE1MDIgMTAuMzk5OSA0Ljk2MTU2IDEwLjM5OTlaIiBmaWxsPSIjZmZmIi8%2BCjxwYXRoIGQ9Ik0xMy43NTg0IDEuNjAwMUgxMS4wMzg0QzEwLjY4NSAxLjYwMDEgMTAuMzk4NCAxLjg4NjY0IDEwLjM5ODQgMi4yNDAxVjQuOTYwMUMxMC4zOTg0IDUuMzEzNTYgMTAuNjg1IDUuNjAwMSAxMS4wMzg0IDUuNjAwMUgxMy43NTg0QzE0LjExMTkgNS42MDAxIDE0LjM5ODQgNS4zMTM1NiAxNC4zOTg0IDQuOTYwMVYyLjI0MDFDMTQuMzk4NCAxLjg4NjY0IDE0LjExMTkgMS42MDAxIDEzLjc1ODQgMS42MDAxWiIgZmlsbD0iI2ZmZiIvPgo8cGF0aCBkPSJNNCAxMkwxMiA0TDQgMTJaIiBmaWxsPSIjZmZmIi8%2BCjxwYXRoIGQ9Ik00IDEyTDEyIDQiIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLXdpZHRoPSIxLjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgo8L3N2Zz4K&logoColor=ffffff"></a>
 </p>
+
+<a href="https://github.com/kqcoxn/MaaNewMoonAccompanying/releases" target="_blank">📥 下载</a> | <a href="https://docs.codax.site/mnma" target="_blank">📖 文档</a> | <a href="http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=VMC132QhbMDLi5U62MlDRvtCMj9WOXRr&authKey=yJNKO4sQ%2BBFHpBCLSSEvVOAyz%2FPjknNSl70W3ugg2%2BpELnKmEiHamj1emJMWcLwQ&noverify=0&group_code=993245868" target="_blank">💬 讨论</a> | <a href="https://mirrorchyan.com/zh/projects?rid=MNMA&os=windows&arch=x64&channel=stable&source=mnma-github-code" target="_blank">🚀 镜像</a>
 
 </div>
 
@@ -171,7 +173,7 @@
 
 在 [Mirrorc 官方](https://mirrorchyan.com/zh/projects?source=mnma-github-code) 的帮助下， MNMA 同样也接入了 Mirror 酱 的国内高速下载与更新服务，详情请见[【Bilibili】震惊！MAA 开启收费功能？！](https://www.bilibili.com/video/BV1cZFreLEja/)
 
-您可以通过 [此链接](https://mirrorchyan.com/zh/projects?rid=MNMA&source=mnma-github-code) 获取带有 Mirror 酱服务的 MNMA。
+您可以通过 [此链接](https://mirrorchyan.com/zh/projects?rid=MNMA&os=windows&arch=x64&channel=stable&source=mnma-github-code) 获取带有 Mirror 酱服务的 MNMA。
 
 简单来说，Mirror 酱（简称 mirrorc）是一个由开源社区维护的有偿分发平台，可以理解为一个中转站，从海外源获取一份最新版存至国内站点，当您需要时直接从国内站点下载。
 
@@ -209,7 +211,7 @@
 - Pipeline 编辑器：[kqcoxn](https://github.com/kqcoxn)/[MaaPipelineEditor](https://github.com/kqcoxn/MaaPipelineEditor)
 - 截图小工具：[SweetSmellFox](https://github.com/SweetSmellFox)/[MFATools](https://github.com/SweetSmellFox/MFATools)
 - 测试：[MaaXYZ](https://github.com/MaaXYZ)/[MaaDebugger](https://github.com/MaaXYZ/MaaDebugger)
-- 分发：[MirrorChyan](https://github.com/MirrorChyan)/[Mirror 酱](https://mirrorchyan.com/zh/get-start?source=mnma-github-code)
+- 分发：[MirrorChyan](https://github.com/MirrorChyan)/[Mirror 酱](https://mirrorchyan.com/zh/projects?source=mnma-github-code)
 
 游戏官网：[烛薪网络-新月同行](https://xytx.firewick.net/home)
 

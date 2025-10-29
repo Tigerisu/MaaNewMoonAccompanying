@@ -50,15 +50,21 @@
 
 如果您无法通过其他途径进入 Github 页面，或下载速度被限制，可以在 [QQ 群](http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=VMC132QhbMDLi5U62MlDRvtCMj9WOXRr&authKey=yJNKO4sQ%2BBFHpBCLSSEvVOAyz%2FPjknNSl70W3ugg2%2BpELnKmEiHamj1emJMWcLwQ&noverify=0&group_code=993245868) **群文件**内获取您需要的资源，包括 MNMA 压缩包、更新包等。
 
-或者，您可以使用 [Mirror 酱](../users/install.md#mirror-酱支持可选) 作为国内镜像源下载。（需要自备 CDK）
+或者，您可以使用 [Mirror 酱](./install.md#mirror-酱支持可选) 作为国内镜像源下载。（需要自备 CDK）
 
 ### 更新失败/速度缓慢
 
 若您的下载源为 Github，国内对于 Github 的防火墙时有时无，且速度非常不稳定。如果条件允许，请在网络代理或加速器环境下更新。
 
-或者，您可以在设置页面切换 [Mirror 酱](../users/install.md#mirror-酱支持可选) 作为国内镜像源更新。（需要自备 CDK）
+或者，您可以在设置页面切换 [Mirror 酱](./install.md#mirror-酱支持可选) 作为国内镜像源更新。（需要自备 CDK）
 
-如果您不希望通过其他途径更新，您可以在[QQ 群](http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=VMC132QhbMDLi5U62MlDRvtCMj9WOXRr&authKey=yJNKO4sQ%2BBFHpBCLSSEvVOAyz%2FPjknNSl70W3ugg2%2BpELnKmEiHamj1emJMWcLwQ&noverify=0&group_code=993245868) **群文件**内下载最新版本的 MNMA 压缩包并重新安装，**此时您需要按[全量更新](./trick.md#全量更新)方法更新，而不是直接覆盖**
+如果您不希望通过其他途径更新，您可以在[QQ 群](http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=VMC132QhbMDLi5U62MlDRvtCMj9WOXRr&authKey=yJNKO4sQ%2BBFHpBCLSSEvVOAyz%2FPjknNSl70W3ugg2%2BpELnKmEiHamj1emJMWcLwQ&noverify=0&group_code=993245868) **群文件**内下载最新版本的 MNMA 压缩包覆盖安装。
+
+::: details 为什么不选择国内的更新源？
+Github 源免费，而国内常见的下载平台需要用户或开发者付费。
+
+由于开发组经费有限，无力单独承担自建更新服务器成本，因此 MNMA 仅选用 Github 作为通用更新源，选用游戏集成度更高、用户负担更低的 Mirror 酱作为高速付费源。
+:::
 
 ### 获取最新版本信息失败
 
@@ -73,7 +79,7 @@
 大多数情况下并不影响正常使用，关闭弹窗即可，若不希望再次弹出可以关闭代理/梯子。
 
 ::: tip
-此问题并非由于 MNMA 或 MFAA 导致，出现了此提示代表您可能使用了未配置安全凭证的梯子，或代理通道识别异常。
+此问题并非由于 MNMA 或 MFAA 导致，出现了此提示代表您可能使用了未配置安全凭证的梯子，或代理通道/凭证识别异常。
 :::
 
 ### 模拟器连接失败
@@ -92,8 +98,8 @@
 
 若报错中含有“资源加载失败”并伴随“模拟器连接失败”，则可能由于更新时文件被占用导致。
 
-- 若更新方式为手动，**您可能在手动更新时进行过覆盖操作，这是错误的行为**，手动更新请参考 [全量更新](./trick.md#全量更新)
 - 若您使用 Mirror 酱或 Github 在软件内更新，请在设置面板点击“重新下载资源全量包”。
+- 若为手动更新后导致，**您可能在 v3.0.2 版本前手动更新时进行过覆盖操作，此特性在此版本之后才被支持**，请直接重新安装或使用上一条方案
 
 ![图片加载中，请稍等...](/users/reload.png)
 
@@ -106,12 +112,6 @@ MNMA 需要 `VCRedist x64` (`Cli` 与 `Gui` 都需要) 和 `.NET 8` (使用 `GUI
 点击 [vc_redist.x64](https://download.visualstudio.microsoft.com/download/pr/285b28c7-3cf9-47fb-9be8-01cf5323a8df/8F9FB1B3CFE6E5092CF1225ECD6659DAB7CE50B8BF935CB79BFEDE1F3C895240/VC_redist.x64.exe) 下载安装 `VCRedist x64`，点击 [dotnet-sdk-8.0.5-win-x64.exe](https://download.visualstudio.microsoft.com/download/pr/ba3a1364-27d8-472e-a33b-5ce0937728aa/6f9495e5a587406c85af6f93b1c89295/dotnet-sdk-8.0.404-win-x64.exe) 下载安装 `.NET 8`。
 
 若您已经存在运行库，请尝试选择修改/重装。
-
-也可以右键开始按钮打开终端，在终端内粘贴以下命令回车以进行安装：
-
-```shell
-winget install Microsoft.VCRedist.2017.x64 Microsoft.DotNet.DesktopRuntime.8
-```
 
 在安装时，依次点下一步即可，建议不要随意更改环境运行库的安装路径。
 

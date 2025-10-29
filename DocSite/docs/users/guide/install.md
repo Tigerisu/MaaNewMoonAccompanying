@@ -35,7 +35,7 @@
 ![图片加载中，请稍等...](/users/release.png)
 
 ::: tip
-如果 Github 页面打不开，请参考 [问题排查 - Github 页面打不开/下载缓慢](../users/errors.md#github-页面打不开下载缓慢)
+如果 Github 页面打不开，请参考 [问题排查 - Github 页面打不开/下载缓慢](./errors.md#github-页面打不开下载缓慢)
 :::
 
 一般，最上面的即为最新版。
@@ -45,7 +45,7 @@
 ![图片加载中，请稍等...](/users/assets.png)
 
 ::: tip
-如果下载缓慢，请参考 [问题排查 - Github 页面打不开/下载缓慢](../users/errors.md#github-页面打不开下载缓慢)
+如果下载缓慢，请参考 [问题排查 - Github 页面打不开/下载缓慢](./errors.md#github-页面打不开下载缓慢)
 :::
 
 注意事项：
@@ -57,9 +57,9 @@
 
 ## \*Mirror 酱支持（可选）
 
-在 [Mirror 酱](https://mirrorchyan.com/zh/projects?source=mnma-docsite) 官方的帮助下， MNMA 同样也接入了 Mirror 酱的国内高速下载与更新服务，详情请见[【Bilibili】震惊！MAA 开启收费功能？！](https://www.bilibili.com/video/BV1cZFreLEja)
+在 [Mirror 酱](https://mirrorchyan.com/zh/projects?rid=MNMA&os=windows&arch=x64&channel=stable&source=mnma-docsite) 官方的帮助下， MNMA 同样也接入了 Mirror 酱的国内高速下载与更新服务，详情请见[【Bilibili】震惊！MAA 开启收费功能？！](https://www.bilibili.com/video/BV1cZFreLEja)
 
-**您可以通过 [此链接](https://mirrorchyan.com/zh/projects?rid=MNMA&source=mnma-docsite) 获取带有 Mirror 酱服务的 MNMA**。
+**您可以通过 [此链接](https://mirrorchyan.com/zh/projects?rid=MNMA&os=windows&arch=x64&channel=stable&source=mnma-docsite) 获取带有 Mirror 酱服务的 MNMA**。
 
 简单来说，Mirror 酱（简称 mirrorc）是一个由开源社区维护的有偿分发平台，可以理解为一个中转站，从海外源获取一份最新版存至国内站点，当您需要时直接从国内站点下载。
 

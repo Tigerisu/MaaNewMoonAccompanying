@@ -28,5 +28,5 @@
 
 ## 其他
 
-- [已有 Mirror 酱 CDK？点击前往高速下载！](https://mirrorchyan.com/zh/projects?rid=MNMA&source=mnma-announcement)
+- [已有 Mirror 酱 CDK？点击前往高速下载！](https://mirrorchyan.com/zh/projects?rid=MNMA&os=windows&arch=x64&channel=stable&source=mnma-announcement)
 - 第一次使用请配合 [文档](https://docs.codax.site/mnma/) 进行安装与配置

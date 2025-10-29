@@ -1,29 +1,10 @@
 const nav = [
-  {
-    text: "主页",
-    link: "/",
-    activeMatch: "/index",
-  },
-  {
-    text: "指南",
-    link: "/guide/users/start",
-    activeMatch: "^/guide/",
-    items: [
-      {
-        text: "用户手册",
-        link: "/guide/users/start",
-        activeMatch: "^/guide/users/",
-      },
-      {
-        text: "开发者文档",
-        link: "/guide/developers/agreement",
-        activeMatch: "^/guide/developers/",
-      },
-    ],
-  },
+  { text: "首页", link: "/" },
+  { text: "用户手册", link: "/docs/users/guide/start" },
+  { text: "开发者文档", link: "/docs/developers/agreement" },
   {
     text: "友情链接",
-    items: [
+    children: [
       {
         text: "Mirror酱",
         link: "https://mirrorchyan.com/zh/get-start",

@@ -1,7 +1,7 @@
 # 开发须知
 
 ::: tip 注意
-仅当您打算参与 MNMA 项目开发时才需要阅读开发者文档，下载与安装请参考[用户手册](../users/start.md)，开发 MaaFramework 或开发自己的项目请到 [MaaXYZ/MaaFramework](https://github.com/MaaXYZ/MaaFramework)。
+仅当您打算参与 MNMA 项目开发时才需要阅读开发者文档，下载与安装请参考[用户手册](../users/guide/start.md)，开发 MaaFramework 或开发自己的项目请到 [MaaXYZ/MaaFramework](https://github.com/MaaXYZ/MaaFramework)。
 :::
 
 ## 开发协议

@@ -1,15 +1,5 @@
-# Local
-.DS_Store
-*.local
-*.log*
-
-# Dist
+.vuepress/.cache
+.vuepress/.temp
 node_modules
-dist/
-doc_build/
+dist
 *.zip
-
-# IDE
-.vscode/*
-!.vscode/extensions.json
-.idea
