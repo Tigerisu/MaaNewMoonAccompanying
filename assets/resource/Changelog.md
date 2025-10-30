@@ -1,4 +1,4 @@
-# v3.0.4
+# v3.0.5
 
 > 2025.10.28
 
@@ -7,14 +7,9 @@
 ## 主要内容
 
 - **新增功能**
-  - 新增选项：城市探索-叉车加速设施
-  - 新增选项：领取邮件-每日仅检查一次邮件
+  - -
 - **修复优化**
-  - 移除全局通用项，强制在日常任务前检测主界面，不在主界面时返回（若不希望有任务失败时继续执行，可关闭“设置-运行设置-任务运行失败后是否继续运行其它任务”）
-  - 修复了清体力有概率卡在选择倍率步骤的问题
-  - 修复了换班配置异常的问题
-  - 修复了部分情况下卡带升级会直接跳过的问题
-  - 优化了调查事件归档逻辑
+  - 修复了归档档案时可能卡在领取情报界面的问题
 
 > 更多日志与累积更新请在公告相关板块中查看
 
@@ -28,5 +23,5 @@
 
 ## 其他
 
-- [已有 Mirror 酱 CDK？点击前往高速下载！](https://mirrorchyan.com/zh/projects?rid=MNMA&os=windows&arch=x64&channel=stable&source=mnma-announcement)
+- [已有 Mirror 酱 CDK？点击前往高速下载！](https://mirrorchyan.com/zh/projects?rid=MNMA&source=mnma-announcement)
 - 第一次使用请配合 [文档](https://docs.codax.site/mnma/) 进行安装与配置
