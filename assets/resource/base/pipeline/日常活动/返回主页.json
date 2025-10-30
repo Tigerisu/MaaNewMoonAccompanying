@@ -3,7 +3,7 @@
         "__mpe_code": {
             "prefix": "返回主页",
             "filename": "返回主页",
-            "version": "v0.5.3"
+            "version": "v0.5.5"
         }
     },
     "返回主页_紧急撤离": {
@@ -134,8 +134,8 @@
             "type": "Click",
             "param": {
                 "target": [
-                    1,
-                    1,
+                    30,
+                    30,
                     1,
                     1
                 ]
@@ -144,8 +144,8 @@
         "pre_delay": 0,
         "__mpe_code": {
             "position": {
-                "x": 521,
-                "y": 497
+                "x": 520,
+                "y": 500
             }
         },
         "next": [
