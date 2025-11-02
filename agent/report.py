@@ -5,7 +5,7 @@ def punch_in():
     try:
         response = requests.post(
             "http://ts.codax.site/repo",
-            json={"from": "mnma", "version": "v3.0.6"},
+            json={"from": "mnma", "version": "v3.0.7"},
             headers={"Content-Type": "application/json"},
             timeout=3,
         )

@@ -1004,16 +1004,19 @@
     },
     "城市探索_战斗事件": {
         "recognition": {
-            "type": "OCR",
+            "type": "TemplateMatch",
             "param": {
-                "expected": [
-                    "战斗"
-                ],
                 "roi": [
                     784,
                     301,
                     487,
                     322
+                ],
+                "template": [
+                    "city/fight_event.png"
+                ],
+                "threshold": [
+                    0.7
                 ]
             }
         },
