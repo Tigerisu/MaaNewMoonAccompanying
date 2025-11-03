@@ -2,10 +2,11 @@ from maa.agent.agent_server import AgentServer
 from maa.custom_action import CustomAction
 from maa.context import Context
 
-from .utils import parse_query_args, Prompt, RecoHelper
+from .utils import Tasker, parse_query_args, Prompt, RecoHelper
 
 
 check_quick_event = False
+click_index = 0
 
 
 # 初始化城市事件
@@ -14,9 +15,10 @@ class InitCityWalk(CustomAction):
     def run(
         self, context: Context, argv: CustomAction.RunArg
     ) -> CustomAction.RunResult | bool:
-        global check_quick_event
+        global check_quick_event, click_index
         try:
             check_quick_event = False
+            click_index = 0
             return True
         except Exception as e:
             return Prompt.error("初始化城市事件", e)
@@ -49,6 +51,35 @@ class RecordQuickEvent(CustomAction):
             return True
         except Exception as e:
             return Prompt.error("记录快速事件", e)
+
+
+# 点击城市事件
+@AgentServer.custom_action("enter_event")
+class EnterEvent(CustomAction):
+    def run(
+        self, context: Context, argv: CustomAction.RunArg
+    ) -> CustomAction.RunResult | bool:
+        global click_index
+        try:
+            print(f"> 点击城市事件 {click_index}")
+            Tasker.click(context, 494 + 150 * click_index, 482)
+            return True
+        except Exception as e:
+            return Prompt.error("进入城市事件", e)
+
+
+# 右移点击位置
+@AgentServer.custom_action("increase_event_entry")
+class IncreaseEventEntry(CustomAction):
+    def run(
+        self, context: Context, argv: CustomAction.RunArg
+    ) -> CustomAction.RunResult | bool:
+        global click_index
+        try:
+            click_index += 1
+            return True
+        except Exception as e:
+            return Prompt.error("右移点击位置", e)
 
 
 # 指定作战队伍
