@@ -61,7 +61,6 @@ class EnterEvent(CustomAction):
     ) -> CustomAction.RunResult | bool:
         global click_index
         try:
-            print(f"> 点击城市事件 {click_index}")
             Tasker.click(context, 494 + 150 * click_index, 482)
             return True
         except Exception as e:

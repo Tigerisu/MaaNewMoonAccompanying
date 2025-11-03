@@ -3164,5 +3164,28 @@
         "interrupt": [
             "城市探索_事件列表"
         ]
+    },
+    "城市探索_不适用跳过券": {
+        "recognition": {
+            "type": "DirectHit",
+            "param": {}
+        },
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "increase_event_entry"
+            }
+        },
+        "pre_delay": 0,
+        "post_delay": 0,
+        "__mpe_code": {
+            "position": {
+                "x": 2458,
+                "y": -222
+            }
+        },
+        "next": [
+            "城市探索_记录处理"
+        ]
     }
 }
