@@ -1,10 +1,10 @@
 {
     "name": "MaaNewMoonAccompanying",
     "url": "https://github.com/kqcoxn/MaaNewMoonAccompanying",
-    "custom_title": "MNMA新月同行小助手(kqcoxn/MaaNewMoonAccompanying) v3.0.7 - MFAA | 游戏版本：正乌托邦·上",
+    "custom_title": "MNMA新月同行小助手(kqcoxn/MaaNewMoonAccompanying) v3.0.8 - MFAA | 游戏版本：正乌托邦·上",
     "mirrorchyan_rid": "MNMA",
     "mirrorchyan_multiplatform": true,
-    "version": "v3.0.7",
+    "version": "v3.0.8",
     "mfa_min_version": "v1.6.9",
     "mfa_max_version": "v1.6.9",
     "message": "- 新 月 同 行 -",
@@ -147,7 +147,7 @@
                 "委托指定项强制优先",
                 "跳过新城市探索剧情"
             ],
-            "doc": "**城市探索**：\n\n资源收取、制造订单、设施管理、传闻调查、城市事件\n\n**探索类事件（需要进横版场景的事件）在改版更新后无法直接跳过，当无可用跳过券时会自动略过执行下一个事件，请手动完成以防堆积。**\n\n开始界面：主界面/城市探索界面\n\n结束界面：主界面",
+            "doc": "**城市探索**：\n\n资源收取、制造订单、设施管理、传闻调查、城市事件\n\n**探索类事件（需要进横版场景的事件）在改版更新后无法直接跳过，当无可用跳过券时会自动略过执行下一个事件。**\n\n开始界面：主界面/城市探索界面\n\n结束界面：主界面",
             "check": true
         },
         {

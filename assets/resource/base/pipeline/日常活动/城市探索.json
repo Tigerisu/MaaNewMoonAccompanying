@@ -890,10 +890,12 @@
             "param": {}
         },
         "timeout": 500,
+        "post_delay": 0,
+        "pre_delay": 400,
         "__mpe_code": {
             "position": {
-                "x": 2186,
-                "y": 88
+                "x": 2191,
+                "y": 89
             }
         },
         "next": [
@@ -917,8 +919,8 @@
         "post_delay": 800,
         "__mpe_code": {
             "position": {
-                "x": 2184,
-                "y": 283
+                "x": 2194,
+                "y": 346
             }
         }
     },
@@ -953,7 +955,7 @@
                 "custom_action": "enter_event"
             }
         },
-        "timeout": 1000,
+        "timeout": 2000,
         "__mpe_code": {
             "position": {
                 "x": 2718,
@@ -2777,7 +2779,7 @@
                 ]
             }
         },
-        "timeout": 1000,
+        "timeout": 2000,
         "__mpe_code": {
             "position": {
                 "x": 2739,
