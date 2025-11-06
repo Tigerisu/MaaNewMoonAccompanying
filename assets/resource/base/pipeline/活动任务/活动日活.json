@@ -8,22 +8,20 @@
     },
     "正乌托邦_活动入口": {
         "recognition": {
-            "type": "TemplateMatch",
-            "param": {
-                "template": [
-                    "activity/entry.png"
-                ],
-                "threshold": [
-                    0.6
-                ],
-                "index": -1
-            }
+            "type": "DirectHit",
+            "param": {}
         },
         "action": {
             "type": "Click",
-            "param": {}
+            "param": {
+                "target": [
+                    1187,
+                    540,
+                    1,
+                    1
+                ]
+            }
         },
-        "pre_delay": 400,
         "focus": "> 进入活动界面",
         "__mpe_code": {
             "position": {

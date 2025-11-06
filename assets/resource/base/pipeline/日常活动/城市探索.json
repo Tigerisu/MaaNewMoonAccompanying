@@ -916,7 +916,6 @@
             "param": {}
         },
         "pre_delay": 400,
-        "post_delay": 800,
         "__mpe_code": {
             "position": {
                 "x": 2194,
