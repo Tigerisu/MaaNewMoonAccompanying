@@ -121,7 +121,7 @@
             "type": "OCR",
             "param": {
                 "expected": [
-                    "科学的价值"
+                    "真相的意义"
                 ]
             }
         },
@@ -149,6 +149,12 @@
             "param": {
                 "expected": [
                     "明天登录可得"
+                ],
+                "roi": [
+                    309,
+                    654,
+                    944,
+                    33
                 ]
             }
         },
@@ -168,7 +174,7 @@
         "__mpe_code": {
             "position": {
                 "x": 524,
-                "y": -256
+                "y": -285
             }
         },
         "next": [
@@ -216,7 +222,7 @@
             "type": "Custom",
             "param": {
                 "custom_action": "run_enter_activity",
-                "custom_action_param": "title=正乌托邦·上"
+                "custom_action_param": "title=正乌托邦·下"
             }
         },
         "focus": "> 进入签到界面",
