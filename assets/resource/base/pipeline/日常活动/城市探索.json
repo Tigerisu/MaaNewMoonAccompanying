@@ -889,13 +889,11 @@
             "type": "DoNothing",
             "param": {}
         },
-        "timeout": 500,
-        "post_delay": 0,
-        "pre_delay": 400,
+        "post_delay": 800,
         "__mpe_code": {
             "position": {
-                "x": 2191,
-                "y": 89
+                "x": 2196,
+                "y": 90
             }
         },
         "next": [
@@ -955,6 +953,8 @@
             }
         },
         "timeout": 2000,
+        "post_delay": 1000,
+        "focus": "> 判断事件类型",
         "__mpe_code": {
             "position": {
                 "x": 2718,
@@ -971,6 +971,9 @@
         ],
         "on_error": [
             "城市探索_无剩余事件"
+        ],
+        "interrupt": [
+            "城市探索_未点击成功"
         ]
     },
     "城市探索_回到主页": {
@@ -1009,7 +1012,7 @@
                     "city/fight_event.png"
                 ],
                 "threshold": [
-                    0.75
+                    0.6
                 ]
             }
         },
@@ -3204,7 +3207,7 @@
                     "city/plot_event.png"
                 ],
                 "threshold": [
-                    0.75
+                    0.6
                 ]
             }
         },
@@ -3222,5 +3225,47 @@
         "next": [
             "城市探索_进入剧情"
         ]
+    },
+    "城市探索_未点击成功": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "事件回顾"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {}
+        },
+        "focus": "> 重试判断",
+        "__mpe_code": {
+            "position": {
+                "x": 2727,
+                "y": 399
+            }
+        },
+        "next": [
+            "城市探索_再次点击"
+        ]
+    },
+    "城市探索_再次点击": {
+        "recognition": {
+            "type": "DirectHit",
+            "param": {}
+        },
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "enter_event"
+            }
+        },
+        "__mpe_code": {
+            "position": {
+                "x": 2732,
+                "y": 590
+            }
+        }
     }
 }
