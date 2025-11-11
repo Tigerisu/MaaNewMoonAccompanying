@@ -299,7 +299,7 @@
             "type": "Custom",
             "param": {
                 "custom_action": "init_counter",
-                "custom_action_param": "key=return_home&max=3"
+                "custom_action_param": "key=return_home&max=2"
             }
         },
         "pre_delay": 0,

@@ -446,7 +446,7 @@
                 "string"
             ],
             "default": [
-                "3"
+                "2"
             ],
             "pipeline_override": {
                 "返回主页_初始化计数": {
