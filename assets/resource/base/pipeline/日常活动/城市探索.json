@@ -952,7 +952,7 @@
                 "custom_action": "enter_event"
             }
         },
-        "timeout": 2000,
+        "timeout": 3000,
         "post_delay": 1000,
         "focus": "> 判断事件类型",
         "__mpe_code": {
@@ -1107,7 +1107,7 @@
             "type": "DoNothing",
             "param": {}
         },
-        "timeout": 2000,
+        "timeout": 3000,
         "focus": "> 线索行动类事件",
         "__mpe_code": {
             "position": {
