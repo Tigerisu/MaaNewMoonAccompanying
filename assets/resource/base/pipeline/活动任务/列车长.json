@@ -3,7 +3,7 @@
         "__mpe_code": {
             "prefix": "列车长",
             "filename": "列车长",
-            "version": "v0.5.3"
+            "version": "v0.5.5"
         }
     },
     "列车长_进入活动面板": {
@@ -423,7 +423,7 @@
         "action": {
             "type": "Custom",
             "param": {
-                "custom_action": "record_periodic_check",
+                "custom_action": "record_period",
                 "custom_action_param": "t=列车长"
             }
         },
