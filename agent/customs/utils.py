@@ -259,7 +259,8 @@ class RecoHelper:
 
     # 是否识别到结果
     def hit(self):
-        return self.reco_detail is not None
+        # MaaFramework 5.0+: run_recognition 返回 RecoResult 对象，需通过 hit 属性判断是否命中
+        return self.reco_detail is not None and self.reco_detail.hit
 
     # 点击
     def click(
@@ -342,18 +343,19 @@ class Judge:
         return_analyze_result=False,
     ) -> CustomRecognition.AnalyzeResult | bool:
         reco_detail = context.run_recognition(carrier_node, analyze_arg.image)
-        for res in reco_detail.all_results:
-            scores = res.text.split(split_key)
-            if len(scores) == 2:
-                if scores[0] == scores[1]:
-                    return (
-                        CustomRecognition.AnalyzeResult(
-                            box=res.box,
-                            detail=res.text,
+        if reco_detail is not None and reco_detail.hit:
+            for res in reco_detail.all_results:
+                scores = res.text.split(split_key)
+                if len(scores) == 2:
+                    if scores[0] == scores[1]:
+                        return (
+                            CustomRecognition.AnalyzeResult(
+                                box=res.box,
+                                detail=res.text,
+                            )
+                            if return_analyze_result
+                            else True
                         )
-                        if return_analyze_result
-                        else True
-                    )
         return (
             CustomRecognition.AnalyzeResult(box=None, detail="无目标")
             if return_analyze_result
