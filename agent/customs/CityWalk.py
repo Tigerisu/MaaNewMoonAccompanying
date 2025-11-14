@@ -7,6 +7,7 @@ from .utils import Tasker, parse_query_args, Prompt, RecoHelper
 
 check_quick_event = False
 click_index = 0
+event_not_click_times = 0
 
 
 # 初始化城市事件
@@ -15,10 +16,11 @@ class InitCityWalk(CustomAction):
     def run(
         self, context: Context, argv: CustomAction.RunArg
     ) -> CustomAction.RunResult | bool:
-        global check_quick_event, click_index
+        global check_quick_event, click_index, event_not_click_times
         try:
             check_quick_event = False
             click_index = 0
+            event_not_click_times = 0
             return True
         except Exception as e:
             return Prompt.error("初始化城市事件", e)
@@ -79,6 +81,35 @@ class IncreaseEventEntry(CustomAction):
             return True
         except Exception as e:
             return Prompt.error("右移点击位置", e)
+
+
+# 检查事件唤醒状态
+@AgentServer.custom_action("check_event_status")
+class CheckEventStatus(CustomAction):
+    def run(
+        self, context: Context, argv: CustomAction.RunArg
+    ) -> CustomAction.RunResult | bool:
+        global event_not_click_times
+        try:
+            if RecoHelper(context).recognize("城市探索_检查事件面板").hit():
+                event_not_click_times += 1
+            return event_not_click_times > 2
+        except Exception as e:
+            return Prompt.error("检查事件唤醒状态", e)
+
+
+# 城市事件后处理
+@AgentServer.custom_action("event_done")
+class EventDone(CustomAction):
+    def run(
+        self, context: Context, argv: CustomAction.RunArg
+    ) -> CustomAction.RunResult | bool:
+        global event_not_click_times
+        try:
+            event_not_click_times = 0
+            return True
+        except Exception as e:
+            return Prompt.error("城市事件后处理", e)
 
 
 # 指定作战队伍

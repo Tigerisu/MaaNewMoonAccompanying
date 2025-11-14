@@ -24,8 +24,8 @@
         "pre_delay": 400,
         "__mpe_code": {
             "position": {
-                "x": -442,
-                "y": 350
+                "x": -52,
+                "y": 345
             }
         },
         "next": [
@@ -51,8 +51,8 @@
         "pre_delay": 800,
         "__mpe_code": {
             "position": {
-                "x": -173,
-                "y": 356
+                "x": 217,
+                "y": 351
             }
         },
         "next": [
@@ -78,8 +78,8 @@
         "focus": "> 进入设施管理",
         "__mpe_code": {
             "position": {
-                "x": 116,
-                "y": 359
+                "x": 506,
+                "y": 354
             }
         },
         "next": [
@@ -103,8 +103,8 @@
         "pre_delay": 400,
         "__mpe_code": {
             "position": {
-                "x": 630,
-                "y": 326
+                "x": 1020,
+                "y": 321
             }
         },
         "next": [
@@ -129,8 +129,8 @@
         "pre_delay": 400,
         "__mpe_code": {
             "position": {
-                "x": 117,
-                "y": 562
+                "x": 507,
+                "y": 557
             }
         },
         "next": [
@@ -155,8 +155,8 @@
         },
         "__mpe_code": {
             "position": {
-                "x": 374,
-                "y": 563
+                "x": 764,
+                "y": 558
             }
         },
         "next": [
@@ -178,8 +178,8 @@
         },
         "__mpe_code": {
             "position": {
-                "x": 374,
-                "y": 726
+                "x": 764,
+                "y": 721
             }
         }
     },
@@ -200,8 +200,8 @@
         "pre_delay": 400,
         "__mpe_code": {
             "position": {
-                "x": 633,
-                "y": 560
+                "x": 1023,
+                "y": 555
             }
         },
         "next": [
@@ -225,8 +225,8 @@
         "pre_delay": 800,
         "__mpe_code": {
             "position": {
-                "x": 117,
-                "y": 901
+                "x": 507,
+                "y": 896
             }
         },
         "next": [
@@ -248,8 +248,8 @@
         },
         "__mpe_code": {
             "position": {
-                "x": 370,
-                "y": 930
+                "x": 760,
+                "y": 925
             }
         },
         "next": [
@@ -271,8 +271,8 @@
         },
         "__mpe_code": {
             "position": {
-                "x": 618,
-                "y": 926
+                "x": 1008,
+                "y": 921
             }
         },
         "next": [
@@ -298,8 +298,8 @@
         "timeout": 2000,
         "__mpe_code": {
             "position": {
-                "x": 858,
-                "y": 925
+                "x": 1248,
+                "y": 920
             }
         },
         "next": [
@@ -325,8 +325,8 @@
         "timeout": 2000,
         "__mpe_code": {
             "position": {
-                "x": 142,
-                "y": 1151
+                "x": 532,
+                "y": 1146
             }
         },
         "next": [
@@ -354,8 +354,8 @@
         "post_delay": 1000,
         "__mpe_code": {
             "position": {
-                "x": 652,
-                "y": 1136
+                "x": 1042,
+                "y": 1131
             }
         },
         "next": [
@@ -379,8 +379,8 @@
         "focus": "> 收取加速后物资",
         "__mpe_code": {
             "position": {
-                "x": 395,
-                "y": 1151
+                "x": 785,
+                "y": 1146
             }
         },
         "next": [
@@ -403,8 +403,8 @@
         "pre_delay": 800,
         "__mpe_code": {
             "position": {
-                "x": 910,
-                "y": 1133
+                "x": 1300,
+                "y": 1128
             }
         },
         "next": [
@@ -460,12 +460,12 @@
             "type": "Click",
             "param": {}
         },
-        "timeout": 3000,
+        "timeout": 2000,
         "focus": "> 审阅档案",
         "__mpe_code": {
             "position": {
-                "x": 357,
-                "y": 1950
+                "x": 279,
+                "y": 1725
             }
         },
         "next": [
@@ -503,19 +503,19 @@
         "focus": "> 档案归档",
         "__mpe_code": {
             "position": {
-                "x": 614,
-                "y": 1949
+                "x": 549,
+                "y": 1948
             }
         },
         "next": [
             "城市探索_获取调查情报",
             "城市探索_调查战斗"
         ],
-        "interrupt": [
-            "城市探索_新档案提示"
-        ],
         "on_error": [
             "城市探索_完成情报收取"
+        ],
+        "interrupt": [
+            "城市探索_确保点击"
         ]
     },
     "城市探索_新案件提示": {
@@ -551,8 +551,8 @@
         "post_delay": 0,
         "__mpe_code": {
             "position": {
-                "x": 1060,
-                "y": 1562
+                "x": 852,
+                "y": 1582
             }
         },
         "next": [
@@ -576,8 +576,8 @@
         "pre_delay": 400,
         "__mpe_code": {
             "position": {
-                "x": 376,
-                "y": 2237
+                "x": 280,
+                "y": 2013
             }
         }
     },
@@ -595,44 +595,25 @@
             "param": {}
         },
         "timeout": 2000,
-        "pre_delay": 800,
-        "post_delay": 1000,
+        "pre_delay": 400,
+        "post_delay": 800,
         "__mpe_code": {
             "position": {
-                "x": 493,
-                "y": 1681
+                "x": 551,
+                "y": 1691
             }
         },
         "next": [
-            "城市探索_开始审阅"
+            "城市探索_开始审阅",
+            "城市探索_调查战斗",
+            "城市探索_归档"
         ],
         "interrupt": [
-            "城市探索_确认获取调查情报"
+            "城市探索_确保点击"
         ],
         "on_error": [
             "城市探索_完成情报收取"
         ]
-    },
-    "城市探索_新档案提示": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "expected": [
-                    "点击空白处关闭"
-                ]
-            }
-        },
-        "action": {
-            "type": "Click",
-            "param": {}
-        },
-        "pre_delay": 400,
-        "__mpe_code": {
-            "position": {
-                "x": 876,
-                "y": 1950
-            }
-        }
     },
     "城市探索_自动更换": {
         "recognition": {
@@ -650,8 +631,8 @@
         "post_delay": 800,
         "__mpe_code": {
             "position": {
-                "x": 1360,
-                "y": 1777
+                "x": 1123,
+                "y": 1767
             }
         },
         "next": [
@@ -676,20 +657,21 @@
         "focus": "> 调查结束",
         "__mpe_code": {
             "position": {
-                "x": 1402,
-                "y": 1509
+                "x": 1415,
+                "y": 1529
             }
         },
         "next": [
             "城市探索_城市事件"
         ]
     },
-    "城市探索_确认获取调查情报": {
+    "城市探索_确保点击": {
         "recognition": {
             "type": "OCR",
             "param": {
                 "expected": [
-                    "点击以继续"
+                    "点击以继续",
+                    "点击空白处关闭"
                 ]
             }
         },
@@ -700,8 +682,8 @@
         "pre_delay": 400,
         "__mpe_code": {
             "position": {
-                "x": 745,
-                "y": 1736
+                "x": 823,
+                "y": 1864
             }
         }
     },
@@ -726,8 +708,8 @@
         },
         "__mpe_code": {
             "position": {
-                "x": 1643,
-                "y": 1773
+                "x": 1373,
+                "y": 1765
             }
         },
         "next": [
@@ -750,8 +732,8 @@
         "post_delay": 800,
         "__mpe_code": {
             "position": {
-                "x": 1633,
-                "y": 1981
+                "x": 1377,
+                "y": 1965
             }
         },
         "next": [
@@ -794,8 +776,8 @@
         },
         "__mpe_code": {
             "position": {
-                "x": 1925,
-                "y": 1774
+                "x": 1623,
+                "y": 1767
             }
         },
         "next": [
@@ -817,8 +799,8 @@
         },
         "__mpe_code": {
             "position": {
-                "x": 1900,
-                "y": 1981
+                "x": 1628,
+                "y": 1971
             }
         },
         "next": [
@@ -952,9 +934,10 @@
                 "custom_action": "enter_event"
             }
         },
-        "timeout": 3000,
+        "timeout": 2000,
         "post_delay": 1000,
         "focus": "> 判断事件类型",
+        "rate_limit": 500,
         "__mpe_code": {
             "position": {
                 "x": 2718,
@@ -971,6 +954,9 @@
         ],
         "on_error": [
             "城市探索_无剩余事件"
+        ],
+        "interrupt": [
+            "城市探索_未点击成功"
         ]
     },
     "城市探索_回到主页": {
@@ -1824,13 +1810,15 @@
             }
         },
         "action": {
-            "type": "DoNothing",
-            "param": {}
+            "type": "Custom",
+            "param": {
+                "custom_action": "event_done"
+            }
         },
         "__mpe_code": {
             "position": {
-                "x": 5827,
-                "y": -141
+                "x": 5829,
+                "y": -176
             }
         },
         "next": [
@@ -2500,8 +2488,8 @@
         "timeout": 1000,
         "__mpe_code": {
             "position": {
-                "x": -1514,
-                "y": 317
+                "x": -1124,
+                "y": 312
             }
         },
         "next": [
@@ -2526,8 +2514,8 @@
         },
         "__mpe_code": {
             "position": {
-                "x": -990,
-                "y": 289
+                "x": -600,
+                "y": 284
             }
         },
         "next": [
@@ -2548,8 +2536,8 @@
         },
         "__mpe_code": {
             "position": {
-                "x": -1254,
-                "y": 459
+                "x": -864,
+                "y": 454
             }
         },
         "next": [
@@ -2569,8 +2557,8 @@
         "post_delay": 0,
         "__mpe_code": {
             "position": {
-                "x": -705,
-                "y": 345
+                "x": -315,
+                "y": 340
             }
         },
         "next": [
@@ -2594,8 +2582,8 @@
         "focus": "> 进入城市探索界面",
         "__mpe_code": {
             "position": {
-                "x": -989,
-                "y": 456
+                "x": -599,
+                "y": 451
             }
         },
         "next": [
@@ -2711,8 +2699,8 @@
         },
         "__mpe_code": {
             "position": {
-                "x": -152,
-                "y": 558
+                "x": 238,
+                "y": 553
             }
         }
     },
@@ -2732,8 +2720,8 @@
         "pre_delay": 400,
         "__mpe_code": {
             "position": {
-                "x": 625,
-                "y": 2304
+                "x": 550,
+                "y": 2297
             }
         },
         "next": [
@@ -2754,8 +2742,8 @@
         },
         "__mpe_code": {
             "position": {
-                "x": 885,
-                "y": 2304
+                "x": 790,
+                "y": 2290
             }
         },
         "next": [
@@ -3007,8 +2995,8 @@
         "post_delay": 0,
         "__mpe_code": {
             "position": {
-                "x": 372,
-                "y": 301
+                "x": 762,
+                "y": 296
             }
         },
         "next": [
@@ -3034,8 +3022,8 @@
         "post_delay": 0,
         "__mpe_code": {
             "position": {
-                "x": 885,
-                "y": 295
+                "x": 1275,
+                "y": 290
             }
         },
         "next": [
@@ -3221,28 +3209,28 @@
     },
     "城市探索_未点击成功": {
         "recognition": {
-            "type": "OCR",
-            "param": {
-                "expected": [
-                    "事件回顾"
-                ]
-            }
-        },
-        "action": {
-            "type": "DoNothing",
+            "type": "DirectHit",
             "param": {}
         },
-        "focus": "> 重试判断",
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "event_not_click"
+            }
+        },
         "pre_delay": 0,
         "post_delay": 0,
         "__mpe_code": {
             "position": {
-                "x": 2722,
-                "y": 399
+                "x": 2719,
+                "y": 432
             }
         },
         "next": [
             "城市探索_再次点击"
+        ],
+        "on_error": [
+            "城市探索_未达到点击条件"
         ]
     },
     "城市探索_再次点击": {
@@ -3260,8 +3248,26 @@
         "post_delay": 0,
         "__mpe_code": {
             "position": {
-                "x": 2725,
-                "y": 648
+                "x": 2530,
+                "y": 665
+            }
+        }
+    },
+    "城市探索_未达到点击条件": {
+        "recognition": {
+            "type": "DirectHit",
+            "param": {}
+        },
+        "action": {
+            "type": "DoNothing",
+            "param": {}
+        },
+        "pre_delay": 0,
+        "post_delay": 0,
+        "__mpe_code": {
+            "position": {
+                "x": 2774,
+                "y": 666
             }
         }
     }
