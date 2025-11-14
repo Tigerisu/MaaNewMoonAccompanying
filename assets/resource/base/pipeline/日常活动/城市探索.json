@@ -934,8 +934,8 @@
                 "custom_action": "enter_event"
             }
         },
-        "timeout": 2000,
-        "post_delay": 1000,
+        "timeout": 3000,
+        "post_delay": 1200,
         "focus": "> 判断事件类型",
         "rate_limit": 500,
         "__mpe_code": {
@@ -1004,6 +1004,7 @@
             "param": {}
         },
         "focus": "> 战斗类事件",
+        "pre_delay": 400,
         "__mpe_code": {
             "position": {
                 "x": 3067,
@@ -1095,10 +1096,11 @@
         },
         "timeout": 3000,
         "focus": "> 线索行动类事件",
+        "pre_delay": 400,
         "__mpe_code": {
             "position": {
-                "x": 3044,
-                "y": 89
+                "x": 3043,
+                "y": 82
             }
         },
         "next": [
@@ -1135,6 +1137,7 @@
             "param": {}
         },
         "focus": "> 剧情类事件",
+        "pre_delay": 400,
         "__mpe_code": {
             "position": {
                 "x": 3049,
@@ -3197,10 +3200,11 @@
             "param": {}
         },
         "focus": "> 剧情类事件",
+        "pre_delay": 400,
         "__mpe_code": {
             "position": {
-                "x": 3049,
-                "y": 677
+                "x": 3050,
+                "y": 696
             }
         },
         "next": [
@@ -3215,7 +3219,7 @@
         "action": {
             "type": "Custom",
             "param": {
-                "custom_action": "event_not_click"
+                "custom_action": "check_event_status"
             }
         },
         "pre_delay": 0,
@@ -3245,7 +3249,8 @@
             }
         },
         "pre_delay": 0,
-        "post_delay": 0,
+        "post_delay": 1200,
+        "focus": "> 尝试再次打开事件详情",
         "__mpe_code": {
             "position": {
                 "x": 2530,
