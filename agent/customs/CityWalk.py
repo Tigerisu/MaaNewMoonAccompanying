@@ -41,6 +41,26 @@ class CheckQuickEvent(CustomAction):
             return Prompt.error("检查快速事件", e)
 
 
+# 检查新事件
+@AgentServer.custom_action("check_new_event")
+class CheckNewEvent(CustomAction):
+    def run(
+        self, context: Context, argv: CustomAction.RunArg
+    ) -> CustomAction.RunResult | bool:
+        global click_index
+        try:
+            return (
+                not RecoHelper(context)
+                .recognize(
+                    "城市探索_识别新事件",
+                    {"roi": [436 + 150 * click_index, 413, 60, 68]},
+                )
+                .hit()
+            )
+        except Exception as e:
+            return Prompt.error("检查新事件", e)
+
+
 # 记录快速事件
 @AgentServer.custom_action("record_quick_event")
 class RecordQuickEvent(CustomAction):

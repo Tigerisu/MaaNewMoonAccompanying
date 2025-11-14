@@ -511,11 +511,11 @@
             "城市探索_获取调查情报",
             "城市探索_调查战斗"
         ],
-        "on_error": [
-            "城市探索_完成情报收取"
-        ],
         "interrupt": [
             "城市探索_确保点击"
+        ],
+        "on_error": [
+            "城市探索_完成情报收取"
         ]
     },
     "城市探索_新案件提示": {
@@ -952,11 +952,11 @@
             "城市探索_剧情事件-普通",
             "城市探索_剧情事件-特殊"
         ],
-        "on_error": [
-            "城市探索_无剩余事件"
-        ],
         "interrupt": [
             "城市探索_未点击成功"
+        ],
+        "on_error": [
+            "城市探索_无剩余事件"
         ]
     },
     "城市探索_回到主页": {
@@ -2803,7 +2803,7 @@
             "城市探索_尝试快速处理"
         ],
         "on_error": [
-            "城市探索_事件详情"
+            "城市探索_检查新事件"
         ]
     },
     "城市探索_快速完成事件": {
@@ -2900,7 +2900,7 @@
             }
         },
         "next": [
-            "城市探索_事件详情"
+            "城市探索_检查新事件"
         ]
     },
     "城市探索_获取快速事件奖励": {
@@ -3054,8 +3054,8 @@
         },
         "__mpe_code": {
             "position": {
-                "x": 2449,
-                "y": 317
+                "x": 2445,
+                "y": -101
             }
         }
     },
@@ -3169,8 +3169,8 @@
         "post_delay": 0,
         "__mpe_code": {
             "position": {
-                "x": 2458,
-                "y": -222
+                "x": 2443,
+                "y": -342
             }
         },
         "next": [
@@ -3253,8 +3253,8 @@
         "focus": "> 尝试再次打开事件详情",
         "__mpe_code": {
             "position": {
-                "x": 2530,
-                "y": 665
+                "x": 2776,
+                "y": 861
             }
         }
     },
@@ -3273,6 +3273,103 @@
             "position": {
                 "x": 2774,
                 "y": 666
+            }
+        }
+    },
+    "城市探索_检查新事件": {
+        "recognition": {
+            "type": "DirectHit",
+            "param": {}
+        },
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "check_new_event"
+            }
+        },
+        "pre_delay": 0,
+        "post_delay": 0,
+        "__mpe_code": {
+            "position": {
+                "x": 2447,
+                "y": 311
+            }
+        },
+        "next": [
+            "城市探索_事件详情"
+        ],
+        "on_error": [
+            "城市探索_检查到新事件"
+        ]
+    },
+    "城市探索_识别新事件": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "city/new_event.png"
+                ],
+                "roi": [
+                    417,
+                    413,
+                    680,
+                    70
+                ]
+            }
+        },
+        "action": {
+            "type": "DoNothing",
+            "param": {}
+        },
+        "__mpe_code": {
+            "position": {
+                "x": 2191,
+                "y": -102
+            }
+        }
+    },
+    "城市探索_检查到新事件": {
+        "recognition": {
+            "type": "DirectHit",
+            "param": {}
+        },
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "increase_event_entry"
+            }
+        },
+        "pre_delay": 0,
+        "post_delay": 0,
+        "focus": "> 检查到新事件",
+        "__mpe_code": {
+            "position": {
+                "x": 2183,
+                "y": 546
+            }
+        },
+        "next": [
+            "城市探索_延迟提醒"
+        ]
+    },
+    "城市探索_延迟提醒": {
+        "recognition": {
+            "type": "DirectHit",
+            "param": {}
+        },
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "delay_focus_hook",
+                "custom_action_param": "key=新城市事件&focus=出现了新的城市事件，已留存！"
+            }
+        },
+        "pre_delay": 0,
+        "post_delay": 0,
+        "__mpe_code": {
+            "position": {
+                "x": 2443,
+                "y": 546
             }
         }
     }
