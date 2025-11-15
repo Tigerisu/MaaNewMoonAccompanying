@@ -2,6 +2,8 @@ from maa.agent.agent_server import AgentServer
 from maa.custom_action import CustomAction
 from maa.context import Context
 
+import time
+
 from .utils import Tasker, parse_query_args, Prompt, RecoHelper
 
 
@@ -113,9 +115,28 @@ class CheckEventStatus(CustomAction):
         try:
             if RecoHelper(context).recognize("城市探索_检查事件面板").hit():
                 event_not_click_times += 1
-            return event_not_click_times > 2
+            return event_not_click_times % 3 == 0
         except Exception as e:
             return Prompt.error("检查事件唤醒状态", e)
+
+
+# 放弃重试
+@AgentServer.custom_action("abandon_event")
+class AbandonEvent(CustomAction):
+    def run(
+        self, context: Context, argv: CustomAction.RunArg
+    ) -> CustomAction.RunResult | bool:
+        global event_not_click_times
+        try:
+            args = parse_query_args(argv)
+            threshold = args.get("t", "8")
+            threshold = int(threshold)
+            if event_not_click_times > threshold:
+                Tasker.click(context, 112, 43)
+                time.sleep(0.8)
+            return True
+        except Exception as e:
+            return Prompt.error("放弃重试", e)
 
 
 # 城市事件后处理

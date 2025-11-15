@@ -934,10 +934,10 @@
                 "custom_action": "enter_event"
             }
         },
-        "timeout": 3000,
         "post_delay": 1200,
         "focus": "> 判断事件类型",
         "rate_limit": 500,
+        "timeout": 1000,
         "__mpe_code": {
             "position": {
                 "x": 2718,
@@ -1094,13 +1094,12 @@
             "type": "DoNothing",
             "param": {}
         },
-        "timeout": 3000,
         "focus": "> 线索行动类事件",
         "pre_delay": 400,
         "__mpe_code": {
             "position": {
-                "x": 3043,
-                "y": 82
+                "x": 3047,
+                "y": 89
             }
         },
         "next": [
@@ -1536,8 +1535,8 @@
         "timeout": 120000,
         "__mpe_code": {
             "position": {
-                "x": 5827,
-                "y": 35
+                "x": 5830,
+                "y": 2
             }
         },
         "next": [
@@ -1820,8 +1819,8 @@
         },
         "__mpe_code": {
             "position": {
-                "x": 5829,
-                "y": -176
+                "x": 5830,
+                "y": -194
             }
         },
         "next": [
@@ -2900,7 +2899,7 @@
             }
         },
         "next": [
-            "城市探索_检查新事件"
+            "城市探索_唤起事件列表"
         ]
     },
     "城市探索_获取快速事件奖励": {
@@ -3213,8 +3212,12 @@
     },
     "城市探索_未点击成功": {
         "recognition": {
-            "type": "DirectHit",
-            "param": {}
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "事件回顾"
+                ]
+            }
         },
         "action": {
             "type": "Custom",
@@ -3226,8 +3229,8 @@
         "post_delay": 0,
         "__mpe_code": {
             "position": {
-                "x": 2719,
-                "y": 432
+                "x": 2716,
+                "y": 423
             }
         },
         "next": [
@@ -3250,11 +3253,10 @@
         },
         "pre_delay": 0,
         "post_delay": 1200,
-        "focus": "> 尝试再次打开事件详情",
         "__mpe_code": {
             "position": {
-                "x": 2776,
-                "y": 861
+                "x": 2740,
+                "y": 898
             }
         }
     },
@@ -3264,15 +3266,17 @@
             "param": {}
         },
         "action": {
-            "type": "DoNothing",
-            "param": {}
+            "type": "Custom",
+            "param": {
+                "custom_action": "abandon_event"
+            }
         },
         "pre_delay": 0,
         "post_delay": 0,
         "__mpe_code": {
             "position": {
-                "x": 2774,
-                "y": 666
+                "x": 2739,
+                "y": 679
             }
         }
     },
@@ -3341,7 +3345,7 @@
         },
         "pre_delay": 0,
         "post_delay": 0,
-        "focus": "> 检查到新事件",
+        "focus": "> 检查到新事件，已跳过",
         "__mpe_code": {
             "position": {
                 "x": 2183,
@@ -3371,6 +3375,9 @@
                 "x": 2443,
                 "y": 546
             }
-        }
+        },
+        "next": [
+            "城市探索_检查新事件"
+        ]
     }
 }
