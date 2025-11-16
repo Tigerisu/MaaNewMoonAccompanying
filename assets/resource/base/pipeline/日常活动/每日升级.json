@@ -1,9 +1,9 @@
 {
-    "__mpe_config_每日升级": {
-        "__mpe_code": {
+    "$__mpe_config_每日升级": {
+        "$__mpe_code": {
             "prefix": "每日升级",
             "filename": "每日升级",
-            "version": "v0.5.5"
+            "version": "v0.7.0"
         }
     },
     "每日升级_特工管理": {
@@ -20,7 +20,7 @@
             "param": {}
         },
         "focus": "> 进入特工管理界面",
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
                 "x": -1127,
                 "y": -962
@@ -44,8 +44,8 @@
             "param": {}
         },
         "focus": "> 查找目标特工",
-        "pre_delay": 400,
-        "__mpe_code": {
+        "pre_delay": 800,
+        "$__mpe_code": {
             "position": {
                 "x": -851,
                 "y": -994
@@ -75,7 +75,7 @@
             "type": "DoNothing",
             "param": {}
         },
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
                 "x": -37,
                 "y": -1028
@@ -83,6 +83,9 @@
         },
         "next": [
             "每日升级_进入等级界面"
+        ],
+        "interrupt": [
+            "每日升级_确保进入详情页"
         ]
     },
     "每日升级_左滑角色": {
@@ -113,7 +116,7 @@
             }
         },
         "post_delay": 800,
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
                 "x": -38,
                 "y": -1297
@@ -137,7 +140,7 @@
             "param": {}
         },
         "pre_delay": 400,
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
                 "x": -1372,
                 "y": -687
@@ -164,7 +167,7 @@
             "param": {}
         },
         "focus": "> 升级",
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
                 "x": -1095,
                 "y": -685
@@ -188,7 +191,7 @@
             "param": {}
         },
         "focus": "> 指定特工需要认证",
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
                 "x": -1080,
                 "y": -455
@@ -212,7 +215,7 @@
             "param": {}
         },
         "focus": "> 指定特工已满级",
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
                 "x": -1346,
                 "y": -457
@@ -236,7 +239,7 @@
             "type": "Click",
             "param": {}
         },
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
                 "x": -849,
                 "y": -683
@@ -260,7 +263,7 @@
             "param": {}
         },
         "post_delay": 1000,
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
                 "x": -830,
                 "y": -456
@@ -282,7 +285,7 @@
                 "custom_action_param": "t=character_upgrade"
             }
         },
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
                 "x": -594,
                 "y": -682
@@ -304,7 +307,7 @@
             }
         },
         "pre_delay": 0,
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
                 "x": -1939,
                 "y": -1297
@@ -331,7 +334,7 @@
             "param": {}
         },
         "focus": "> 返回主界面",
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
                 "x": -342,
                 "y": -678
@@ -354,7 +357,7 @@
             "type": "Click",
             "param": {}
         },
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
                 "x": -1668,
                 "y": -1299
@@ -378,7 +381,7 @@
             "param": {}
         },
         "focus": "> 列表内无可升级特工！",
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
                 "x": -1602,
                 "y": -282
@@ -399,7 +402,7 @@
         },
         "pre_delay": 0,
         "post_delay": 0,
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
                 "x": -28,
                 "y": -223
@@ -440,7 +443,7 @@
         },
         "pre_delay": 800,
         "post_delay": 1000,
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
                 "x": -1404,
                 "y": -1299
@@ -480,7 +483,7 @@
             }
         },
         "post_delay": 1000,
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
                 "x": -1127,
                 "y": -1296
@@ -501,7 +504,7 @@
         },
         "pre_delay": 0,
         "post_delay": 0,
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
                 "x": -1936,
                 "y": -959
@@ -521,7 +524,7 @@
             "param": {}
         },
         "focus": "> 今日角色已升级",
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
                 "x": -356,
                 "y": -476
@@ -544,7 +547,7 @@
             }
         },
         "pre_delay": 0,
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
                 "x": -1653,
                 "y": -962
@@ -571,7 +574,7 @@
         },
         "focus": "> 角色升级",
         "pre_delay": 0,
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
                 "x": -1388,
                 "y": -963
@@ -594,7 +597,7 @@
             "param": {}
         },
         "focus": "> 特工名单为空",
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
                 "x": -1048,
                 "y": -182
@@ -613,7 +616,7 @@
             "type": "DoNothing",
             "param": {}
         },
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
                 "x": -2483,
                 "y": -958
@@ -635,7 +638,7 @@
                 "custom_action_param": "key=全局前置返回主页"
             }
         },
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
                 "x": -2212,
                 "y": -958
@@ -659,7 +662,7 @@
         },
         "pre_delay": 0,
         "post_delay": 0,
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
                 "x": -585,
                 "y": -1023
@@ -680,7 +683,7 @@
         },
         "pre_delay": 0,
         "post_delay": 0,
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
                 "x": -321,
                 "y": -1022
@@ -705,7 +708,7 @@
         },
         "pre_delay": 0,
         "post_delay": 0,
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
                 "x": 226,
                 "y": -1296
@@ -730,7 +733,7 @@
             }
         },
         "pre_delay": 0,
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
                 "x": -1939,
                 "y": -1514
@@ -754,7 +757,7 @@
         },
         "pre_delay": 0,
         "post_delay": 0,
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
                 "x": 837,
                 "y": -1146
@@ -789,7 +792,7 @@
         },
         "pre_delay": 400,
         "focus": "> 卡带升级",
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
                 "x": 1387,
                 "y": -1150
@@ -820,7 +823,7 @@
         },
         "pre_delay": 800,
         "focus": "> 尝试寻找可升级卡带",
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
                 "x": 1644,
                 "y": -1149
@@ -844,7 +847,7 @@
             "param": {}
         },
         "pre_delay": 400,
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
                 "x": 1904,
                 "y": -1149
@@ -868,7 +871,7 @@
             "param": {}
         },
         "pre_delay": 400,
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
                 "x": 854,
                 "y": -814
@@ -893,7 +896,7 @@
         },
         "post_delay": 800,
         "timeout": 2000,
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
                 "x": 1114,
                 "y": -814
@@ -929,7 +932,7 @@
         },
         "inverse": true,
         "focus": "> 升级卡带",
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
                 "x": 1449,
                 "y": -814
@@ -955,7 +958,7 @@
                 ]
             }
         },
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
                 "x": 1709,
                 "y": -814
@@ -982,7 +985,7 @@
             }
         },
         "timeout": 3000,
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
                 "x": 1171,
                 "y": -574
@@ -1007,7 +1010,7 @@
         "focus": "> 无可升级卡带",
         "pre_delay": 0,
         "post_delay": 0,
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
                 "x": 1455,
                 "y": -367
@@ -1036,7 +1039,7 @@
             "type": "Click",
             "param": {}
         },
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
                 "x": 1969,
                 "y": -814
@@ -1065,7 +1068,7 @@
             "type": "Click",
             "param": {}
         },
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
                 "x": 1827,
                 "y": -577
@@ -1089,7 +1092,7 @@
             "param": {}
         },
         "post_delay": 800,
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
                 "x": 2229,
                 "y": -814
@@ -1115,7 +1118,7 @@
                 ]
             }
         },
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
                 "x": 2087,
                 "y": -577
@@ -1140,7 +1143,7 @@
         },
         "pre_delay": 800,
         "focus": "> 卡带升级成功",
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
                 "x": 2347,
                 "y": -577
@@ -1159,7 +1162,7 @@
             "type": "DoNothing",
             "param": {}
         },
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
                 "x": 3280,
                 "y": -1390
@@ -1178,7 +1181,7 @@
                 "custom_action_param": "key=返回主页"
             }
         },
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
                 "x": 2900,
                 "y": -395
@@ -1200,7 +1203,7 @@
                 "custom_action_param": "t=strap_upgrade"
             }
         },
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
                 "x": 2613,
                 "y": -575
@@ -1223,7 +1226,7 @@
             }
         },
         "pre_delay": 0,
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
                 "x": 1115,
                 "y": -1149
@@ -1248,7 +1251,7 @@
         "pre_delay": 0,
         "post_delay": 0,
         "focus": "> 今日卡带已升级",
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
                 "x": 1381,
                 "y": -1395
@@ -1274,7 +1277,7 @@
                 ]
             }
         },
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
                 "x": -853,
                 "y": -1173
@@ -1283,5 +1286,26 @@
         "next": [
             "每日升级_进入特工详情页"
         ]
+    },
+    "每日升级_确保进入详情页": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "基础"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {}
+        },
+        "post_delay": 800,
+        "$__mpe_code": {
+            "position": {
+                "x": 228,
+                "y": -1026
+            }
+        }
     }
 }
