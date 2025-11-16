@@ -1,10 +1,10 @@
 {
     "name": "MaaNewMoonAccompanying",
     "url": "https://github.com/kqcoxn/MaaNewMoonAccompanying",
-    "custom_title": "MNMA新月同行小助手(kqcoxn/MaaNewMoonAccompanying) v3.0.16 - MFAA | 游戏版本：正乌托邦·下",
+    "custom_title": "MNMA新月同行小助手(kqcoxn/MaaNewMoonAccompanying) v3.0.17 - MFAA | 游戏版本：正乌托邦·下",
     "mirrorchyan_rid": "MNMA",
     "mirrorchyan_multiplatform": true,
-    "version": "v3.0.16",
+    "version": "v3.0.17",
     "mfa_min_version": "v1.7.0",
     "mfa_max_version": "v1.7.0",
     "message": "- 新 月 同 行 -",
@@ -152,7 +152,7 @@
                 "叉车加速设施",
                 "城市事件",
                 "使用跳过券",
-                "跳过新城市探索",
+                "自动完成新城市探索",
                 "委托事件指定奖励选项",
                 "委托指定项强制优先"
             ],
@@ -1402,11 +1402,11 @@
                 }
             ]
         },
-        "跳过新城市探索": {
+        "自动完成新城市探索": {
             "doc": "可在添加监测提醒任务以在任务日志最后提醒\n开启此选项时，若无可执行事件，返回主界面前的确认时长会显著增加，约8s",
             "cases": [
                 {
-                    "name": "No",
+                    "name": "Yes",
                     "pipeline_override": {
                         "城市探索_检查新事件": {
                             "action": "DoNothing"
@@ -1414,7 +1414,7 @@
                     }
                 },
                 {
-                    "name": "Yes",
+                    "name": "No",
                     "pipeline_override": {}
                 }
             ]
