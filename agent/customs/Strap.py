@@ -2,7 +2,8 @@ from maa.agent.agent_server import AgentServer
 from maa.custom_action import CustomAction
 from maa.custom_recognition import CustomRecognition
 from maa.context import Context
-import re
+
+import time
 
 from .utils import Tasker, parse_query_args, Prompt, RecoHelper, Judge
 from .Counter import counter_manager
@@ -257,6 +258,7 @@ class CheckStrapAttr(CustomRecognition):
                                     "卡带词条_使用新特征"
                                 ).click()
                             Prompt.log("使用较低值作为保底")
+                            time.sleep(0.8)
                         # 命中时返回结果
                         if is_hit:
                             return RecoHelper.rt(results[0].box, text=text)
@@ -277,6 +279,7 @@ class CheckStrapAttr(CustomRecognition):
                                 "卡带词条_使用新特征"
                             ).click()
                             Prompt.log("使用较低值作为保底")
+                            time.sleep(0.8)
                     # 命中时返回结果
                     if is_hit:
                         return RecoHelper.rt(results[0].box, text=text)

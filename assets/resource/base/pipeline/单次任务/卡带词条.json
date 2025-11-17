@@ -1,9 +1,9 @@
 {
-    "__mpe_config_卡带词条": {
-        "__mpe_code": {
+    "$__mpe_config_卡带词条": {
+        "$__mpe_code": {
             "prefix": "卡带词条",
             "filename": "卡带词条",
-            "version": "v0.5.5"
+            "version": "v0.7.0"
         }
     },
     "卡带词条_再激活": {
@@ -22,7 +22,7 @@
             "param": {}
         },
         "pre_delay": 400,
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
                 "x": 783,
                 "y": 679
@@ -46,7 +46,7 @@
         },
         "pre_delay": 0,
         "post_delay": 0,
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
                 "x": 514,
                 "y": 679
@@ -78,10 +78,10 @@
             "type": "DoNothing",
             "param": {}
         },
-        "timeout": 500,
+        "timeout": 0,
         "pre_delay": 0,
         "post_delay": 100,
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
                 "x": 1052,
                 "y": 678
@@ -108,7 +108,7 @@
         },
         "pre_delay": 0,
         "post_delay": 0,
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
                 "x": 1317,
                 "y": 613
@@ -137,7 +137,7 @@
         },
         "pre_delay": 0,
         "post_delay": 0,
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
                 "x": 1596,
                 "y": 775
@@ -161,7 +161,7 @@
             "param": {}
         },
         "focus": "> 已激活到指定属性！",
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
                 "x": 1601,
                 "y": 580
@@ -182,7 +182,7 @@
         },
         "pre_delay": 0,
         "post_delay": 0,
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
                 "x": 1861,
                 "y": 1034
@@ -201,7 +201,7 @@
             "type": "DoNothing",
             "param": {}
         },
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
                 "x": -1619,
                 "y": 495
@@ -225,7 +225,7 @@
         "pre_delay": 0,
         "post_delay": 0,
         "focus": "> 不设置最大尝试次数",
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
                 "x": -1358,
                 "y": 495
@@ -248,7 +248,7 @@
         },
         "pre_delay": 0,
         "post_delay": 0,
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
                 "x": -1099,
                 "y": 496
@@ -272,7 +272,7 @@
         },
         "pre_delay": 0,
         "post_delay": 0,
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
                 "x": -839,
                 "y": 496
@@ -296,7 +296,7 @@
         },
         "pre_delay": 0,
         "post_delay": 0,
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
                 "x": -579,
                 "y": 496
@@ -320,7 +320,7 @@
         },
         "pre_delay": 0,
         "post_delay": 0,
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
                 "x": -319,
                 "y": 496
@@ -345,7 +345,7 @@
         "pre_delay": 0,
         "post_delay": 0,
         "timeout": 500,
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
                 "x": -59,
                 "y": 495
@@ -374,7 +374,7 @@
             "type": "DoNothing",
             "param": {}
         },
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
                 "x": 1322,
                 "y": 407
@@ -393,7 +393,7 @@
             }
         },
         "focus": "> 已达到设定的尝试上限！",
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
                 "x": 781,
                 "y": 948
@@ -412,7 +412,7 @@
                 "custom_action_param": "hit=true"
             }
         },
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
                 "x": 1851,
                 "y": 583
@@ -433,7 +433,7 @@
         },
         "pre_delay": 0,
         "post_delay": 0,
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
                 "x": 206,
                 "y": 495
