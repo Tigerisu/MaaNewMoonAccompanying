@@ -832,7 +832,7 @@
             "param": {
                 "target": [
                     904,
-                    570,
+                    525,
                     1,
                     1
                 ]
@@ -1103,7 +1103,14 @@
         },
         "action": {
             "type": "Click",
-            "param": {}
+            "param": {
+                "target": [
+                    907,
+                    567,
+                    1,
+                    1
+                ]
+            }
         },
         "pre_delay": 400,
         "$__mpe_code": {
