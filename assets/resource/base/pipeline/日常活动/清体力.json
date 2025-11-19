@@ -1186,6 +1186,7 @@
             "param": {}
         },
         "focus": "> 设置助战",
+        "post_delay": 1200,
         "$__mpe_code": {
             "position": {
                 "x": 3890,
@@ -1213,8 +1214,8 @@
         "focus": "> 今日助战次数已耗尽",
         "$__mpe_code": {
             "position": {
-                "x": 4155,
-                "y": 2927
+                "x": 4158,
+                "y": 2958
             }
         },
         "next": [
@@ -1228,14 +1229,20 @@
                 "template": [
                     "battle/assistance.png"
                 ],
-                "order_by": "Vertical"
+                "order_by": "Vertical",
+                "roi": [
+                    1028,
+                    87,
+                    123,
+                    604
+                ]
             }
         },
         "action": {
             "type": "Click",
             "param": {}
         },
-        "pre_delay": 600,
+        "pre_delay": 400,
         "$__mpe_code": {
             "position": {
                 "x": 4157,
@@ -1257,8 +1264,8 @@
         },
         "$__mpe_code": {
             "position": {
-                "x": 4953,
-                "y": 3101
+                "x": 4928,
+                "y": 3062
             }
         }
     },
@@ -1286,7 +1293,8 @@
             }
         },
         "next": [
-            "清体力_已存在相同特工"
+            "清体力_已存在相同特工",
+            "清体力_选择助战"
         ],
         "on_error": [
             "清体力_助战周期记录"
