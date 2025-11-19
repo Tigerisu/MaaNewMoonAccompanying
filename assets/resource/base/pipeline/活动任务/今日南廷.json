@@ -1,9 +1,9 @@
 {
-    "__mpe_config_今日南廷": {
-        "__mpe_code": {
+    "$__mpe_config_今日南廷": {
+        "$__mpe_code": {
             "prefix": "今日南廷",
             "filename": "今日南廷",
-            "version": "v0.5.5"
+            "version": "v0.7.0"
         }
     },
     "今日南廷_进入活动面板": {
@@ -19,7 +19,7 @@
             }
         },
         "timeout": 2000,
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
                 "x": 2083,
                 "y": 1084
@@ -55,7 +55,7 @@
         },
         "pre_delay": 800,
         "focus": "> 条件未达成",
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
                 "x": 2358,
                 "y": 1353
@@ -86,7 +86,7 @@
         },
         "pre_delay": 800,
         "focus": "> 领取奖励",
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
                 "x": 2357,
                 "y": 1084
@@ -118,7 +118,7 @@
         },
         "pre_delay": 800,
         "focus": "> 今日已完成",
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
                 "x": 2886,
                 "y": 1081
@@ -137,8 +137,9 @@
             "type": "DoNothing",
             "param": {}
         },
-        "focus": "> 活动已完成",
-        "__mpe_code": {
+        "pre_delay": 0,
+        "post_delay": 0,
+        "$__mpe_code": {
             "position": {
                 "x": 2355,
                 "y": 1627
@@ -163,7 +164,7 @@
         },
         "pre_delay": 400,
         "timeout": 2000,
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
                 "x": 2617,
                 "y": 1084
@@ -191,7 +192,7 @@
                 "custom_action_param": "key=返回主页"
             }
         },
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
                 "x": 3428,
                 "y": 1319
@@ -214,7 +215,7 @@
             "type": "Click",
             "param": {}
         },
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
                 "x": 2888,
                 "y": 1350
@@ -230,7 +231,7 @@
             "type": "DoNothing",
             "param": {}
         },
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
                 "x": 1291,
                 "y": 1085
@@ -252,7 +253,7 @@
                 "custom_action_param": "key=全局前置返回主页"
             }
         },
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
                 "x": 1823,
                 "y": 1084
@@ -276,7 +277,7 @@
         },
         "pre_delay": 0,
         "post_delay": 0,
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
                 "x": 2619,
                 "y": 1352
@@ -295,7 +296,7 @@
             "type": "DoNothing",
             "param": {}
         },
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
                 "x": 3688,
                 "y": 1319
@@ -316,7 +317,7 @@
         },
         "pre_delay": 0,
         "post_delay": 0,
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
                 "x": 1553,
                 "y": 1084
@@ -343,7 +344,7 @@
         },
         "pre_delay": 0,
         "post_delay": 0,
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
                 "x": 3149,
                 "y": 1077
@@ -365,7 +366,7 @@
         "pre_delay": 0,
         "post_delay": 0,
         "focus": "> 今日已签阅",
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
                 "x": 1828,
                 "y": 1329

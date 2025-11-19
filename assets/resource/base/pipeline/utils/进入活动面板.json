@@ -1,9 +1,9 @@
 {
-    "__mpe_config_进入活动面板": {
-        "__mpe_code": {
+    "$__mpe_config_进入活动面板": {
+        "$__mpe_code": {
             "prefix": "进入活动面板",
             "filename": "进入活动面板",
-            "version": "v0.5.5"
+            "version": "v0.7.0"
         }
     },
     "进入活动面板_开始": {
@@ -17,7 +17,7 @@
         },
         "pre_delay": 0,
         "post_delay": 0,
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
                 "x": 37,
                 "y": 160
@@ -39,7 +39,7 @@
                 "custom_action_param": "key=全局前置返回主页"
             }
         },
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
                 "x": 296,
                 "y": 83
@@ -67,7 +67,7 @@
         },
         "pre_delay": 400,
         "focus": "> 进入活动界面",
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
                 "x": 579,
                 "y": 188
@@ -92,7 +92,7 @@
         },
         "pre_delay": 0,
         "post_delay": 1000,
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
                 "x": 833,
                 "y": 189
@@ -111,12 +111,12 @@
             "type": "Custom",
             "param": {
                 "custom_action": "init_timer",
-                "custom_action_param": "key=find_activity&limit=20"
+                "custom_action_param": "key=find_activity&limit=15"
             }
         },
         "pre_delay": 0,
         "post_delay": 0,
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
                 "x": 1093,
                 "y": 189
@@ -136,8 +136,8 @@
             "param": {}
         },
         "pre_delay": 0,
-        "post_delay": 0,
-        "__mpe_code": {
+        "post_delay": 600,
+        "$__mpe_code": {
             "position": {
                 "x": 1353,
                 "y": 189
@@ -167,8 +167,7 @@
             "type": "Click",
             "param": {}
         },
-        "pre_delay": 400,
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
                 "x": 1613,
                 "y": 189
@@ -189,7 +188,7 @@
         },
         "pre_delay": 0,
         "post_delay": 0,
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
                 "x": 1873,
                 "y": 189
@@ -210,10 +209,10 @@
         },
         "pre_delay": 0,
         "post_delay": 0,
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
                 "x": 1615,
-                "y": 417
+                "y": 396
             }
         },
         "next": [
@@ -250,10 +249,10 @@
         },
         "post_delay": 0,
         "pre_delay": 0,
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
                 "x": 1864,
-                "y": 414
+                "y": 393
             }
         },
         "next": [
@@ -270,14 +269,14 @@
             "param": {
                 "begin": [
                     140,
-                    200,
+                    300,
                     1,
                     1
                 ],
                 "end": [
                     [
                         140,
-                        200,
+                        300,
                         1,
                         1
                     ]
@@ -287,10 +286,10 @@
         },
         "pre_delay": 0,
         "post_delay": 0,
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
                 "x": 2124,
-                "y": 414
+                "y": 393
             }
         },
         "next": [
@@ -308,7 +307,7 @@
         },
         "pre_delay": 0,
         "post_delay": 0,
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
                 "x": 323,
                 "y": 272
@@ -328,10 +327,10 @@
             "param": {}
         },
         "focus": "> 未找到指定活动！",
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
                 "x": 1864,
-                "y": 703
+                "y": 682
             }
         }
     }

@@ -1,9 +1,9 @@
 {
-    "__mpe_config_列车长": {
-        "__mpe_code": {
+    "$__mpe_config_列车长": {
+        "$__mpe_code": {
             "prefix": "列车长",
             "filename": "列车长",
-            "version": "v0.5.5"
+            "version": "v0.7.0"
         }
     },
     "列车长_进入活动面板": {
@@ -19,7 +19,7 @@
             }
         },
         "timeout": 2000,
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
                 "x": 1512,
                 "y": 607
@@ -28,6 +28,9 @@
         "next": [
             "列车长_获取补给",
             "列车长_今日已领取"
+        ],
+        "on_error": [
+            "列车长_返回主页"
         ]
     },
     "列车长_获取补给": {
@@ -51,7 +54,7 @@
         },
         "pre_delay": 800,
         "focus": "> 领取今日补给",
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
                 "x": 1772,
                 "y": 607
@@ -75,7 +78,7 @@
             "param": {}
         },
         "pre_delay": 400,
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
                 "x": 2032,
                 "y": 607
@@ -103,7 +106,7 @@
             "param": {}
         },
         "pre_delay": 400,
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
                 "x": 2292,
                 "y": 607
@@ -126,7 +129,7 @@
             "type": "Click",
             "param": {}
         },
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
                 "x": 2294,
                 "y": 828
@@ -148,7 +151,7 @@
         },
         "post_delay": 400,
         "focus": "> 前往双倍关卡",
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
                 "x": 1040,
                 "y": 1118
@@ -187,7 +190,7 @@
         },
         "pre_delay": 400,
         "post_delay": 1000,
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
                 "x": 1293,
                 "y": 1119
@@ -225,7 +228,7 @@
             }
         },
         "pre_delay": 400,
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
                 "x": 1557,
                 "y": 1121
@@ -247,7 +250,7 @@
             }
         },
         "post_delay": 0,
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
                 "x": 1817,
                 "y": 1123
@@ -269,7 +272,7 @@
                 "custom_action_param": "key=清体力_准备战斗&stop=清体力_结束行动并检查"
             }
         },
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
                 "x": 2075,
                 "y": 1123
@@ -288,7 +291,7 @@
             "type": "DoNothing",
             "param": {}
         },
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
                 "x": 733,
                 "y": 606
@@ -310,7 +313,7 @@
                 "custom_action_param": "key=全局前置返回主页"
             }
         },
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
                 "x": 1252,
                 "y": 607
@@ -340,7 +343,7 @@
             "param": {}
         },
         "focus": "> 今日体力已领取",
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
                 "x": 1772,
                 "y": 868
@@ -362,7 +365,7 @@
                 "custom_action_param": "key=返回主页"
             }
         },
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
                 "x": 2607,
                 "y": 1120
@@ -381,7 +384,7 @@
             "type": "DoNothing",
             "param": {}
         },
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
                 "x": 2867,
                 "y": 1120
@@ -402,7 +405,7 @@
         },
         "pre_delay": 0,
         "post_delay": 0,
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
                 "x": 993,
                 "y": 606
@@ -429,7 +432,7 @@
         },
         "pre_delay": 0,
         "post_delay": 0,
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
                 "x": 2347,
                 "y": 1122
@@ -451,7 +454,7 @@
         "pre_delay": 0,
         "post_delay": 0,
         "focus": "> 今日体力已领取",
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
                 "x": 1251,
                 "y": 822
