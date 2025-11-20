@@ -1,9 +1,9 @@
 {
-    "__mpe_config_活动清仓": {
-        "__mpe_code": {
+    "$__mpe_config_活动清仓": {
+        "$__mpe_code": {
             "prefix": "活动清仓",
             "filename": "活动清仓",
-            "version": "v0.5.5"
+            "version": "v0.7.0"
         }
     },
     "活动清仓_开始": {
@@ -16,7 +16,7 @@
             "param": {}
         },
         "timeout": 5000,
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
                 "x": 437,
                 "y": 63
@@ -44,7 +44,7 @@
         },
         "pre_delay": 0,
         "post_delay": 700,
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
                 "x": 697,
                 "y": 63
@@ -64,7 +64,7 @@
             "param": {}
         },
         "focus": "> 请在商店界面执行此操作",
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
                 "x": 697,
                 "y": 287
@@ -88,7 +88,7 @@
             }
         },
         "timeout": 3000,
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
                 "x": 957,
                 "y": 63
@@ -120,7 +120,7 @@
             "type": "Click",
             "param": {}
         },
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
                 "x": 1217,
                 "y": 63
@@ -150,7 +150,7 @@
             "param": {}
         },
         "timeout": 3000,
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
                 "x": 1477,
                 "y": 63
@@ -184,7 +184,7 @@
         },
         "pre_delay": 400,
         "focus": "> 买买买！",
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
                 "x": 1737,
                 "y": 63
@@ -199,21 +199,27 @@
             "type": "OCR",
             "param": {
                 "expected": [
-                    "投资未来"
+                    "临期希望清仓"
                 ]
             }
         },
         "action": {
             "type": "Click",
-            "param": {}
+            "param": {
+                "target": [
+                    1083,
+                    96,
+                    1,
+                    1
+                ]
+            }
         },
         "pre_delay": 0,
         "post_delay": 100,
-        "focus": "> 快端上来罢！",
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
-                "x": 756,
-                "y": -200
+                "x": 781,
+                "y": -204
             }
         },
         "next": [
@@ -232,7 +238,7 @@
         "focus": "> 采购结束",
         "pre_delay": 0,
         "post_delay": 0,
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
                 "x": 1738,
                 "y": 317
@@ -260,7 +266,7 @@
         },
         "pre_delay": 0,
         "post_delay": 0,
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
                 "x": 1998,
                 "y": 317
