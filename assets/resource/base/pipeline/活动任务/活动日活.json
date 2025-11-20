@@ -1,12 +1,12 @@
 {
-    "__mpe_config_正乌托邦": {
-        "__mpe_code": {
-            "prefix": "正乌托邦",
-            "filename": "正乌托邦",
-            "version": "v0.5.5"
+    "$__mpe_config_镀金赝造": {
+        "$__mpe_code": {
+            "prefix": "镀金赝造",
+            "filename": "镀金赝造",
+            "version": "v0.7.0"
         }
     },
-    "正乌托邦_活动入口": {
+    "镀金赝造_活动入口": {
         "recognition": {
             "type": "DirectHit",
             "param": {}
@@ -23,22 +23,22 @@
             }
         },
         "focus": "> 进入活动界面",
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
                 "x": 243,
                 "y": -69
             }
         },
         "next": [
-            "正乌托邦_进入领取界面"
+            "镀金赝造_进入领取界面"
         ]
     },
-    "正乌托邦_进入领取界面": {
+    "镀金赝造_进入领取界面": {
         "recognition": {
             "type": "OCR",
             "param": {
                 "expected": [
-                    "公务待办"
+                    "消费行动"
                 ]
             }
         },
@@ -48,17 +48,17 @@
         },
         "pre_delay": 800,
         "focus": "> 领取每日活动奖励",
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
                 "x": 506,
                 "y": -70
             }
         },
         "next": [
-            "正乌托邦_领取奖励"
+            "镀金赝造_领取奖励"
         ]
     },
-    "正乌托邦_领取奖励": {
+    "镀金赝造_领取奖励": {
         "recognition": {
             "type": "OCR",
             "param": {
@@ -73,20 +73,20 @@
         },
         "timeout": 2000,
         "pre_delay": 800,
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
                 "x": 767,
                 "y": -74
             }
         },
         "next": [
-            "正乌托邦_获取奖励"
+            "镀金赝造_获取奖励"
         ],
         "on_error": [
-            "正乌托邦_领取奖励完成"
+            "镀金赝造_领取奖励完成"
         ]
     },
-    "正乌托邦_获取奖励": {
+    "镀金赝造_获取奖励": {
         "recognition": {
             "type": "OCR",
             "param": {
@@ -100,17 +100,17 @@
             "param": {}
         },
         "pre_delay": 800,
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
                 "x": 1051,
                 "y": -170
             }
         },
         "next": [
-            "正乌托邦_领取奖励完成"
+            "镀金赝造_领取奖励完成"
         ]
     },
-    "正乌托邦_领取奖励完成": {
+    "镀金赝造_领取奖励完成": {
         "recognition": {
             "type": "DirectHit",
             "param": {}
@@ -120,20 +120,20 @@
             "param": {}
         },
         "timeout": 1000,
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
                 "x": 1316,
                 "y": 5
             }
         },
         "next": [
-            "正乌托邦_未全部完成"
+            "镀金赝造_未全部完成"
         ],
         "on_error": [
-            "正乌托邦_回到主页"
+            "镀金赝造_回到主页"
         ]
     },
-    "正乌托邦_未全部完成": {
+    "镀金赝造_未全部完成": {
         "recognition": {
             "type": "OCR",
             "param": {
@@ -156,17 +156,17 @@
             }
         },
         "inverse": true,
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
                 "x": 1580,
                 "y": -192
             }
         },
         "next": [
-            "正乌托邦_回到主页"
+            "镀金赝造_回到主页"
         ]
     },
-    "正乌托邦_回到主页": {
+    "镀金赝造_回到主页": {
         "recognition": {
             "type": "DirectHit",
             "param": {}
@@ -178,17 +178,17 @@
                 "custom_action_param": "key=返回主页"
             }
         },
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
                 "x": 1865,
                 "y": 23
             }
         },
         "next": [
-            "正乌托邦_结束"
+            "镀金赝造_结束"
         ]
     },
-    "正乌托邦_结束": {
+    "镀金赝造_结束": {
         "recognition": {
             "type": "DirectHit",
             "param": {}
@@ -197,14 +197,14 @@
             "type": "DoNothing",
             "param": {}
         },
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
                 "x": 2119,
                 "y": 23
             }
         }
     },
-    "正乌托邦_执行前返回主页": {
+    "镀金赝造_执行前返回主页": {
         "recognition": {
             "type": "DirectHit",
             "param": {}
@@ -216,17 +216,17 @@
                 "custom_action_param": "key=全局前置返回主页"
             }
         },
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
                 "x": -34,
                 "y": -67
             }
         },
         "next": [
-            "正乌托邦_活动入口"
+            "镀金赝造_活动入口"
         ]
     },
-    "正乌托邦_开始": {
+    "镀金赝造_开始": {
         "recognition": {
             "type": "DirectHit",
             "param": {}
@@ -235,14 +235,14 @@
             "type": "DoNothing",
             "param": {}
         },
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
                 "x": -313,
                 "y": -65
             }
         },
         "next": [
-            "正乌托邦_执行前返回主页"
+            "镀金赝造_执行前返回主页"
         ]
     }
 }

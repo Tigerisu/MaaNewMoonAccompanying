@@ -11,7 +11,7 @@
             "type": "OCR",
             "param": {
                 "expected": [
-                    "再激活"
+                    "激活5次"
                 ],
                 "order_by": "Vertical",
                 "index": -1

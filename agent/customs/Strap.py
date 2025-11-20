@@ -167,6 +167,8 @@ special_attr1 = {
     "快速愈合": ["3", "5"],
     "精密": ["6", "10"],
     "化合提升": ["1.8", "3"],
+    "超频": ["3", "5"],
+    "破韧": ["3", "5"],
 }
 special_attr2 = {
     "免疫力": ["4.5", "7.5"],
@@ -303,7 +305,7 @@ class SummaryStrapValue(CustomAction):
             if not is_hit:
                 count -= 1
             Prompt.log(
-                f"共消耗 {count*10} 个整流元件与 {count*0.5:.1f}w 数构银".replace(
+                f"共消耗 {count*10*5} 个整流元件与 {count*0.5*5:.1f}w 数构银".replace(
                     ".0w", "w"
                 )
             )

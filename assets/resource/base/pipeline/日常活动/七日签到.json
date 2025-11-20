@@ -1,9 +1,9 @@
 {
-    "__mpe_config_七日签到": {
-        "__mpe_code": {
+    "$__mpe_config_七日签到": {
+        "$__mpe_code": {
             "prefix": "七日签到",
             "filename": "七日签到",
-            "version": "v0.5.5"
+            "version": "v0.7.0"
         }
     },
     "七日签到_领取今日奖励": {
@@ -21,7 +21,7 @@
         },
         "pre_delay": 800,
         "focus": "> 领取签到奖励",
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
                 "x": 813,
                 "y": -253
@@ -42,7 +42,7 @@
         },
         "pre_delay": 0,
         "post_delay": 0,
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
                 "x": 1098,
                 "y": 92
@@ -64,7 +64,7 @@
                 "custom_action_param": "key=返回主页"
             }
         },
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
                 "x": 1359,
                 "y": 98
@@ -88,7 +88,7 @@
         },
         "pre_delay": 0,
         "post_delay": 0,
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
                 "x": 1666,
                 "y": 188
@@ -109,7 +109,7 @@
         },
         "pre_delay": 0,
         "post_delay": 0,
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
                 "x": 1923,
                 "y": 191
@@ -121,7 +121,7 @@
             "type": "OCR",
             "param": {
                 "expected": [
-                    "真相的意义"
+                    "享乐至上"
                 ]
             }
         },
@@ -130,7 +130,7 @@
             "param": {}
         },
         "timeout": 2000,
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
                 "x": 221,
                 "y": -92
@@ -148,7 +148,7 @@
             "type": "OCR",
             "param": {
                 "expected": [
-                    "明天登录可得"
+                    "明天可领"
                 ],
                 "roi": [
                     309,
@@ -171,7 +171,7 @@
         },
         "pre_delay": 400,
         "timeout": 2000,
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
                 "x": 524,
                 "y": -285
@@ -200,7 +200,7 @@
         },
         "pre_delay": 800,
         "timeout": 2000,
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
                 "x": 525,
                 "y": 0
@@ -222,11 +222,11 @@
             "type": "Custom",
             "param": {
                 "custom_action": "run_enter_activity",
-                "custom_action_param": "title=正乌托邦·下"
+                "custom_action_param": "title=造·上"
             }
         },
         "focus": "> 进入签到界面",
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
                 "x": -40,
                 "y": 152
@@ -250,7 +250,7 @@
         },
         "pre_delay": 0,
         "post_delay": 0,
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
                 "x": -571,
                 "y": 144
@@ -272,7 +272,7 @@
                 "custom_action_param": "key=全局前置返回主页"
             }
         },
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
                 "x": -306,
                 "y": 152
@@ -291,7 +291,7 @@
             "type": "DoNothing",
             "param": {}
         },
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
                 "x": -1101,
                 "y": 142
@@ -315,7 +315,7 @@
         },
         "pre_delay": 0,
         "post_delay": 0,
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
                 "x": -833,
                 "y": 142
@@ -338,7 +338,7 @@
             "param": {}
         },
         "focus": "> 今日已签到",
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
                 "x": -575,
                 "y": 342
