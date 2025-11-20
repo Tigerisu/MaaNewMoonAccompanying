@@ -30,7 +30,7 @@ class SummaryLiaisonRecord(CustomAction):
                 while index < 6:
                     if not reco_helper.recognize(f"抽卡记录_识别列表{index}").hit():
                         break
-                    results = reco_helper.reco_detail.filterd_results
+                    results = reco_helper.reco_detail.filtered_results
                     # 解析
                     texts = "".join(result.text for result in results)
                     texts = (

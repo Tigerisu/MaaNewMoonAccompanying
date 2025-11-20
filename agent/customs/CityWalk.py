@@ -218,7 +218,7 @@ class HandleDelegation(CustomAction):
                     "城市探索_委托项", {"expected": "高风险高收益"}
                 )
                 flag = True
-                for result in high_rh.reco_detail.filterd_results:
+                for result in high_rh.reco_detail.filtered_results:
                     if abs(target_y - result.box[1]) < 45:
                         Prompt.log("选择高收益指定项")
                         target_rh.click()

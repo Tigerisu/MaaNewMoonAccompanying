@@ -294,7 +294,7 @@ class RecoHelper:
     ) -> tuple[int, int] | None:
         if not self.hit():
             return None
-        results = self.reco_detail.filterd_results
+        results = self.reco_detail.filtered_results
         targets = []
         for i, res in enumerate(results):
             if i + 1 > max_num:
@@ -313,7 +313,7 @@ class RecoHelper:
     def concat(self) -> str:
         if not self.hit():
             return None
-        results = self.reco_detail.filterd_results
+        results = self.reco_detail.filtered_results
         text = ""
         for res in results:
             text += res.text
