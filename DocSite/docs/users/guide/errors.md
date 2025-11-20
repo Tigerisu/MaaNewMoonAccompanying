@@ -35,7 +35,7 @@
 
 若您需要远程协助，请按如下方式进行准备：
 
-1. 下载并安装 [ToDesk](https://www.todesk.com/) 远程控制软件普通版（若您已有其他远程软件可提前说明，若您在国外请直接邀请 QQ 远程）
+1. 下载并安装 [ToDesk](https://www.todesk.com/) 远程控制软件普通版（若您在国外请直接邀请 QQ 远程）
 2. **关闭您电脑不希望被看到的程序或文件**
 3. 打开 MNMA 文件夹根目录与模拟器，若在游戏内可以先完成当前事情
 4. 准备好被远控后，将 ToDesk 设备码与临时密码**复制粘贴文字**并**私聊**发送，等待连接
@@ -82,7 +82,7 @@ Github 源免费，而国内常见的下载平台需要用户或开发者付费�
 此问题并非由于 MNMA 或 MFAA 导致，出现了此提示代表您可能使用了未配置安全凭证的梯子，或代理通道/凭证识别异常。
 :::
 
-### 模拟器连接失败
+### 无法连接至模拟器
 
 请先确保您的模拟器正常启动，得先开着模拟器才能连接到模拟器。
 
@@ -94,6 +94,25 @@ Github 源免费，而国内常见的下载平台需要用户或开发者付费�
 
 若已开启此选项，下述任一问题都会并发引起模拟器连接失败问题，请检查是否有相关提示并按相关方案解决。
 
+### 连接模拟器时发生错误
+
+此问题常见于刚更新 mumu 后。
+
+![图片加载中，请稍等...](/users/edit_adb.png)
+
+点击 MNMA 右上角的编辑 ADB 图标，检查额外参数中 `index` 的值，是否大于或等于 0：
+
+![图片加载中，请稍等...](/users/adb_index.png)
+
+若为负数则不正常，需要按如下操作更正：
+
+- 若未开启 mumu 多开功能（仅有一个安卓设备），直接将 `index` 改为 `0`，保存后重启 MNMA 即可。
+- 若有多开，则应改成新月模拟器的编号，编号为设备左上角 `#` 后的值
+
+![图片加载中，请稍等...](/users/mumu_index.png)
+
+> 感谢发现并分享此方法的群友 `NOWorEVER` 
+
 ### 资源加载失败
 
 若报错中含有“资源加载失败”并伴随“模拟器连接失败”，则可能由于更新时文件被占用导致。
@@ -103,17 +122,15 @@ Github 源免费，而国内常见的下载平台需要用户或开发者付费�
 
 ![图片加载中，请稍等...](/users/reload.png)
 
-### 缺少 xxx.dll/运行库
+### 缺少.dll/运行库、update.NET
 
-对于 Windows/MacOS 用户，需要在运行前安装运行库。
+MNMA 的运行需要 `VCRedist x64` (`Cli` 与 `Gui` 都需要) 与 `.NET 10` (使用 `GUI` 时需要)依赖环境。
 
-MNMA 需要 `VCRedist x64` (`Cli` 与 `Gui` 都需要) 和 `.NET 8` (使用 `GUI` 时需要)。
+**MNMA 根目录提供了环境的一键安装包，打开 MNMA 根目录，右键后使用管理员方式打开`DependencySetup_依赖库安装_win.bat` 文件即可。**
 
-点击 [vc_redist.x64](https://download.visualstudio.microsoft.com/download/pr/285b28c7-3cf9-47fb-9be8-01cf5323a8df/8F9FB1B3CFE6E5092CF1225ECD6659DAB7CE50B8BF935CB79BFEDE1F3C895240/VC_redist.x64.exe) 下载安装 `VCRedist x64`，点击 [dotnet-sdk-8.0.5-win-x64.exe](https://download.visualstudio.microsoft.com/download/pr/ba3a1364-27d8-472e-a33b-5ce0937728aa/6f9495e5a587406c85af6f93b1c89295/dotnet-sdk-8.0.404-win-x64.exe) 下载安装 `.NET 8`。
+若打开后闪退，可以在 [QQ 群](http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=VMC132QhbMDLi5U62MlDRvtCMj9WOXRr&authKey=yJNKO4sQ%2BBFHpBCLSSEvVOAyz%2FPjknNSl70W3ugg2%2BpELnKmEiHamj1emJMWcLwQ&noverify=0&group_code=993245868) **群文件**内下载相关依赖，存储在 `2.环境依赖` 文件夹中。
 
-若您已经存在运行库，请尝试选择修改/重装。
-
-在安装时，依次点下一步即可，建议不要随意更改环境运行库的安装路径。
+在安装时，保持默认配置依次点下一步即可，建议不要随意更改环境运行库的安装路径。
 
 ### 程序瞬间闪退或无法运行
 
