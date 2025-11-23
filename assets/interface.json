@@ -5,8 +5,8 @@
     "mirrorchyan_rid": "MNMA",
     "mirrorchyan_multiplatform": true,
     "version": "v3.1.2",
-    "mfa_min_version": "v1.8.1",
-    "mfa_max_version": "v1.8.1",
+    "mfa_min_version": "v1.8.4",
+    "mfa_max_version": "v1.8.4",
     "message": "- 新 月 同 行 -",
     "controller": [
         {

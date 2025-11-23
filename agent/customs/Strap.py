@@ -214,6 +214,23 @@ class SetStrapValue(CustomAction):
             return Prompt.error("设置卡带属性值", e)
 
 
+# 设置目标项
+@AgentServer.custom_action("set_strap_target")
+class SetStrapTarget(CustomAction):
+    def run(
+        self, context: Context, argv: CustomAction.RunArg
+    ) -> CustomAction.RunResult | bool:
+        global target_attr
+        try:
+            rh = RecoHelper(context)
+            for attr in target_attr:
+                rh.recognize("卡带词条_识别目标属性", {"expected": f"^{attr}$"}).click()
+                time.sleep(0.2)
+            return True
+        except Exception as e:
+            return Prompt.error("设置卡带属性值", e)
+
+
 # 检测属性词条
 @AgentServer.custom_recognition("check_strap_attr")
 class CheckStrapAttr(CustomRecognition):

@@ -4,6 +4,7 @@
   },
   "scripts": {
     "tool": "python ./dev/openMFATools.py",
+    "mpe": "python ./dev/openMPE.py",
     "agent": "python ./agent/dev_main.py",
     "debug": "python -m MaaDebugger",
     "dev": "python ./dev/build.py",
