@@ -189,7 +189,7 @@
             "type": "OCR",
             "param": {
                 "expected": [
-                    "第7天"
+                    "07"
                 ],
                 "index": -1
             }
