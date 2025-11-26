@@ -322,7 +322,7 @@ class SummaryStrapValue(CustomAction):
             if not is_hit:
                 count -= 1
             Prompt.log(
-                f"共消耗 {count*10*5} 个整流元件与 {count*0.5*5:.1f}w 数构银".replace(
+                f"本次约消耗 {count*10*5} 个整流元件与 {count*0.5*5:.1f}w 数构银".replace(
                     ".0w", "w"
                 )
             )
