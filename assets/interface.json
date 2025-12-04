@@ -1,12 +1,12 @@
 {
     "name": "MaaNewMoonAccompanying",
     "url": "https://github.com/kqcoxn/MaaNewMoonAccompanying",
-    "custom_title": "MNMA新月同行小助手(kqcoxn/MaaNewMoonAccompanying) v3.1.4 - MFAA | 游戏版本：镀金赝造·上",
+    "custom_title": "MNMA新月同行小助手(kqcoxn/MaaNewMoonAccompanying) v3.1.5 - MFAA | 游戏版本：镀金赝造·上",
     "mirrorchyan_rid": "MNMA",
     "mirrorchyan_multiplatform": true,
-    "version": "v3.1.4",
-    "mfa_min_version": "v1.8.7",
-    "mfa_max_version": "v1.8.7",
+    "version": "v3.1.5",
+    "mfa_min_version": "v2.1.3",
+    "mfa_max_version": "v2.1.3",
     "message": "- 新 月 同 行 -",
     "controller": [
         {
@@ -1682,8 +1682,7 @@
                     "name": "一层循环速刷",
                     "pipeline_override": {
                         "蓝色站台_进入休息节点": {
-                            "next": "蓝色站台_跳过休息室",
-                            "interrupt": []
+                            "next": "蓝色站台_跳过休息室"
                         }
                     }
                 },
