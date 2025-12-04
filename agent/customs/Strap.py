@@ -5,7 +5,7 @@ from maa.context import Context
 
 import time
 
-from .utils import Tasker, parse_query_args, Prompt, RecoHelper, Judge
+from .utils import Tasker, parse_query_args, Prompt, RecoHelper, Judge, PresetLoader
 from .Counter import counter_manager
 
 index = 0
@@ -111,65 +111,10 @@ class SetStrapValue(CustomAction):
             return Prompt.error("设置卡带属性值", e)
 
 
-normal_attr = {
-    "生命": ["150", "250"],
-    "生命%": ["4.5", "7.5"],
-    "攻击": ["21", "35"],
-    "攻击%": ["4.5", "7.5"],
-    "行动速度": ["5", "8"],
-    "物理防御%": ["7.5", "12.5"],
-    "特殊防御%": ["7.5", "12.5"],
-    "效果抵抗": ["3.6", "6"],
-    "受疗率": ["3.6", "6"],
-    "初始能级": ["2", "4"],
-    "暴击率": ["3.6", "6"],
-    "暴击伤害": ["3.6", "6"],
-    "效果命中": ["3.6", "6"],
-    "治疗率": ["3.6", "6"],
-}
-special_attr1 = {
-    "连携": ["1.2", "2"],
-    "振奋": ["4.8", "8"],
-    "痛击": ["0.6", "1"],
-    "蓄能": ["1.8", "3"],
-    "挑战者": ["7.2", "12"],
-    "伤痕激励": ["1.8", "3"],
-    "盾卫": ["6", "10"],
-    "附甲": ["1.5", "2.5"],
-    "袭扰": ["9", "15"],
-    "破甲": ["6", "10"],
-    "不倦": ["1.8", "3"],
-    "盛势": ["6", "10"],
-    "催化": ["2.4", "4"],
-    "晕眩": ["12", "20"],
-    "庇护": ["3", "5"],
-    "急疗": ["6", "10"],
-    "易愈": ["6", "10"],
-    "顽强": ["3", "5"],
-    "自愈": ["0.9", "1.5"],
-    "触发防护": ["9", "15"],
-    "抗敏": ["6", "10"],
-    "抵御": ["2.4", "4"],
-    "活性自愈": ["0.96", "1.6"],
-    "协同防护": ["4.2", "7"],
-    "协同强固": ["7.2", "12"],
-    "会心": ["6", "10"],
-    "剥取小刀": ["3", "5"],
-    "穿甲": ["6", "10"],
-    "侵彻": ["6", "10"],
-    "克敌": ["6", "10"],
-    "斜击": ["3", "5"],
-    "技力": ["3", "5"],
-    "锋锐": ["2.1", "3.5"],
-    "彻甲": ["6", "10"],
-    "摄神": ["6", "10"],
-    "背水": ["6", "10"],
-    "快速愈合": ["3", "5"],
-    "精密": ["6", "10"],
-    "化合提升": ["1.8", "3"],
-    "超频": ["3", "5"],
-    "破韧": ["3", "5"],
-}
+# 从 presets 加载卡带属性数据
+strap_attrs = PresetLoader.read("strap_attr")
+normal_attr = strap_attrs["normal_attr"]
+special_attr1 = strap_attrs["special_attr1"]
 special_attr2 = {
     "免疫力": ["4.5", "7.5"],
     "护甲": ["1.2", "1.2"],
@@ -224,7 +169,20 @@ class SetStrapTarget(CustomAction):
         try:
             rh = RecoHelper(context)
             for attr in target_attr:
-                rh.recognize("卡带词条_识别目标属性", {"expected": f"^{attr}$"}).click()
+                if "特殊词条" in attr:
+                    special_list = (
+                        special_attr1 if attr == "特殊词条1" else special_attr2
+                    )
+                    for special_attr in special_list:
+                        if rh.recognize(
+                            "卡带词条_识别目标属性", {"expected": f"^{special_attr}$"}
+                        ).hit():
+                            rh.click()
+                            break
+                else:
+                    rh.recognize(
+                        "卡带词条_识别目标属性", {"expected": f"^{attr}$"}
+                    ).click()
                 time.sleep(0.2)
             return True
         except Exception as e:
