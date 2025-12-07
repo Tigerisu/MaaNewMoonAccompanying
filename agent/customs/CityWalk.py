@@ -213,6 +213,18 @@ class HandleDelegation(CustomAction):
                 Prompt.log("直接选择指定项")
                 target_rh.click()
             else:
+                # 检查识别结果是否有效
+                if not target_rh.hit() or target_rh.reco_detail.best_result is None:
+                    Prompt.log(f"未找到指定委托项，尝试选择高收益项")
+                    high_rh = RecoHelper(context).recognize(
+                        "城市探索_委托项", {"expected": "高风险高收益"}
+                    )
+                    if high_rh.hit():
+                        high_rh.click()
+                    else:
+                        Prompt.log("未找到可选委托项")
+                    return True
+
                 target_y = target_rh.reco_detail.best_result.box[1]
                 high_rh = RecoHelper(context).recognize(
                     "城市探索_委托项", {"expected": "高风险高收益"}
