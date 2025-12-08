@@ -1,9 +1,9 @@
 {
-    "__mpe_config_每日采购": {
-        "__mpe_code": {
+    "$__mpe_config_每日采购": {
+        "$__mpe_code": {
             "prefix": "每日采购",
             "filename": "每日采购",
-            "version": "v0.5.5"
+            "version": "v0.8.5"
         }
     },
     "每日采购_采购中心": {
@@ -21,10 +21,10 @@
         },
         "post_delay": 3000,
         "focus": "> 进入采购中心",
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
-                "x": 192,
-                "y": -413
+                "x": 238,
+                "y": -393
             }
         },
         "next": [
@@ -47,10 +47,10 @@
         "focus": "> 采购每日免费补给包",
         "pre_delay": 400,
         "post_delay": 1000,
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
-                "x": 451,
-                "y": -329
+                "x": 507,
+                "y": -286
             }
         },
         "next": [
@@ -73,10 +73,10 @@
         "post_delay": 400,
         "timeout": 2000,
         "pre_delay": 400,
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
-                "x": 702,
-                "y": -326
+                "x": 769,
+                "y": -282
             }
         },
         "next": [
@@ -102,10 +102,10 @@
         "post_delay": 800,
         "timeout": 3000,
         "pre_delay": 400,
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
-                "x": 962,
-                "y": -446
+                "x": 1040,
+                "y": -435
             }
         },
         "next": [
@@ -125,10 +125,10 @@
             "param": {}
         },
         "focus": "> 今日免费物资已采购",
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
-                "x": 1214,
-                "y": -224
+                "x": 1303,
+                "y": -152
             }
         },
         "next": [
@@ -150,10 +150,10 @@
         },
         "post_delay": 800,
         "pre_delay": 400,
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
-                "x": 1213,
-                "y": -448
+                "x": 1302,
+                "y": -437
             }
         },
         "next": [
@@ -171,10 +171,10 @@
         },
         "pre_delay": 0,
         "post_delay": 0,
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
-                "x": 1730,
-                "y": -275
+                "x": 1840,
+                "y": -217
             }
         },
         "next": [
@@ -196,17 +196,17 @@
         },
         "pre_delay": 800,
         "timeout": 2000,
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
-                "x": 1463,
-                "y": -446
+                "x": 1562,
+                "y": -435
             }
         },
-        "on_error": [
-            "每日采购_购买数构银物资"
-        ],
         "next": [
             "每日采购_每日补给包"
+        ],
+        "on_error": [
+            "每日采购_购买数构银物资"
         ]
     },
     "每日采购_流动市场": {
@@ -224,10 +224,10 @@
         },
         "post_delay": 500,
         "focus": "> 采购数构银物资",
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
-                "x": 261,
-                "y": -1
+                "x": 309,
+                "y": 132
             }
         },
         "next": [
@@ -248,10 +248,10 @@
             "param": {}
         },
         "post_delay": 500,
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
-                "x": 519,
-                "y": 1
+                "x": 578,
+                "y": 135
             }
         },
         "next": [
@@ -271,10 +271,10 @@
         },
         "pre_delay": 0,
         "post_delay": 0,
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
-                "x": 779,
-                "y": 1
+                "x": 849,
+                "y": 135
             }
         },
         "next": [
@@ -309,10 +309,10 @@
             }
         },
         "post_delay": 400,
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
-                "x": 1051,
-                "y": 2
+                "x": 1133,
+                "y": 136
             }
         },
         "next": [
@@ -332,10 +332,10 @@
         },
         "pre_delay": 0,
         "post_delay": 0,
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
-                "x": 1320,
-                "y": 1
+                "x": 1413,
+                "y": 135
             }
         },
         "next": [
@@ -357,10 +357,10 @@
         "pre_delay": 0,
         "post_delay": 0,
         "timeout": 1000,
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
-                "x": 1645,
-                "y": 173
+                "x": 1752,
+                "y": 354
             }
         },
         "next": [
@@ -392,10 +392,10 @@
         "timeout": 2000,
         "pre_delay": 0,
         "post_delay": 0,
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
-                "x": 1906,
-                "y": 330
+                "x": 2024,
+                "y": 553
             }
         },
         "next": [
@@ -417,10 +417,10 @@
             "param": {}
         },
         "focus": "> 并非数构银物资",
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
-                "x": 1905,
-                "y": 172
+                "x": 2023,
+                "y": 352
             }
         },
         "next": [
@@ -442,10 +442,10 @@
         },
         "pre_delay": 0,
         "post_delay": 0,
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
-                "x": 1921,
-                "y": 1163
+                "x": 2039,
+                "y": 1614
             }
         },
         "next": [
@@ -472,10 +472,10 @@
             "param": {}
         },
         "focus": "> 该物资已采购",
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
-                "x": 2191,
-                "y": 117
+                "x": 2321,
+                "y": 282
             }
         },
         "next": [
@@ -504,10 +504,10 @@
         "timeout": 1000,
         "pre_delay": 0,
         "post_delay": 0,
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
-                "x": 2186,
-                "y": 788
+                "x": 2316,
+                "y": 1136
             }
         },
         "next": [
@@ -536,10 +536,10 @@
         "timeout": 1000,
         "pre_delay": 0,
         "post_delay": 0,
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
-                "x": 2187,
-                "y": 509
+                "x": 2317,
+                "y": 781
             }
         },
         "next": [
@@ -556,10 +556,10 @@
             "param": {}
         },
         "focus": "> 并非超值/特惠",
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
-                "x": 2189,
-                "y": 339
+                "x": 2319,
+                "y": 565
             }
         },
         "next": [
@@ -577,10 +577,10 @@
         },
         "pre_delay": 0,
         "post_delay": 0,
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
-                "x": 3842,
-                "y": 28
+                "x": 4041,
+                "y": 169
             }
         },
         "next": [
@@ -599,10 +599,10 @@
         "timeout": 1000,
         "pre_delay": 0,
         "post_delay": 0,
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
-                "x": 2470,
-                "y": 340
+                "x": 2612,
+                "y": 566
             }
         },
         "next": [
@@ -634,10 +634,10 @@
         "timeout": 1000,
         "pre_delay": 0,
         "post_delay": 0,
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
-                "x": 2735,
-                "y": 340
+                "x": 2888,
+                "y": 566
             }
         },
         "next": [
@@ -657,10 +657,10 @@
             "param": {}
         },
         "focus": "> 不在白名单内",
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
-                "x": 2736,
-                "y": 185
+                "x": 2889,
+                "y": 369
             }
         },
         "next": [
@@ -689,10 +689,10 @@
         "timeout": 1000,
         "pre_delay": 0,
         "post_delay": 0,
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
-                "x": 3004,
-                "y": 339
+                "x": 3168,
+                "y": 565
             }
         },
         "next": [
@@ -723,10 +723,10 @@
         },
         "focus": "> 好东西，梭哈！",
         "post_delay": 1200,
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
-                "x": 3005,
-                "y": 625
+                "x": 3169,
+                "y": 929
             }
         },
         "next": [
@@ -743,10 +743,10 @@
             "param": {}
         },
         "focus": "> 在黑名单内",
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
-                "x": 3258,
-                "y": 335
+                "x": 3433,
+                "y": 560
             }
         },
         "next": [
@@ -767,10 +767,10 @@
             "param": {}
         },
         "pre_delay": 400,
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
-                "x": 3264,
-                "y": 622
+                "x": 3439,
+                "y": 925
             }
         },
         "next": [
@@ -786,10 +786,10 @@
             "type": "DoNothing",
             "param": {}
         },
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
-                "x": 4220,
-                "y": 1163
+                "x": 4435,
+                "y": 1614
             }
         }
     },
@@ -807,10 +807,10 @@
             "param": {}
         },
         "pre_delay": 800,
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
-                "x": 3524,
-                "y": 622
+                "x": 3710,
+                "y": 925
             }
         },
         "next": [
@@ -831,9 +831,9 @@
         },
         "pre_delay": 0,
         "post_delay": 0,
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
-                "x": -347,
+                "x": -324,
                 "y": -488
             }
         },
@@ -853,10 +853,10 @@
                 "custom_action_param": "key=全局前置返回主页"
             }
         },
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
-                "x": -80,
-                "y": -459
+                "x": -46,
+                "y": -451
             }
         },
         "next": [
@@ -872,7 +872,7 @@
             "type": "DoNothing",
             "param": {}
         },
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
                 "x": -888,
                 "y": -487
@@ -896,9 +896,9 @@
         },
         "pre_delay": 0,
         "post_delay": 0,
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
-                "x": -607,
+                "x": -595,
                 "y": -488
             }
         },
@@ -919,10 +919,10 @@
             "param": {}
         },
         "focus": "> 今日已采购",
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
-                "x": -346,
-                "y": -231
+                "x": -323,
+                "y": -161
             }
         }
     },
@@ -936,10 +936,10 @@
             "param": {}
         },
         "focus": "> 数构银余量不足！",
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
-                "x": 1051,
-                "y": 232
+                "x": 1133,
+                "y": 429
             }
         },
         "next": [
@@ -965,10 +965,10 @@
             "type": "DoNothing",
             "param": {}
         },
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
-                "x": 777,
-                "y": 225
+                "x": 847,
+                "y": 420
             }
         }
     },
@@ -984,10 +984,10 @@
                 "custom_action_param": "key=返回主页"
             }
         },
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
-                "x": 3971,
-                "y": 1164
+                "x": 4176,
+                "y": 1615
             }
         },
         "next": [
@@ -1008,10 +1008,10 @@
             "param": {}
         },
         "pre_delay": 400,
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
-                "x": 2409,
-                "y": 1160
+                "x": 2548,
+                "y": 1610
             }
         },
         "next": [
@@ -1032,10 +1032,10 @@
             "param": {}
         },
         "focus": "> 采购情报物资",
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
-                "x": 2162,
-                "y": 1160
+                "x": 2291,
+                "y": 1610
             }
         },
         "next": [
@@ -1057,15 +1057,17 @@
         },
         "pre_delay": 1000,
         "timeout": 2000,
-        "post_delay": 400,
-        "__mpe_code": {
+        "post_delay": 1000,
+        "$__mpe_code": {
             "position": {
-                "x": 2669,
-                "y": 1160
+                "x": 2819,
+                "y": 1610
             }
         },
         "next": [
-            "每日采购_最大购买",
+            "每日采购_最大购买"
+        ],
+        "on_error": [
             "每日采购_售罄提醒"
         ]
     },
@@ -1075,6 +1077,12 @@
             "param": {
                 "expected": [
                     "最多"
+                ],
+                "roi": [
+                    985,
+                    460,
+                    50,
+                    56
                 ]
             }
         },
@@ -1083,10 +1091,10 @@
             "param": {}
         },
         "pre_delay": 400,
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
-                "x": 2929,
-                "y": 1160
+                "x": 3090,
+                "y": 1610
             }
         },
         "next": [
@@ -1107,10 +1115,10 @@
             "param": {}
         },
         "timeout": 2000,
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
-                "x": 3189,
-                "y": 1160
+                "x": 3361,
+                "y": 1610
             }
         },
         "next": [
@@ -1135,10 +1143,10 @@
         },
         "pre_delay": 800,
         "focus": "> 采购成功",
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
-                "x": 3449,
-                "y": 1160
+                "x": 3632,
+                "y": 1610
             }
         },
         "next": [
@@ -1159,10 +1167,10 @@
         },
         "pre_delay": 0,
         "post_delay": 0,
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
-                "x": 3720,
-                "y": 1163
+                "x": 3914,
+                "y": 1614
             }
         },
         "next": [
@@ -1181,10 +1189,10 @@
         "pre_delay": 0,
         "post_delay": 0,
         "focus": "> 本周指定情报物资已售罄",
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
-                "x": 2929,
-                "y": 1353
+                "x": 3089,
+                "y": 1880
             }
         },
         "next": [
@@ -1203,10 +1211,10 @@
         "pre_delay": 0,
         "post_delay": 0,
         "focus": "> 情报点数不足",
-        "__mpe_code": {
+        "$__mpe_code": {
             "position": {
-                "x": 3450,
-                "y": 1391
+                "x": 3633,
+                "y": 1904
             }
         },
         "next": [
