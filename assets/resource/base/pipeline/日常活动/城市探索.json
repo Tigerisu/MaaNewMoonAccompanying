@@ -3,7 +3,7 @@
     "$__mpe_code": {
       "prefix": "城市探索",
       "filename": "城市探索",
-      "version": "v0.8.4"
+      "version": "v0.8.5"
     }
   },
   "城市探索_资源收取": {
@@ -1194,7 +1194,7 @@
       "param": {}
     },
     "pre_delay": 400,
-    "post_delay": 800,
+    "post_delay": 1200,
     "timeout": 120000,
     "$__mpe_code": {
       "position": {
@@ -1353,6 +1353,9 @@
       "param": {
         "template": [
           "jump.png"
+        ],
+        "threshold": [
+          0.6
         ]
       }
     },
@@ -1362,8 +1365,8 @@
     },
     "$__mpe_code": {
       "position": {
-        "x": 3850,
-        "y": 1795
+        "x": 3851,
+        "y": 1780
       }
     }
   },
@@ -1690,7 +1693,7 @@
     "timeout": 3000,
     "$__mpe_code": {
       "position": {
-        "x": 3792,
+        "x": 3794,
         "y": 897
       }
     },

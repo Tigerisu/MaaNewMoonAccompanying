@@ -9,6 +9,6 @@
     "debug": "python -m MaaDebugger",
     "dev": "python ./dev/build.py",
     "check": "python ./dev/install.py",
-    "release": "git tag -a v3.1.6 -m \"release v3.1.6\" && git push origin v3.1.6"
+    "release": "git tag -a v3.1.7 -m \"release v3.1.7\" && git push origin v3.1.7"
   }
 }
