@@ -1365,8 +1365,8 @@
             "param": {}
         },
         "focus": "> 检测评分进度",
-        "timeout": 1000,
-        "pre_delay": 800,
+        "timeout": 2000,
+        "post_delay": 1000,
         "$__mpe_code": {
             "position": {
                 "x": -1220,
@@ -3069,8 +3069,8 @@
         "post_delay": 1000,
         "$__mpe_code": {
             "position": {
-                "x": 5437,
-                "y": 398
+                "x": 5505,
+                "y": 291
             }
         },
         "next": [

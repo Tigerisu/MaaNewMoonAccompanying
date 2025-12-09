@@ -168,7 +168,7 @@ class SetEventSquad(CustomAction):
             else:
                 context.override_pipeline(
                     {
-                        "城市探索_进入战斗": {"next": "城市探索_开始战斗"},
+                        "城市探索_配队界面": {"next": "城市探索_开始战斗"},
                     }
                 )
 
