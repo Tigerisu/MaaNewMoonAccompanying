@@ -107,8 +107,8 @@
         "pre_delay": 800,
         "$__mpe_code": {
             "position": {
-                "x": 2067,
-                "y": 292
+                "x": 2063,
+                "y": 290
             }
         },
         "next": [
@@ -126,16 +126,24 @@
             }
         },
         "action": {
-            "type": "Click",
+            "type": "DoNothing",
             "param": {}
         },
-        "pre_delay": 400,
+        "timeout": 3000,
+        "pre_delay": 0,
+        "post_delay": 0,
         "$__mpe_code": {
             "position": {
                 "x": 2060,
                 "y": 662
             }
-        }
+        },
+        "next": [
+            "卡带升级_卡带未升级"
+        ],
+        "on_error": [
+            "卡带升级_卡带不足"
+        ]
     },
     "卡带升级_检查返还材料": {
         "recognition": {
@@ -153,8 +161,8 @@
         "pre_delay": 400,
         "$__mpe_code": {
             "position": {
-                "x": 2393,
-                "y": 197
+                "x": 2325,
+                "y": 292
             }
         },
         "next": [
@@ -363,6 +371,7 @@
         },
         "focus": "> 选择卡带",
         "pre_delay": 0,
+        "timeout": 3000,
         "$__mpe_code": {
             "position": {
                 "x": 1148,
@@ -464,19 +473,19 @@
             }
         },
         "focus": "> 卡带不足，使用模块组突破",
-        "timeout": 2000,
+        "timeout": 3000,
         "pre_delay": 0,
         "$__mpe_code": {
             "position": {
                 "x": 1146,
-                "y": 1165
+                "y": 1217
             }
         },
         "next": [
             "卡带升级_模块组突破"
         ],
         "on_error": [
-            "卡带升级_模组块不足结束"
+            "卡带升级_模组块不足"
         ]
     },
     "卡带升级_模块组突破": {
@@ -495,14 +504,14 @@
         "$__mpe_code": {
             "position": {
                 "x": 1433,
-                "y": 1169
+                "y": 1221
             }
         },
         "next": [
             "卡带升级_加速提升"
         ]
     },
-    "卡带升级_模组块不足结束": {
+    "卡带升级_模组块不足": {
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -519,7 +528,7 @@
         "$__mpe_code": {
             "position": {
                 "x": 1433,
-                "y": 1352
+                "y": 1404
             }
         }
     },
@@ -587,6 +596,56 @@
             "position": {
                 "x": 1426,
                 "y": 95
+            }
+        }
+    },
+    "卡带升级_卡带未升级": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "属于已升级卡带"
+                ]
+            }
+        },
+        "action": {
+            "type": "DoNothing",
+            "param": {}
+        },
+        "inverse": true,
+        "pre_delay": 0,
+        "post_delay": 0,
+        "$__mpe_code": {
+            "position": {
+                "x": 2326,
+                "y": 661
+            }
+        },
+        "next": [
+            "卡带升级_点击突破"
+        ]
+    },
+    "卡带升级_点击突破": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "确定"
+                ],
+                "order_by": "Vertical",
+                "index": -1
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {}
+        },
+        "post_delay": 0,
+        "pre_delay": 400,
+        "$__mpe_code": {
+            "position": {
+                "x": 2594,
+                "y": 660
             }
         }
     }
