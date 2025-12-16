@@ -14,12 +14,10 @@ def main():
     from maa.toolkit import Toolkit
 
     import customs
-    from agent.report import punch_in
     from agent.pre_process import pre_process
 
     try:
         pre_process()
-        punch_in()
         Toolkit.init_option("./")
         socket_id = sys.argv[-1]
         AgentServer.start_up(socket_id)
